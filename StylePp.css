@@ -167,9 +167,6 @@ h2 {
     transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
     transition: transform 0.5s; /* Suaviza la transición del zoom */
 }
-
-
-
 /*Footer*/
 .footer {
     background-color: #00b6ff;
