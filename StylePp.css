@@ -1,0 +1,184 @@
+/*
+   #00b6ff (Azul Principal)
+   #00d6ff (Azul Medio)
+   #00f6ff (Cian Brillante)
+   #8fffe9 (Verde Agua Claro)
+   #e7ffe3 (Crema/Verde Muy Claro)
+*/
+body {
+    background-color: #e7ffe3;/*color de fondo*/
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+/*Barra de Navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 50px;
+    box-shadow: 0 4px 10px rgba(0, 182, 255, 0.2);
+    border-bottom: 3px solid #00b6ff;
+}
+.menu {/*Menu*/
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+.menu li a {
+    text-decoration: none;
+    color: #00b6ff; /*Color texto menu*/
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.menu li a:hover {
+    color: #00f6ff; /*color menu*/
+}
+/*Tipos de letras*/
+h1 {
+    color: #00b6ff;
+    text-align: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+h2 {
+    color: #00b6ff;
+    text-align: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* Sección de Contenido */
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    gap: 40px;
+}
+.Introduccion {
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 20px;
+    border-left: 8px solid #00d6ff; /*Fondo Texto introduccion*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: justify;
+}
+.Introduccion h2 {
+    color: #00b6ff;
+    margin-top: 0;
+}
+.Introduccion h3 {
+    color: #00d6ff;
+    font-style: italic;
+}
+/*Imagen recinto*/
+.imagenrecinto {
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 5px solid #ffffff;
+}
+.imagenrecinto img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+.imagenrecinto:hover img {
+    transform: scale(1.05);
+}
+/* Tabla de Horarios */
+.seccion_horarios {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #8fffe9 0%, #00f6ff 100%);/*Fondo horarios*/
+}
+.tabla_horarios {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.tabla_horarios th {
+    background-color: #00b6ff; /*Cabecera de la tabla*/
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.tabla_horarios td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #e7ffe3;
+    text-align: center;
+}
+.tabla_horarios tr:hover {
+    background-color: #e7ffe3;/*color tablas*/
+}
+/*Imagenes pistas posibles*/
+.pistas {
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 5px solid #ffffff;
+}
+.pistas img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+.pistas:hover img {
+    transform: scale(1.05);
+}
+/*Extras Pistas*/
+.extras {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-left: 5px solid #00d6ff; /*Fondo extras*/
+    display: flex;
+}
+
+/*Mapa Basico*/
+.CroquisRecinto {
+    width: 500px; 
+    border-radius: 12px; /*Radio del borde para que no sea cuadrado*/
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border: 3px solid #ffffff;
+    overflow: hidden; 
+    margin: 0 auto; /* Centra horizontalmente */
+}
+.CroquisRecinto img {
+    width: 100%; 
+    display: block; 
+}
+.CroquisRecinto:hover img {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    transition: transform 0.5s; /* Suaviza la transición del zoom */
+}
+
+
+
+/*Footer*/
+.footer {
+    background-color: #00b6ff;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
