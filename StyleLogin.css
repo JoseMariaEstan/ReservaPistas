@@ -9,8 +9,9 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    background-image: url('Imagenes/mujerpadel.png'); /* Imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-image: url('Imagenes/mujerpadel.png');
+    background-size: cover;/*Hace que la imagen cubra toda la pantalla*/
+    background-attachment: fixed; /* fondo no se mueve al scrollear */
 }
 /*Barra de Navegación */
 nav {
@@ -81,14 +82,61 @@ h2 {
     border-radius: 5px;
     font-size: 1em;
 }
+#Usuario {
+    border: 0px;
+}
+#contraseña {
+    border: 0px;
+}
+.ButInicSes{
+    background-color: #00b6ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.contenedorRedes {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center; /* Los centra dentro del formulario */
+    margin-top: 15px;      /* Espacio respecto a lo que haya arriba */
+}
+.botonRedes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /*Espacio logo-nombre*/
+    /*Ajustes del Boton*/
+    padding: 8px 15px;
+    border: 1px  #00b6ff;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+}
+.logosLogin {
+    /*Tamaño comun de iconos*/
+    width: 20px; 
+    height: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    object-fit: contain; /*Asegura que el logo este contenido si o si*/
+    cursor: pointer; /*hace que el cursor cambie al pasar por encima del logo*/
+}
 /*Footer*/
 .footer {
     background-color: #00b6ff;
     color: white;
     text-align: center;
     padding: 30px;
-    margin-top: 50px;
-    position: static;
+    margin-top: 50px; 
+    width: 100%;
+    box-sizing: border-box; /*Evita que el padding supere el ancho */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /*Ocupa el 100% de la altura de la pantalla */
 }
 .footer p {
     margin: 5px 0;

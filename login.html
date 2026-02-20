@@ -27,24 +27,30 @@
     </header>
 
     <section class="login-section">
-        <div class="formLogin">
+        <div >
             <h1>Iniciar Sesión</h1>
             <form action="paginaPp.html" method="post">
                 <div class="campoLogin">
                     <label for="username">Usuario:</label>
-                    <input type="text" id="Usuario" name="Usuario" required>
+                    <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">
                 </div>
                 <div class="campoLogin">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" required>
+                    <input type="password" id="contraseña" name="contraseña" required placeholder="Esriba su Contraseña">
                 </div>
                 
-                <button type="submit">Iniciar Sesión</button>
+                <button class="ButInicSes" type="submit">Iniciar Sesión</button>
             </form>
         </div>
-        <div class="logosLogin">
-            <img src="Imagenes/ImagenLogin.png" alt="Google Login">
-            <img src="Imagenes/ImagenLogin.png" alt="Facebook Login">
+        <div class="contenedorRedes">
+        <a href="#" class="botonRedes">
+            <img src="Imagenes/logoGoogle.svg" alt="Google" class="logosLogin">
+            <span>Google</span>
+        </a>
+        <a href="#" class="botonRedes">
+            <img src="Imagenes/logoFacebook.svg" alt="Facebook" class="logosLogin">
+            <span>Facebook</span>
+        </a>
         </div>
     </section>
 
