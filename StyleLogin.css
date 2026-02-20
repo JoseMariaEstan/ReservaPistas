@@ -6,7 +6,6 @@
    #e7ffe3 (Crema/Verde Muy Claro)
 */
 body {
-    background-color: #e7ffe3;/*color de fondo*/
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
@@ -15,8 +14,7 @@ body {
 }
 /*Barra de Navegación */
 nav {
-    display: flex;
-    /* Permite que el logo y el menú se apilen si no hay espacio */
+    display: flex;/* Permite que el logo y el menú se apilen si no hay espacio */
     flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
@@ -76,6 +74,13 @@ h2 {
     font-weight: bold;
     color: #00b6ff;
 }
+.campoLogin {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #00b6ff;
+    border-radius: 5px;
+    font-size: 1em;
+}
 /*Footer*/
 .footer {
     background-color: #00b6ff;
@@ -83,6 +88,7 @@ h2 {
     text-align: center;
     padding: 30px;
     margin-top: 50px;
+    position: static;
 }
 .footer p {
     margin: 5px 0;
