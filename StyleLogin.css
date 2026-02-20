@@ -1,0 +1,86 @@
+/*
+   #00b6ff (Azul Principal)
+   #00d6ff (Azul Medio)
+   #00f6ff (Cian Brillante)
+   #8fffe9 (Verde Agua Claro)
+   #e7ffe3 (Crema/Verde Muy Claro)
+*/
+body {
+    background-color: #e7ffe3;/*color de fondo*/
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+/*Barra de Navegación */
+nav {
+    display: flex;
+    /* Permite que el logo y el menú se apilen si no hay espacio */
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 5%;
+    box-shadow: 0 4px 10px rgba(0, 182, 255, 0.2);
+    border-bottom: 3px solid #00b6ff;
+    gap: 20px; /* Espacio entre logo y menú al envolverse */
+}
+.menu {
+    display: flex;
+    flex-wrap: wrap; 
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+.menu li a {
+    text-decoration: none;
+    color: #00b6ff;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: inline-block;
+    padding: 5px 10px;
+}
+.menu li a:hover {
+    color: #00f6ff;
+}/*Tipos de letras*/
+h1 {
+    color: #00b6ff;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+h2 {
+    color: #00b6ff;
+    text-align: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/*Formulario de Inicio de Sesión*/
+.login-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 182, 255, 0.2);
+
+}
+
+
+/*Footer*/
+.footer {
+    background-color: #00b6ff;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
