@@ -68,10 +68,12 @@ h2 {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 182, 255, 0.2);
-
 }
-
-
+.login-section label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #00b6ff;
+}
 /*Footer*/
 .footer {
     background-color: #00b6ff;
