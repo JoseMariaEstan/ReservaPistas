@@ -10,6 +10,8 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
+    background-image: url('Imagenes/mujerpadel.png'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
 }
 /*Barra de Navegación */
 nav {
