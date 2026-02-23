@@ -75,6 +75,10 @@ h2 {
     font-weight: bold;
     color: #00b6ff;
 }
+.formLogin {
+    display: flex;
+    flex-direction: column;
+}
 .campoLogin {
     padding: 10px;
     margin-bottom: 20px;
@@ -103,12 +107,14 @@ h2 {
     gap: 15px;
     justify-content: center; /* Los centra dentro del formulario */
     margin-top: 15px;      /* Espacio respecto a lo que haya arriba */
+    gap: 50px;             /*Espacio entre botones de redes sociales*/
 }
 .botonRedes {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px; /*Espacio logo-nombre*/
+
     /*Ajustes del Boton*/
     padding: 8px 15px;
     border: 1px  #00b6ff;
