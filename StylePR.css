@@ -58,7 +58,37 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-
+/*Imagenes pistas posibles*/
+.SecPistas {
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+}
+.pistas {
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 5px solid #ffffff;
+}
+.pistas img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+.pistas:hover img {
+    transform: scale(1.05);
+}
+/*Extras Pistas*/
+.extras {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-left: 5px solid #00d6ff; /*Fondo extras*/
+    display: flex;
+}
 
 /*Footer*/
 .footer {
