@@ -103,7 +103,7 @@ details[open] summary {
     border-bottom: 1px solid #8fffe9;
 }
 /* Contenido que se despliega */
-.extras-content {
+.desplegable {
     padding: 20px;
     background-color: #f9ffff;
     animation: slideDown 0.5s ease-out;
@@ -111,6 +111,62 @@ details[open] summary {
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(1); }
+}
+/*Seccion Pistas*/
+.tabla_horariosPista1 {
+    max-width: 700px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.tabla_horarios {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.tabla_horarios th {
+    background-color: #00b6ff; /*Cabecera de la tabla*/
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.tabla_horarios td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #e7ffe3;
+    text-align: center;
+}
+.tabla_horarios tr:hover {
+    background-color: #e7ffe3;/*color tablas*/
+}
+.dia{
+    position: relative;
+    background-color: #00b6ff;
+}
+.extras-content{
+    margin-left: 10px;
+}
+/* Estilo para las horas */
+.hora {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #e7ffe3;
+    border: 2px solid #00b6ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: #00b6ff;
+}
+.hora:hover {
+    background-color: #00b6ff;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 182, 255, 0.3);
 }
 /* Footer */
 .footer {
