@@ -56,6 +56,28 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+/*imagen pistas*/
+.seccion_croquis {
+    margin: 40px 0;
+    padding-bottom: 40px;
+    background-color: #00f6ff;
+}
+.CroquisRecinto {
+    width: 500px; 
+    border-radius: 12px; /*Radio del borde para que no sea cuadrado*/
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border: 3px solid #ffffff;
+    overflow: hidden; 
+    margin: 0 auto; /* Centra horizontalmente */
+}
+.CroquisRecinto img {
+    width: 100%; 
+    display: block; 
+}
+.CroquisRecinto:hover img {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    transition: transform 0.5s; /* Suaviza la transición del zoom */
+}
 /* Sección de Pistas*/
 .SecPistas {
     display: flex;
@@ -175,6 +197,7 @@ details[open] summary {
 }
 /* Footer */
 .footer {
+    background-color: #00b6ff;
     color: white;
     text-align: center;
     padding: 30px;
