@@ -147,9 +147,6 @@ details[open] summary {
     position: relative;
     background-color: #00b6ff;
 }
-.extras-content{
-    margin-left: 10px;
-}
 /* Estilo para las horas */
 .hora {
     display: inline-block;
@@ -168,9 +165,16 @@ details[open] summary {
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 182, 255, 0.3);
 }
+/*Estilo checks boxes*/
+.extras-content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 /* Footer */
 .footer {
-    background-color: #00b6ff;
     color: white;
     text-align: center;
     padding: 30px;
