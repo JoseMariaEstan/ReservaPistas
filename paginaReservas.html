@@ -22,173 +22,98 @@
             </ul>
         </nav>
     </header>
+
     <main>
         <h1>PISTAS A RESERVAR</h1>
+        
         <section class="seccion_croquis">
-            <h2>Mapa Basico Instalaciones</h2>
+            <h2>Mapa Básico Instalaciones</h2>
             <div class="CroquisRecinto">
-                    <img src="Imagenes/CroquisRecinto.png" alt="Croquis del Recinto Deportivo">
+                <img src="Imagenes/CroquisRecinto.png" alt="Croquis del Recinto Deportivo">
             </div>
         </section>
+
         <section class="SecPistas">
             <details class="pistas-detalles">
                 <summary class="desplegable">Pista de Pádel</summary>
-                <div class="tabla_horariosPista1">
-                    <table class="tabla_horarios">
-                        <thead>
-                            <tr>
-                                <th>Horarios completos del dia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="dia">Lunes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Martes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Miércoles</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Jueves</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Viernes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Sábado</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td></tr>
-                            <tr><td class="dia">Domingo</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td></tr>
-                        </tbody>
-                    </table>
+                <div class="contenedor_horarios_flex">
+                    <div class="dia_cabecera">Horarios disponibles (Hoy)</div>
+                    <div class="grid_horas">
+                        <span class="hora">8:00</span> <span class="hora">9:00</span>
+                        <span class="hora">10:00</span> <span class="hora">11:00</span>
+                        <span class="hora">12:00</span> <span class="hora">13:00</span>
+                        <span class="hora">15:00</span> <span class="hora">16:00</span>
+                        <span class="hora">17:00</span> <span class="hora">18:00</span>
+                        <span class="hora">19:00</span> <span class="hora">20:00</span>
+                        <span class="hora">21:00</span> <span class="hora">22:00</span>
+                    </div>
                 </div>
                 <div class="extras-content">
-                    <div class="extras-content">
                     <h3>EXTRAS</h3>
-                    <label class="container">
-                         ⬤ Iluminación
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Pista Techada
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-
+                    <label class="container">⬤ Iluminación <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Pista Techada <input type="checkbox"><span class="checkmark"></span></label>
                     <h3>TIPOS DE PISTA</h3>
-                    <label class="container">
-                        ⬤ Césped Artificial
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Resina
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Hormigón poroso
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>     
-                </div>            
+                    <label class="container">⬤ Césped Artificial <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Resina <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Hormigón poroso <input type="checkbox"><span class="checkmark"></span></label>
+                </div>
             </details>
 
             <details class="pistas-detalles">
                 <summary class="desplegable">Pista de Tenis</summary>
-                <div class="tabla_horariosPista1">
-                    <table class="tabla_horarios">
-                        <thead>
-                            <tr>
-                                <th>Horarios completos del dia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="dia">Lunes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Martes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Miércoles</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Jueves</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Viernes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Sábado</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td></tr>
-                            <tr><td class="dia">Domingo</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td></tr>
-                        </tbody>
-                    </table>
+                <div class="contenedor_horarios_flex">
+                    <div class="dia_cabecera">Horarios disponibles (Hoy)</div>
+                    <div class="grid_horas">
+                        <span class="hora">8:00</span> <span class="hora">9:00</span>
+                        <span class="hora">10:00</span> <span class="hora">11:00</span>
+                        <span class="hora">12:00</span> <span class="hora">13:00</span>
+                        <span class="hora">15:00</span> <span class="hora">16:00</span>
+                        <span class="hora">17:00</span> <span class="hora">18:00</span>
+                        <span class="hora">19:00</span> <span class="hora">20:00</span>
+                        <span class="hora">21:00</span> <span class="hora">22:00</span>
+                    </div>
                 </div>
                 <div class="extras-content">
                     <h3>EXTRAS</h3>
-                    <label class="container">
-                         ⬤ Iluminación
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Pista Techada
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-
+                    <label class="container">⬤ Iluminación <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Pista Techada <input type="checkbox"><span class="checkmark"></span></label>
                     <h3>TIPOS DE PISTA</h3>
-                    <label class="container">
-                         ⬤ Arena
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Resina
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Hormigón poroso
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>                 
+                    <label class="container">⬤ Arena <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Resina <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Hormigón poroso <input type="checkbox"><span class="checkmark"></span></label>
                 </div>
             </details>
 
             <details class="pistas-detalles">
-                <summary class="desplegable">Fútbol 11 / Sala</summary>      
-                <div class="tabla_horariosPista1">
-                    <table class="tabla_horarios">
-                        <thead>
-                            <tr>
-                                <th>Horarios completos del dia</th>
-                                <th>1 hora</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="dia">Lunes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Martes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Miércoles</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Jueves</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Viernes</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td><td><span class="hora">21:00</span></td><td><span class="hora">22:00</span></td></tr>
-                            <tr><td class="dia">Sábado</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td></tr>
-                            <tr><td class="dia">Domingo</td><td><span class="hora">8:00</span></td><td><span class="hora">9:00</span></td><td><span class="hora">10:00</span></td><td><span class="hora">11:00</span></td><td><span class="hora">12:00</span></td><td><span class="hora">13:00</span></td><td><span class="hora">15:00</span></td><td><span class="hora">16:00</span></td><td><span class="hora">17:00</span></td><td><span class="hora">18:00</span></td><td><span class="hora">19:00</span></td><td><span class="hora">20:00</span></td></tr>
-                        </tbody>
-                    </table>
+                <summary class="desplegable">Fútbol 11 / Sala</summary>
+                <div class="contenedor_horarios_flex">
+                    <div class="dia_cabecera">Horarios disponibles (Hoy)</div>
+                    <div class="grid_horas">
+                        <span class="hora">8:00</span> <span class="hora">9:00</span>
+                        <span class="hora">10:00</span> <span class="hora">11:00</span>
+                        <span class="hora">12:00</span> <span class="hora">13:00</span>
+                        <span class="hora">15:00</span> <span class="hora">16:00</span>
+                        <span class="hora">17:00</span> <span class="hora">18:00</span>
+                        <span class="hora">19:00</span> <span class="hora">20:00</span>
+                        <span class="hora">21:00</span> <span class="hora">22:00</span>
+                    </div>
                 </div>
                 <div class="extras-content">
                     <h3>EXTRAS</h3>
-                    <label class="container">
-                        ⬤ Iluminación
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Pista Techada
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-
+                    <label class="container">⬤ Iluminación <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Pista Techada <input type="checkbox"><span class="checkmark"></span></label>
                     <h3>TIPOS DE PISTA</h3>
-                    <label class="container">
-                        ⬤ Césped Natural
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Césped Artificial
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        ⬤ Pista de Sala
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>                 
+                    <label class="container">⬤ Césped Natural <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Césped Artificial <input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="container">⬤ Pista de Sala <input type="checkbox"><span class="checkmark"></span></label>
                 </div>
             </details>
         </section>
+
+        <div class="marco-precio">
+            <p>Total Reserva:</p>
+            <span id="precio-valor">0.00€</span>
+        </div>
     </main>
 
     <footer class="footer" id="Contacto">

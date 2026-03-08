@@ -1,15 +1,18 @@
-/* #00b6ff (Azul Principal)
+/* PALETA DE COLORES
+   #00b6ff (Azul Principal)
    #00d6ff (Azul Medio)
    #00f6ff (Cian Brillante)
    #8fffe9 (Verde Agua Claro)
    #e7ffe3 (Crema/Verde Muy Claro)
 */
+
 body {
     background-color: #e7ffe3;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
 }
+
 /* Barra de Navegación */
 nav {
     display: flex;
@@ -21,6 +24,7 @@ nav {
     box-shadow: 0 4px 10px rgba(0, 182, 255, 0.2);
     border-bottom: 3px solid #00b6ff;
 }
+
 .menu {
     display: flex;
     flex-wrap: wrap; 
@@ -29,6 +33,7 @@ nav {
     margin: 0;
     padding: 0;
 }
+
 .menu li a {
     text-decoration: none;
     color: #00b6ff;
@@ -36,165 +41,158 @@ nav {
     transition: 0.3s;
     padding: 5px 10px;
 }
+
 .menu li a:hover {
     color: #00d6ff;
     background: #8fffe9;
     border-radius: 5px;
 }
+
 /* Títulos */
-h1 {
+h1, h2 {
     color: #00b6ff;
     text-align: center;
     margin: 40px 0;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-h2 {
-    color: #00b6ff;
-    text-align: center;
-    margin-top: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-/*imagen pistas*/
+
+/* Imagen pistas */
 .seccion_croquis {
     margin: 40px 0;
-    padding-bottom: 40px;
+    padding: 40px 0;
     background-color: #00f6ff;
 }
+
 .CroquisRecinto {
-    width: 500px; 
-    border-radius: 12px; /*Radio del borde para que no sea cuadrado*/
+    width: 90%;
+    max-width: 500px; 
+    border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
     border: 3px solid #ffffff;
     overflow: hidden; 
-    margin: 0 auto; /* Centra horizontalmente */
+    margin: 0 auto;
 }
+
 .CroquisRecinto img {
     width: 100%; 
     display: block; 
+    transition: transform 0.5s;
 }
+
 .CroquisRecinto:hover img {
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
-    transition: transform 0.5s; /* Suaviza la transición del zoom */
+    transform: scale(1.05);
 }
-/* Sección de Pistas*/
+
+/* Sección de Pistas */
 .SecPistas {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
-/* Estilo de los desplegables */
+
+/* Desplegables */
 .pistas-detalles {
     width: 100%;
     background-color: #ffffff;
     border-radius: 12px;
     border-left: 8px solid #00b6ff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    overflow: hidden;
-    transition: transform 0.5s;
-}.pistas-detalles:hover {
-    transform: translateY(-2px);
+    margin-bottom: 10px;
 }
-/* El Botón del desplegable */
+
 summary {
     padding: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #00b6ff;
     cursor: pointer;
-    list-style: none; /* Quita la flecha por defecto en algunos navegadores */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-summary::after {
-    content: '▼';
-    font-size: 0.8rem;
-    color: #00d6ff;
-}
-/* Estilo cuando está abierto */
-details[open] summary::after {
-    content: '▲';
-}
-details[open] summary {
-    border-bottom: 1px solid #8fffe9;
-}
-/* Contenido que se despliega */
-.desplegable {
-    padding: 20px;
-    background-color: #f9ffff;
-    animation: slideDown 0.5s ease-out;
-}
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(1); }
-}
-/*Seccion Pistas*/
-.tabla_horariosPista1 {
-    max-width: 700px;
-    margin: 0 auto;
-    overflow-x: auto;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-.tabla_horarios {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: white;
-    border-radius: 15px;
+
+summary::after { content: '▼'; font-size: 0.8rem; }
+details[open] summary::after { content: '▲'; }
+
+/* --- NUEVO DISEÑO DE HORARIOS (FLEXIBLE) --- */
+.contenedor_horarios_flex {
+    margin: 15px;
+    border: 1px solid #00b6ff;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
-.tabla_horarios th {
-    background-color: #00b6ff; /*Cabecera de la tabla*/
-    color: white;
-    padding: 15px;
-    text-transform: uppercase;
-}
-.tabla_horarios td {
-    padding: 12px 20px;
-    border-bottom: 1px solid #e7ffe3;
-    text-align: center;
-}
-.tabla_horarios tr:hover {
-    background-color: #e7ffe3;/*color tablas*/
-}
-.dia{
-    position: relative;
+
+.dia_cabecera {
     background-color: #00b6ff;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
 }
-/* Estilo para las horas */
+
+.grid_horas {
+    display: flex;
+    flex-wrap: wrap; /* Esto evita el scroll horizontal */
+    gap: 10px;
+    padding: 15px;
+    justify-content: center;
+}
+
 .hora {
-    display: inline-block;
     padding: 8px 12px;
-    background-color: #e7ffe3;
+    background-color: #f0fff4;
     border: 2px solid #00b6ff;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
     font-weight: bold;
     color: #00b6ff;
+    transition: 0.3s;
+    text-align: center;
+    min-width: 60px;
 }
+
 .hora:hover {
     background-color: #00b6ff;
     color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 182, 255, 0.3);
+    transform: translateY(-2px);
 }
-/*Estilo checks boxes*/
-.extras-content{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+
+/* Extras y Checkboxes */
+.extras-content {
+    padding: 20px;
+    background-color: #f9ffff;
 }
+
+.container {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* --- MARCO PRECIO FIJO --- */
+.marco-precio {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 140px;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    z-index: 9999;
+    border: 2px solid #ffffff;
+}
+
+.marco-precio p { margin: 0; font-size: 0.8rem; font-weight: bold; }
+.marco-precio span { font-size: 1.3rem; font-weight: bold; display: block; }
+
 /* Footer */
 .footer {
     background-color: #00b6ff;
