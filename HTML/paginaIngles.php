@@ -9,18 +9,18 @@
     <header>
         <nav> 
             <div class="logopagina">
-                <a href="paginaPp.html">
+                <a href="paginaPp.php">
                     <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <div>
                 <ul class="menu">
-                    <li><a href="paginaPp.html">Home</a></li>
+                    <li><a href="paginaPp.php">Home</a></li>
                     <li><a href="#Schedule">Schedule</a></li>
-                    <li><a href="loginIngles.html">Reservations</a></li>
+                    <li><a href="loginIngles.php">Reservations</a></li>
                     <li><a href="#Contact">Contact</a></li>
-                    <li><a href="paginaPp.html">Switch to Spanish?</a></li>
-                    <li><a href="loginIngles.html">Log In</a></li>
+                    <li><a href="paginaPp.php">Switch to Spanish?</a></li>
+                    <li><a href="loginIngles.php">Log In</a></li>
                 </ul>
             </div>
         </nav>

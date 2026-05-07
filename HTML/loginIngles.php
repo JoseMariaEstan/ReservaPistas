@@ -10,14 +10,14 @@
         <header>
         <nav> 
             <div class="logopagina">
-                <a href="paginaIngles.html">
+                <a href="paginaIngles.php">
                     <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <div>
                 <ul class="menu">
-                    <li><a href="paginaIngles.html">Home</a></li>
-                    <li><a href="login.html">¿Cambiar a Español?</a></li>
+                    <li><a href="paginaIngles.php">Home</a></li>
+                    <li><a href="login.php">¿Cambiar a Español?</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,7 +26,7 @@
     <section class="login-section">
         <div >
             <h1>Log In</h1>
-            <form action="paginaReservasIngles.html" method="post" class="formLogin">
+            <form action="paginaReservasIngles.php" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="username">Username:</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="example@gmail.com">
