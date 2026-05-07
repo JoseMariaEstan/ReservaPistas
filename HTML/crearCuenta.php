@@ -10,14 +10,14 @@
         <header>
         <nav> 
             <div class="logopagina">
-                <a href="paginaPp.html">
+                <a href="paginaPp.php">
                     <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <div>
                 <ul class="menu">
-                    <li><a href="paginaPp.html">Inicio</a></li>
-                    <li><a href="loginIngles.html">Switch to English?</a></li>
+                    <li><a href="paginaPp.php">Inicio</a></li>
+                    <li><a href="loginIngles.php">Switch to English?</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,7 +26,7 @@
     <section class="login-section">
         <div >
             <h1>Crear Cuenta</h1>
-            <form action="paginaReservas.html" method="post" class="formLogin">
+            <form action="paginaReservas.php" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="username">Usuario:</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">
@@ -43,7 +43,7 @@
             </form>
         </div>
         <div class="crearCuenta">
-            <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a></p>
+            <p>¿Ya tienes una cuenta? <a href="login.php">Iniciar Sesión</a></p>
         </div>
     </section>
 

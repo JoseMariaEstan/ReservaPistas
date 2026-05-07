@@ -8,16 +8,17 @@
 </head>
 <body>
     <header>
+        <?php include "../PHP/phpLogin.php"; ?>
         <nav> 
             <div class="logopagina">
-                <a href="paginaPp.html">
+                <a href="paginaPp.php">
                     <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <div>
                 <ul class="menu">
-                    <li><a href="paginaPp.html">Inicio</a></li>
-                    <li><a href="loginIngles.html">Switch to English?</a></li>
+                    <li><a href="paginaPp.php">Inicio</a></li>
+                    <li><a href="loginIngles.php">Switch to English?</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,7 +27,7 @@
     <section class="login-section">
         <div >
             <h1>Iniciar Sesión</h1>
-            <form action="paginaReservas.html" method="post" class="formLogin">
+            <form action="paginaReservas.php" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="username">Usuario:</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">
@@ -51,7 +52,7 @@
         </div>
 
         <div class="crearCuenta">
-            <p>¿No tienes una cuenta? <a href="crearCuenta.html">Crear Cuenta</a></p>
+            <p>¿No tienes una cuenta? <a href="crearCuenta.php">Crear Cuenta</a></p>
         </div>
         <div>
             <p>¿Desea eliminar su cuenta?</p>

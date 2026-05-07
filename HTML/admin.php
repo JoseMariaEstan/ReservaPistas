@@ -13,16 +13,16 @@
     <header>
         <nav>
             <div class="logopagina">
-                <a href="paginaPp.html">
+                <a href="paginaPp.php">
                     <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div>
             <div>
                 <ul class="menu">
-                    <li><a href="paginaPp.html">Inicio</a></li>
-                    <li><a href="login.html">Reservas</a></li>
-                    <li><a href="paginaReservas.html">Panel Usuario</a></li>
-                    <li><a href="loginIngles.html">Inglés</a></li>
+                    <li><a href="paginaPp.php">Inicio</a></li>
+                    <li><a href="login.php">Reservas</a></li>
+                    <li><a href="paginaReservas.php">Panel Usuario</a></li>
+                    <li><a href="loginIngles.php">Inglés</a></li>
                 </ul>
             </div>
         </nav>
