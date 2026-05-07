@@ -7,6 +7,7 @@
     <title>PistasVegaPlus</title>
 </head>
 <body>
+    <?php include "../PHP/phpReservas.php"; ?>
     <header>
         <nav> 
             <div class="logopagina">
