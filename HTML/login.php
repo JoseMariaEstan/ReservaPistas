@@ -1,3 +1,4 @@
+<?php include "../PHP/phpLogin.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,6 @@
 </head>
 <body>
     <header>
-        <?php include "../PHP/phpLogin.php"; ?>
         <nav> 
             <div class="logopagina">
                 <a href="paginaPp.php">
@@ -27,14 +27,20 @@
     <section class="login-section">
         <div >
             <h1>Iniciar Sesión</h1>
-            <form action="paginaReservas.php" method="post" class="formLogin">
+                <?php if (isset($error_login)): ?>
+                    <p style="color: #ff4d4d; font-weight: bold; text-align: center;">
+                        <?php echo $error_login; ?>
+                    </p>
+                <?php endif; ?>
+
+            <form action="login.php" method="post" class="formLogin">
                 <div class="campoLogin">
-                    <label for="username">Usuario:</label>
+                    <label for="Usuario">Usuario:</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">
                 </div>
                 <div class="campoLogin">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" required placeholder="Esriba su Contraseña">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required placeholder="Escriba su Contraseña">
                 </div>
                 
                 <button class="ButInicSes" type="submit">Iniciar Sesión</button>
