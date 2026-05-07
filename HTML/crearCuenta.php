@@ -1,3 +1,4 @@
+<?php include "../PHP/phpCrearCuenta.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <title>Crear Cuenta - Pistas VegaPlus</title>
 </head>
 <body>
-        <header>
+    <header>
         <nav> 
             <div class="logopagina">
                 <a href="paginaPp.php">
@@ -24,22 +25,30 @@
     </header>
 
     <section class="login-section">
-        <div >
+        <div>
             <h1>Crear Cuenta</h1>
-            <form action="paginaReservas.php" method="post" class="formLogin">
+
+            <?php if (isset($mensaje_registro)): ?>
+                <p style="color: #28a745; text-align: center; font-weight: bold;"><?php echo $mensaje_registro; ?></p>
+            <?php endif; ?>
+            <?php if (isset($error_registro)): ?>
+                <p style="color: #ff4d4d; text-align: center; font-weight: bold;"><?php echo $error_registro; ?></p>
+            <?php endif; ?>
+
+            <form action="crearCuenta.php" method="post" class="formLogin">
                 <div class="campoLogin">
-                    <label for="username">Usuario:</label>
+                    <label for="Usuario">Usuario (Email):</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">
                 </div>
                 <div class="campoLogin">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" required placeholder="Esriba su Contraseña">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required placeholder="Escriba su Contraseña">
                 </div>
                 <div class="campoLogin">
-                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <label for="confirmarContraseña">Confirmar Contraseña:</label>
                     <input type="password" id="confirmarContraseña" name="confirmarContraseña" required placeholder="Confirme su Contraseña">
                 </div>
-                <button class="ButInicSes" type="submit">Crear Cuenta</button>
+                <button class="ButInicSes" type="submit" name="btnRegistrar">Crear Cuenta</button>
             </form>
         </div>
         <div class="crearCuenta">
@@ -47,8 +56,7 @@
         </div>
     </section>
 
-
-        <footer class="footer" id="Contacto">
+    <footer class="footer" id="Contacto">
         <p><strong>Contacto:</strong> info@pistasvegaplus.com</p>
         <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad, País</p>
         <p><strong>Teléfono:</strong> +34 123 456 789</p>
