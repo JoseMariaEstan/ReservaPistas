@@ -10,15 +10,15 @@
     <header>
         <nav> 
             <div class="logopagina">
-                <a href="paginaPp.html">
+                <a href="paginaPp.php">
                     <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <ul class="menu">
-                <li><a href="paginaPp.html">Inicio</a></li>
+                <li><a href="paginaPp.php">Inicio</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
-                <li><a href="paginaInglesReservas.html">English?</a></li>
-                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="paginaInglesReservas.php">English?</a></li>
+                <li><a href="login.php">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
