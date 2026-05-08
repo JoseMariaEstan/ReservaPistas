@@ -35,5 +35,14 @@ catch (PDOException $e) {
     echo "Error al obtener la carga del servidor: " . $e->getMessage();
     $carga_servidor = "N/A"; // En caso de error, mostrar N/A
 }
+try{
+// Simulación de media de usuarios mensuales (en un entorno real, esto se calcularía a partir de los registros de usuarios y visitas)
+
+    $media_usuarios_mensuales = rand(1, $total_cuentas); // Simular una media aleatoria de usuarios mensuales
+}
+catch (PDOException $e) {
+    echo "Error al obtener la media de usuarios mensuales: " . $e->getMessage();
+    $media_usuarios_mensuales = "N/A"; // En caso de error, mostrar N/A
+}
 
 ?>
