@@ -77,6 +77,18 @@
             <input type="submit" name="direccion" value="siguiente" <?php if($inicio + 16 >= $total_cuentas) echo 'disabled'; ?>>
         </form>
     </section>
+    <section class="admin-delete">
+        <h2>ELIMINAR USUARIOS</h2>
+        <form action="phpAdmin.php" method="post">
+            <label for="dni">Nombre Usuario:</label>
+            <input id="dni" type="text" name="dni" required><br>
+            <label for="nombre">Contraseña:</label>
+            <input id="nombre" type="text" name="nombre" required><br>
+            <input class="ButInicSes" type="submit" name="eliminar_cuenta" value="Eliminar cuenta"></input>
+            <input type="reset" value="Limpiar">
+        </form>
+    
+    </section>
 
     <section class="admin-summary">
         <h2>Información adicional</h2>

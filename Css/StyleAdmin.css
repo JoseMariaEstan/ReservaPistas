@@ -90,3 +90,47 @@
     border: 4px solid #00d6ff;
     border-radius: 20px;
 }
+.admin-delete {
+    background: rgba(255,255,255,0.9);
+    border: 3px solid #ff4d4d;
+    border-radius: 20px;
+    padding: 24px;
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: center;
+}
+.admin-delete h2 {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.admin-delete form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+.admin-delete label {
+    font-weight: bold;
+    color: #004d8d;
+}
+.admin-delete input {
+    padding: 10px;
+    border: 2px solid #00d6ff;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+.admin-delete button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.admin-delete button:hover {
+    background: #cc0000;
+}

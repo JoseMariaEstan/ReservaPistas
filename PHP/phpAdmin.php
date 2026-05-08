@@ -84,4 +84,38 @@ try {
 } catch (PDOException $e) {
     $tabla_usuarios = "Error al obtener los usuarios: " . $e->getMessage();
 }
+
+//Borrado de Usuarios de la base de datos por Admin
+try{
+    if (isset($_POST['eliminar_cuenta'])) {
+        if ($login_input === "admin@gmail.com" && $password_input === "admin123") {
+                $error_login = "La cuenta de administrador no se puede eliminar.";
+            } else {
+                $sql = "SELECT nombre_usuario, contraseña FROM usuario WHERE nombre_usuario = :nom_user LIMIT 1";
+                $stmt = $conexion->prepare($sql);
+                $stmt->execute([':nom_user' => $login_input]);
+                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($usuario && password_verify($password_input, $usuario['contraseña'])) {
+                //query para borrar cuentas
+                $sqlDelete = "DELETE FROM usuario WHERE nombre_usuario = :nom_user";
+
+                    $deleteStmt = $conexion->prepare($sqlDelete);
+                    $deleteStmt->execute([':nom_user' => $login_input]);
+
+                    $_SESSION = [];
+                    session_unset();
+                    session_destroy();
+
+                    header("Location: login.php");
+                    exit();
+                } else {
+                    $error_login = "El nombre de usuario o la contraseña son incorrectos.";
+                    $_SESSION['Logueado'] = false;
+                }
+            }
+        }
+    } catch (PDOException $e) {
+        $error_login = "Error en el sistema de eliminación.";
+    }
 ?>
