@@ -37,7 +37,7 @@
         <article class="admin-card">
             <div>
                 <h2>Usuarios conectados</h2>
-                <p class="stat">128</p>
+                <p class="stat">1</p>
             </div>
             <p class="note">Número de sesiones activas en este momento, incluyendo clientes y administradores.</p>
         </article>
@@ -45,7 +45,7 @@
         <article class="admin-card">
             <div>
                 <h2>Cuentas creadas</h2>
-                <p class="stat">5,742</p>
+                <p class="stat"><?php echo $total_cuentas; ?></p>
             </div>
             <p class="note">Total de cuentas registradas en la plataforma desde su puesta en marcha.</p>
         </article>
@@ -53,7 +53,7 @@
         <article class="admin-card">
             <div>
                 <h2>Carga del servidor</h2>
-                <p class="stat">67%</p>
+                <p class="stat"><?php echo $carga_servidor; ?>%</p>
             </div>
             <p class="note">Uso aproximado de los recursos de servidor en las últimas 5 minutos.</p>
         </article>
@@ -61,7 +61,7 @@
         <article class="admin-card">
             <div>
                 <h2>Media usuarios mensuales</h2>
-                <p class="stat">3,950</p>
+                <p class="stat"><?php echo $media_usuarios_mensuales; ?></p>
             </div>
             <p class="note">Promedio de usuarios únicos que visitan la plataforma cada mes.</p>
         </article>
