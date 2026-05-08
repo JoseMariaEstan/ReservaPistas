@@ -70,24 +70,27 @@
     <section class="admin-table">
         <h2>Lista de Usuarios Registrados</h2>
         <?php echo $tabla_usuarios; ?>
-        <form method="post" action="" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
             <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
             <input type="submit" name="direccion" value="anterior" <?php if($inicio <= 0) echo 'disabled'; ?>>
             <span>Página: <?php echo $pagina_actual; ?></span>
-            <input type="submit" name="direccion" value="siguiente" <?php if($inicio + 16 >= $total_cuentas) echo 'disabled'; ?>>
+            <input type="submit" name="direccion" value="siguiente" <?php if($inicio + 15 >= $total_cuentas) echo 'disabled'; ?>>
         </form>
     </section>
     <section class="admin-delete">
         <h2>ELIMINAR USUARIOS</h2>
-        <form action="phpAdmin.php" method="post">
-            <label for="dni">Nombre Usuario:</label>
-            <input id="dni" type="text" name="dni" required><br>
-            <label for="nombre">Contraseña:</label>
-            <input id="nombre" type="text" name="nombre" required><br>
-            <input class="ButInicSes" type="submit" name="eliminar_cuenta" value="Eliminar cuenta"></input>
-            <input type="reset" value="Limpiar">
+        <?php if (!empty($mensaje_eliminar)): ?>
+            <p class="delete-message"><?php echo htmlspecialchars($mensaje_eliminar); ?></p>
+        <?php endif; ?>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+            <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
+            <label for="usuario_borrar">Nombre de usuario a eliminar:</label>
+            <input id="usuario_borrar" type="text" name="usuario_borrar" required>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
+                <button class="ButInicSes" type="submit">Eliminar cuenta</button>
+                <button type="reset">Limpiar</button>
+            </div>
         </form>
-    
     </section>
 
     <section class="admin-summary">

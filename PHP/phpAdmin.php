@@ -1,6 +1,38 @@
 <?php
 require_once '../PHP/phpConexion.php';
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$mensaje_eliminar = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario_borrar'])) {
+    $usuario_borrar = trim($_POST['usuario_borrar']);
+
+    if ($usuario_borrar === '') {
+        $mensaje_eliminar = 'Debe escribir un nombre de usuario para eliminar.';
+    } elseif (strtolower($usuario_borrar) === 'admin' || strtolower($usuario_borrar) === 'admin@gmail.com') {
+        $mensaje_eliminar = 'No se puede eliminar la cuenta de administrador.';
+    } else {
+        try {
+            $sql = 'SELECT nombre_usuario FROM usuario WHERE nombre_usuario = :nom_user LIMIT 1';
+            $stmt = $conexion->prepare($sql);
+            $stmt->execute([':nom_user' => $usuario_borrar]);
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($usuario) {
+                $sqlDelete = 'DELETE FROM usuario WHERE nombre_usuario = :nom_user';
+                $deleteStmt = $conexion->prepare($sqlDelete);
+                $deleteStmt->execute([':nom_user' => $usuario_borrar]);
+                $mensaje_eliminar = 'Cuenta eliminada correctamente: ' . htmlspecialchars($usuario_borrar);
+            } else {
+                $mensaje_eliminar = 'No existe ningún usuario con ese nombre.';
+            }
+        } catch (PDOException $e) {
+            $mensaje_eliminar = 'Error al eliminar el usuario: ' . $e->getMessage();
+        }
+    }
+}
 
 if (isset($_SESSION['usuario_nom']) && isset($_SESSION['Logueado'])===true) {
     $Info = $_SESSION['usuario_nom'];
@@ -46,7 +78,7 @@ catch (PDOException $e) {
 }
 
 // Paginación para la tabla de usuarios
-$registros_por_pagina = 16;
+$registros_por_pagina = 15;
 $inicio = isset($_POST['inicio']) ? (int)$_POST['inicio'] : 0;
 
 if (isset($_POST['direccion'])) {
@@ -85,37 +117,4 @@ try {
     $tabla_usuarios = "Error al obtener los usuarios: " . $e->getMessage();
 }
 
-//Borrado de Usuarios de la base de datos por Admin
-try{
-    if (isset($_POST['eliminar_cuenta'])) {
-        if ($login_input === "admin@gmail.com" && $password_input === "admin123") {
-                $error_login = "La cuenta de administrador no se puede eliminar.";
-            } else {
-                $sql = "SELECT nombre_usuario, contraseña FROM usuario WHERE nombre_usuario = :nom_user LIMIT 1";
-                $stmt = $conexion->prepare($sql);
-                $stmt->execute([':nom_user' => $login_input]);
-                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($usuario && password_verify($password_input, $usuario['contraseña'])) {
-                //query para borrar cuentas
-                $sqlDelete = "DELETE FROM usuario WHERE nombre_usuario = :nom_user";
-
-                    $deleteStmt = $conexion->prepare($sqlDelete);
-                    $deleteStmt->execute([':nom_user' => $login_input]);
-
-                    $_SESSION = [];
-                    session_unset();
-                    session_destroy();
-
-                    header("Location: login.php");
-                    exit();
-                } else {
-                    $error_login = "El nombre de usuario o la contraseña son incorrectos.";
-                    $_SESSION['Logueado'] = false;
-                }
-            }
-        }
-    } catch (PDOException $e) {
-        $error_login = "Error en el sistema de eliminación.";
-    }
 ?>
