@@ -19,7 +19,7 @@
                 <li><a href="paginaPp.php">Inicio</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
                 <li><a href="paginaInglesReservas.php">English?</a></li>
-                <li><a href="login.php">Iniciar Sesión</a></li>
+                <li><?php if (isset($_SESSION['Logueado']) && $_SESSION['Logueado']): ?><a href="paginausuario.php"><img src="../Imagenes/Usuario.svg" width="20" alt="Usuario"></a><?php else: ?><img src="../Imagenes/Usuario.svg" width="20" alt="Usuario" style="opacity: 0.4;"><?php endif; ?></li>
             </ul>
         </nav>
     </header>

@@ -18,10 +18,9 @@
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="#Horarios">Horarios</a></li>
-                    <li><a href="login.php">Reservas</a></li>
                     <li><a href="#Contacto">Contacto</a></li>
                     <li><a href="paginaIngles.php">Switch to English?</a></li>
-                    <li><a href="login.php">Iniciar Sesión</a></li>
+                    <li><a href="paginausuario.php"> <img src="../Imagenes/Usuario.svg" width="20" alt="Usuario"></a></li>
                 </ul>
             </div>
         </nav>

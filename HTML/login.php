@@ -23,6 +23,7 @@
             </div>
         </nav>
     </header>
+    <?php echo isset($_SESSION['Logueado']) ?>
 
     <section class="login-section">
         <div >

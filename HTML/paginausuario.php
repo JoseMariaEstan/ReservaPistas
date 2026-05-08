@@ -21,9 +21,8 @@ require_once "../PHP/phpConexion.php";
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="paginaPp.php#Horarios">Horarios</a></li>
-                    <li><a href="<?php echo isset($_SESSION['Logueado']) && $_SESSION['Logueado'] ? 'paginaReservas.php' : 'login.php'; ?>">Reservas</a></li>
                     <li><a href="paginausuario.php">Mi cuenta</a></li>
-                    <li><a href="paginaIngles.php">Switch to English?</a></li>
+                    <li><a href="paginaUsuarioIngles.php">Switch to English?</a></li>
                 </ul>
             </div>
         </nav>
@@ -35,9 +34,9 @@ require_once "../PHP/phpConexion.php";
             <p class="user-note">Aquí puedes ver los datos principales de tu cuenta en PistasVegaPlus.</p>
 
             <div class="user-info">
-                <?php foreach ($usuarioInfo as $label => $valor): ?>
+                <?php foreach ($usuarioInfo as $infoUsser => $valor): ?>
                     <div class="user-info-row">
-                        <span><?php echo htmlspecialchars($label); ?></span>
+                        <span><?php echo htmlspecialchars($infoUsser); ?></span>
                         <strong><?php echo htmlspecialchars($valor); ?></strong>
                     </div>
                 <?php endforeach; ?>

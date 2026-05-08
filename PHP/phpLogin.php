@@ -28,10 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
         }else{
             if ($usuario && password_verify($password_input, $usuario['contraseña'])) {
             // True para usuario normal
-            session_regenerate_id(true);
             $_SESSION['usuario_nom'] = $usuario['nombre_usuario'];
             $_SESSION['Logueado'] = true;
-            header("Location: paginaReservas.php");
+            session_regenerate_id(true);
+            header("Location: paginausuario.php");
             exit(); 
         } else {
             //False para ambos casos
