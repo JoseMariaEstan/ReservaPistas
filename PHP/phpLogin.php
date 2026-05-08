@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
             // True para admin
             session_regenerate_id(true);
             $_SESSION['usuario_nom'] = "admin";
+            $_SESSION['Logueado'] = true;
 
             header("Location: admin.php");
             exit();
@@ -29,12 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
             // True para usuario normal
             session_regenerate_id(true);
             $_SESSION['usuario_nom'] = $usuario['nombre_usuario'];
-
+            $_SESSION['Logueado'] = true;
             header("Location: paginaReservas.php");
             exit(); 
         } else {
             //False para ambos casos
             $error_login = "El nombre de usuario o la contraseña son incorrectos.";
+            $_SESSION['Logueado'] = false;
             }
         }   
     } catch (PDOException $e) {
