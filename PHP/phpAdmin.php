@@ -45,4 +45,43 @@ catch (PDOException $e) {
     $media_usuarios_mensuales = "N/A"; // En caso de error, mostrar N/A
 }
 
+// Paginación para la tabla de usuarios
+$registros_por_pagina = 16;
+$inicio = isset($_POST['inicio']) ? (int)$_POST['inicio'] : 0;
+
+if (isset($_POST['direccion'])) {
+    if ($_POST['direccion'] == 'siguiente' && $inicio + $registros_por_pagina < $total_cuentas) {
+        $inicio += $registros_por_pagina;
+    } elseif ($_POST['direccion'] == 'anterior' && $inicio > 0) {
+        $inicio -= $registros_por_pagina;
+        if ($inicio < 0) $inicio = 0;
+    }
+}
+
+$pagina_actual = floor($inicio / $registros_por_pagina) + 1;
+
+// Obtener y mostrar la tabla de usuarios
+try {
+    $sql = "SELECT nombre_usuario FROM usuario LIMIT $registros_por_pagina OFFSET $inicio";
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute();
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $tabla_usuarios = '';
+    if (count($usuarios) > 0) {
+        $tabla_usuarios .= '<div class="usuarios-grid">';
+        foreach ($usuarios as $fila) {
+            $tabla_usuarios .= '<div class="usuario-card">';
+            foreach ($fila as $columna => $valor) {
+                $tabla_usuarios .= "<div class='campo'><strong>$columna:</strong> $valor</div>";
+            }
+            $tabla_usuarios .= '</div>';
+        }
+        $tabla_usuarios .= '</div>';
+    } else {
+        $tabla_usuarios = "<p style='text-align: center;'>No hay usuarios registrados.</p>";
+    }
+} catch (PDOException $e) {
+    $tabla_usuarios = "Error al obtener los usuarios: " . $e->getMessage();
+}
 ?>

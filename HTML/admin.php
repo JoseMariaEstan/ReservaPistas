@@ -67,6 +67,17 @@
         </article>
     </section>
 
+    <section class="admin-table">
+        <h2>Lista de Usuarios Registrados</h2>
+        <?php echo $tabla_usuarios; ?>
+        <form method="post" action="" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
+            <input type="submit" name="direccion" value="anterior" <?php if($inicio <= 0) echo 'disabled'; ?>>
+            <span>Página: <?php echo $pagina_actual; ?></span>
+            <input type="submit" name="direccion" value="siguiente" <?php if($inicio + 16 >= $total_cuentas) echo 'disabled'; ?>>
+        </form>
+    </section>
+
     <section class="admin-summary">
         <h2>Información adicional</h2>
         <p>Este panel muestra datos simulados diseñados para representar métricas de administración. En un entorno real, estos indicadores se actualizarían automáticamente con información tomada desde el servidor y la base de datos.</p>
