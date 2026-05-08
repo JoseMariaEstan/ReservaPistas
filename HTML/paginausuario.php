@@ -21,7 +21,7 @@ require_once "../PHP/phpConexion.php";
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="paginaPp.php#Horarios">Horarios</a></li>
-                    <li><a href="paginausuario.php">Mi cuenta</a></li>
+                    <li><a href="paginaReservas.php">Reservas</a></li>
                     <li><a href="paginaUsuarioIngles.php">Switch to English?</a></li>
                 </ul>
             </div>

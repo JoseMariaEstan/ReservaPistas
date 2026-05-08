@@ -23,7 +23,6 @@
             </div>
         </nav>
     </header>
-    <?php echo isset($_SESSION['Logueado']) ?>
 
     <section class="login-section">
         <div >
@@ -44,7 +43,10 @@
                     <input type="password" id="contraseña" name="contraseña" required placeholder="Escriba su Contraseña">
                 </div>
                 
-                <button class="ButInicSes" type="submit">Iniciar Sesión</button>
+                <div class="login-buttons">
+                    <button class="ButInicSes" type="submit" name="login">Iniciar Sesión</button>
+                    <button class="ButInicSes" type="submit" name="eliminar_cuenta">Eliminar Cuenta</button>
+                </div>
             </form>
         </div>
         <div class="contenedorRedes">
@@ -59,10 +61,6 @@
         </div>
         <div class="crearCuenta">
             <p>¿No tienes una cuenta? <a href="crearCuenta.php">Crear Cuenta</a></p>
-        </div>
-        <div>
-            <p>¿Desea eliminar su cuenta?</p>
-            <button class="ButInicSes" type="submit">Eliminar Cuenta</button>
         </div>
     </section>
         <footer class="footer" id="Contacto">
