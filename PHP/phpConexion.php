@@ -1,4 +1,5 @@
 <?php
+//Se hace en un documento aparte para evitar problemas y controlar mejor la conexion
 $host = "localhost";
 $db   = "LgmsiPistas";
 $user = "root";

@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Cambiamos isset($_POST['Usuario']) por el nombre del botón o verificamos el POST
+// Verificar el POST y la existencia de usuario
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
     
     $login_input = $_POST['Usuario'];
@@ -16,18 +16,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
         $stmt = $conexion->prepare($sql);
         $stmt->execute([':nom_user' => $login_input]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($login_input === "admin@gmail.com" && $password_input === "admin123") {
+            // True para admin
+            session_regenerate_id(true);
+            $_SESSION['usuario_nom'] = "admin";
 
-        if ($usuario && password_verify($password_input, $usuario['contraseña'])) {
-            // ÉXITO
+            header("Location: admin.php");
+            exit();
+
+        }else{
+            if ($usuario && password_verify($password_input, $usuario['contraseña'])) {
+            // True para usuario normal
             session_regenerate_id(true);
             $_SESSION['usuario_nom'] = $usuario['nombre_usuario'];
 
             header("Location: paginaReservas.php");
             exit(); 
         } else {
-            // ERROR: No ponemos echo aquí para no romper el HTML
+            //False para ambos casos
             $error_login = "El nombre de usuario o la contraseña son incorrectos.";
-        }
+            }
+        }   
     } catch (PDOException $e) {
         $error_login = "Error en el sistema de autenticación.";
     }

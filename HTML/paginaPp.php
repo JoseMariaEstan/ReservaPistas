@@ -1,3 +1,4 @@
+<?php include "../PHP/phpPrincipal.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnRegistrar'])) {
             if ($check->fetch()) {
                 $error_registro = "Este nombre de usuario ya está en uso.";
             } else {
-            //Hasheo autom. para contraseña
+            //Hasheo autom. para contraseña y evitar problemas con la BD
             $password_segura = password_hash($pass_input, PASSWORD_DEFAULT);
 
                 //Query para insertar el nuevo usuario en la base de datos

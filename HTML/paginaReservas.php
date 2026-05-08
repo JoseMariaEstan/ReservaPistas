@@ -1,3 +1,4 @@
+<?php include "../PHP/phpReservas.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,6 @@
     <title>PistasVegaPlus</title>
 </head>
 <body>
-    <?php include "../PHP/phpReservas.php"; ?>
     <header>
         <nav> 
             <div class="logopagina">

@@ -56,7 +56,6 @@
             <span>Facebook</span>
         </a>
         </div>
-
         <div class="crearCuenta">
             <p>¿No tienes una cuenta? <a href="crearCuenta.php">Crear Cuenta</a></p>
         </div>

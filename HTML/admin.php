@@ -1,3 +1,4 @@
+<?php include "../PHP/phpAdmin.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
