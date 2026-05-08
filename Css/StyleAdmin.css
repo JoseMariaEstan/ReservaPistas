@@ -45,7 +45,7 @@
     border: 3px solid #00b6ff;
     border-radius: 20px;
     padding: 24px;
-    margin: 0 20px 40px;
+    margin: 40px auto;
     max-width: 1200px;
 }
 .admin-table {
@@ -63,7 +63,7 @@
     background: #ffffff;
     border: 2px solid #00d6ff;
     border-radius: 10px;
-    padding: 15px;
+    padding: 5px;
     width: 100%;
     max-width: 400px;
 }
@@ -83,7 +83,7 @@
 }
 .admin-table {
     width: 50%;
-    border-collapse: collapse;
+    border-spacing: 3px;
     margin: 10px auto 0 auto; 
     background-color: #ffffff;
     padding:20px, 20px, 20px, 20px;

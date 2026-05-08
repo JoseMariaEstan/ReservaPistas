@@ -42,7 +42,7 @@ try{
 }
 catch (PDOException $e) {
     echo "Error al obtener la media de usuarios mensuales: " . $e->getMessage();
-    $media_usuarios_mensuales = "N/A"; // En caso de error, mostrar N/A
+    $media_usuarios_mensuales = "No hay datos";
 }
 
 // Paginación para la tabla de usuarios
