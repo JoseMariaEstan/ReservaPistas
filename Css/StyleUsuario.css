@@ -1,0 +1,186 @@
+﻿/* Estilos propios para la página de usuario */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top left, #e7ffe3 0%, #f1fcff 45%, #ffffff 100%);
+    color: #20354f;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 182, 255, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 5%;
+}
+
+.logopagina img {
+    display: block;
+    max-height: 68px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.menu li a {
+    color: #0d5f9b;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 100px;
+    transition: all 0.25s ease;
+}
+
+.menu li a:hover,
+.menu li a:focus {
+    background-color: rgba(0, 182, 255, 0.12);
+    color: #0072c6;
+}
+
+.usuario-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px 30px;
+    min-height: calc(100vh - 172px);
+}
+
+.user-card {
+    width: 100%;
+    max-width: 620px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 24px 70px rgba(11, 98, 163, 0.12);
+    border: 1px solid rgba(0, 182, 255, 0.15);
+    padding: 36px;
+}
+
+.user-card h1 {
+    margin: 0 0 14px;
+    font-size: clamp(2rem, 2.4vw, 2.4rem);
+    color: #01649d;
+}
+
+.user-note {
+    margin: 0 0 28px;
+    color: #4a607c;
+    line-height: 1.7;
+}
+
+.user-info {
+    display: grid;
+    gap: 16px;
+}
+
+.user-info-row {
+    display: grid;
+    grid-template-columns: auto minmax(160px, 1fr);
+    gap: 14px;
+    align-items: center;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f4fbff 0%, #e7ffe3 100%);
+    border-left: 6px solid #00b6ff;
+}
+
+.user-info-row span {
+    color: #0d5f9b;
+    font-weight: 700;
+}
+
+.user-info-row strong {
+    color: #20354f;
+    text-align: right;
+}
+
+.user-actions {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00b6ff;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    background-color: #0099e6;
+    box-shadow: 0 14px 30px rgba(0, 182, 255, 0.18);
+}
+
+.button.secondary {
+    background-color: #ffffff;
+    color: #00b6ff;
+    border: 2px solid #00b6ff;
+}
+
+.button.secondary:hover {
+    background-color: #e5f7ff;
+}
+
+.footer {
+    background-color: #0d6bb5;
+    color: #f7fbff;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.95rem;
+}
+
+.footer p {
+    margin: 6px 0;
+}
+
+@media (max-width: 760px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .usuario-container {
+        padding-top: 30px;
+    }
+
+    .user-card {
+        padding: 28px 20px;
+    }
+
+    .user-info-row {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .user-info-row strong {
+        text-align: left;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
