@@ -92,11 +92,5 @@
             </div>
         </form>
     </section>
-
-    <section class="admin-summary">
-        <h2>Información adicional</h2>
-        <p>Este panel muestra datos simulados diseñados para representar métricas de administración. En un entorno real, estos indicadores se actualizarían automáticamente con información tomada desde el servidor y la base de datos.</p>
-        <p>La sección de usuarios conectados sirve para detectar picos de tráfico. Las cuentas creadas ofrecen una visión del crecimiento. La carga del servidor ayuda a entender el rendimiento, y la media mensual permite conocer la tendencia de uso.</p>
-    </section>
 </body>
 </html>
