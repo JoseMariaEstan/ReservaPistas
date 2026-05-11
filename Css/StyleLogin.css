@@ -99,6 +99,9 @@ h2 {
     font-size: 1em;
     cursor: pointer;
 }
+.formLogin input {
+    border:none;
+}
 
 .contenedorRedes {
     display: flex;

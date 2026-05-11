@@ -36,7 +36,7 @@
             <form action="login.php" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="Usuario">Usuario:</label>
-                    <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">
+                    <input type="text" id="Usuario" name="Usuario" required placeholder="Ejemplo@gmail.com">
                 </div>
                 <div class="campoLogin">
                     <label for="contraseña">Contraseña:</label>
