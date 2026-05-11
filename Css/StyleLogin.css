@@ -9,24 +9,23 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    background-size: cover;/*Hace que la imagen cubra toda la pantalla*/
-    background-attachment: fixed; /* fondo no se mueve al scrollear */
+    background-size: cover;
+    background-attachment: fixed;
 }
-/*Barra de Navegación */
+/* Barra de Navegación */
 nav {
-    display: flex;/* Permite que el logo y el menú se apilen si no hay espacio */
-    flex-wrap: wrap; 
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #ffffff;
     padding: 10px 5%;
     box-shadow: 0 4px 10px rgba(0, 182, 255, 0.2);
     border-bottom: 3px solid #00b6ff;
-    gap: 20px; /* Espacio entre logo y menú al envolverse */
+    gap: 20px;
 }
 .menu {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     list-style: none;
     gap: 20px;
     margin: 0;
@@ -43,7 +42,8 @@ nav {
 }
 .menu li a:hover {
     color: #00f6ff;
-}/*Tipos de letras*/
+}
+/* Títulos */
 h1 {
     color: #00b6ff;
     text-align: center;
@@ -58,14 +58,14 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-/*Formulario de Inicio de Sesión*/
+/* Formulario de Inicio de Sesión */
 .login-section {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    max-width: 400px;
+    max-width: 90%;
     margin: 40px auto;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 182, 255, 0.2);
 }
@@ -74,10 +74,12 @@ h2 {
     font-weight: bold;
     color: #00b6ff;
 }
+
 .formLogin {
     display: flex;
     flex-direction: column;
 }
+
 .campoLogin {
     padding: 10px;
     margin-bottom: 20px;
@@ -85,64 +87,60 @@ h2 {
     border-radius: 5px;
     font-size: 1em;
 }
-#Usuario {
-    border: 0px;
-}
-#contraseña {
-    border: 0px;
-}
-.ButInicSes{
+
+.ButInicSes {
     background-color: #00b6ff;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
 }
+
 .contenedorRedes {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 15px;
-    justify-content: center; /* Los centra dentro del formulario */
-    margin-top: 15px;      /* Espacio respecto a lo que haya arriba */
-    gap: 50px;             /*Espacio entre botones de redes sociales*/
+    justify-content: center;
+    margin-top: 15px;
 }
+
 .botonRedes {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /*Espacio logo-nombre*/
-
-    /*Ajustes del Boton*/
+    gap: 8px;
     padding: 8px 15px;
-    border: 1px  #00b6ff;
+    border: 1px solid #00b6ff;
     border-radius: 5px;
     color: #333;
     font-weight: bold;
 }
+
 .logosLogin {
-    /*Tamaño comun de iconos*/
-    width: 20px; 
+    width: 20px;
     height: 20px;
     display: flex;
     flex-wrap: wrap;
-    object-fit: contain; /*Asegura que el logo este contenido si o si*/
-    cursor: pointer; /*hace que el cursor cambie al pasar por encima del logo*/
+    object-fit: contain;
+    cursor: pointer;
 }
-/*Footer*/
+
+/* Footer */
 .footer {
     background-color: #00b6ff;
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 30px;
-    margin-top: 50px; 
+    margin-top: 50px;
     width: 100%;
-    box-sizing: border-box; /*Evita que el padding supere el ancho */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /*Ocupa el 100% de la altura de la pantalla */
+    min-height: 100vh;
 }
+
 .footer p {
     margin: 5px 0;
     font-size: 0.9em;
