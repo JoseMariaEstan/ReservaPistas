@@ -73,7 +73,7 @@
         <h1>POSIBLES PISTAS</h1>
         <div class="contenido">
             <div class="pistas">
-                <img src="../Imagenes/PistaPadel.jpg" alt="Pista de Pádel">
+                <img src="<?php echo "$imagen_elegida2"; ?>" alt="Pista de Pádel">
                 <h3>Pista de Pádel</h3>
                 <div class="extras">
                     <ul>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="pistas">
-                <img src="../Imagenes/PistaTennis.jpg" alt="Pista de Tenis">
+                <img src="<?php echo "$imagen_elegida1"; ?>" alt="Pista de Tenis">
                 <h3>Pista de Tenis</h3>
                 <div class="extras">
                     <ul>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="pistas">
-                <img src="../Imagenes/CampoFutbol.jpg" alt="Pista de Fútbol">
+                <img src="<?php echo "$imagen_elegida3"; ?>" alt="Pista de Fútbol">
                 <h3>Pista de Fútbol 11 / Futbol Sala</h3>
                 <div class="extras">
                     <ul>
@@ -117,6 +117,7 @@
                             <ul>
                                 <li>Pista de Césped Natural / Cesped Artificial</li>
                                 <li>Pista de Fútbol Sala</li>
+                                <li>Pista de Fútbol 7</li>
                             </ul>
                         </li>
                     </ul>
