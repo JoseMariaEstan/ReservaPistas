@@ -35,6 +35,19 @@
             </div>
         </section>
 
+       <section class="seccion_filtro">
+            <h2>Reservar Pistas</h2> 
+            <div>
+            <label class="tipo-pista">Filtrar por tipo de pista:</label>
+            <select id="tipo-pista" name="tipo-pista">
+                <option value="todas">Todas</option>
+                <option value="padel">Pádel</option>
+                <option value="tenis">Tenis</option>
+                <option value="futbol">Fútbol 11 / Sala</option>
+            </select>
+            </div>
+        </section>
+
         <section class="SecPistas">
             <details class="pistas-detalles">
                 <summary class="desplegable">Pista de Pádel</summary>
