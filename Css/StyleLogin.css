@@ -102,6 +102,9 @@ h2 {
 .formLogin input {
     border:none;
 }
+.formLogin input:focus{
+    outline:none;
+}
 
 .contenedorRedes {
     display: flex;
