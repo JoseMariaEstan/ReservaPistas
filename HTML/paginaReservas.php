@@ -1,13 +1,7 @@
 ﻿<?php
+// Obtener los filtros para mostrar valores seleccionados en el formulario
 $deporteSeleccionado = $_SERVER['REQUEST_METHOD'] === 'POST' ? ($_POST['deporte'] ?? 'todas') : 'todas';
 $fechaSeleccionada = $_SERVER['REQUEST_METHOD'] === 'POST' ? ($_POST['fecha_seleccionada'] ?? '') : '';
-
-function mostrarDetalle(string $deporte, string $fecha, string $filtroDeporte, string $filtroFecha): string
-{
-    $coincideDeporte = $filtroDeporte === 'todas' || $filtroDeporte === $deporte;
-    $coincideFecha = $filtroFecha === '' || $filtroFecha === $fecha;
-    return $coincideDeporte && $coincideFecha ? '' : ' style="display:none;"';
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -63,7 +57,7 @@ function mostrarDetalle(string $deporte, string $fecha, string $filtroDeporte, s
         </section>
 
         <section class="SecPistas">
-            <details class="pistas-detalles" data-deporte="padel" data-fecha="2026-05-11"<?= mostrarDetalle('padel', '2026-05-11', $deporteSeleccionado, $fechaSeleccionada) ?>>
+            <details class="pistas-detalles" data-deporte="padel">
                 <summary class="desplegable">Pista de Pádel</summary>
                 <div class="contenedor_horarios_flex">
                     <div class="dia_cabecera">Horarios disponibles (Hoy)</div>
@@ -104,7 +98,7 @@ function mostrarDetalle(string $deporte, string $fecha, string $filtroDeporte, s
                 </div>
             </details>
 
-            <details class="pistas-detalles" data-deporte="tenis" data-fecha="2026-05-12"<?= mostrarDetalle('tenis', '2026-05-12', $deporteSeleccionado, $fechaSeleccionada) ?>>
+            <details class="pistas-detalles" data-deporte="tenis">
                 <summary class="desplegable">Pista de Tenis</summary>
                 <div class="contenedor_horarios_flex">
                     <div class="dia_cabecera">Horarios disponibles (Hoy)</div>
@@ -145,7 +139,7 @@ function mostrarDetalle(string $deporte, string $fecha, string $filtroDeporte, s
                 </div>
             </details>
 
-            <details class="pistas-detalles" data-deporte="futbol" data-fecha="2026-05-11"<?= mostrarDetalle('futbol', '2026-05-11', $deporteSeleccionado, $fechaSeleccionada) ?>>
+            <details class="pistas-detalles" data-deporte="futbol">
                 <summary class="desplegable">Fútbol 11 / Sala</summary>
                 <div class="contenedor_horarios_flex">
                     <div class="dia_cabecera">Horarios disponibles (Hoy)</div>
