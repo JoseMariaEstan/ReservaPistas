@@ -4,13 +4,14 @@ require_once '../PHP/phpConexion.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+//eliminar cuenta
 $mensaje_eliminar = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario_borrar'])) {
     $usuario_borrar = trim($_POST['usuario_borrar']);
 
     if ($usuario_borrar === '') {
         $mensaje_eliminar = 'Debe escribir un nombre de usuario para eliminar.';
+        header("Location: admin.php#admin-delete");
     } elseif (strtolower($usuario_borrar) === 'admin' || strtolower($usuario_borrar) === 'admin@gmail.com') {
         $mensaje_eliminar = 'No se puede eliminar la cuenta de administrador.';
     } else {

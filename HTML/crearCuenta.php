@@ -24,7 +24,7 @@
         </nav>
     </header>
 
-    <section class="login-section">
+    <section id="crear-cuenta" class="login-section">
         <div>
             <h1>Crear Cuenta</h1>
 
@@ -35,7 +35,7 @@
                 <p style="color: #ff4d4d; text-align: center; font-weight: bold;"><?php echo $error_registro; ?></p>
             <?php endif; ?>
 
-            <form action="crearCuenta.php" method="post" class="formLogin">
+            <form action="crearCuenta.php#crear-cuenta" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="Usuario">Usuario (Email):</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="ejemplo@gmail.com">

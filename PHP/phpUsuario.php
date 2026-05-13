@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+//Comprobar si el usuario está logueado, si no lo está, redirigir al login
 if (empty($_SESSION['Logueado'])) {
     header("Location: login.php");
     exit();
@@ -32,7 +32,7 @@ if (empty($_SESSION['Logueado'])) {
         'Correo electrónico' => $esEmail ? $usuarioNom : 'No disponible',
         'Tipo de cuenta' => $usuarioNom === 'admin' ? 'Administrador' : 'Usuario estándar',
         'Estado de cuenta' => 'Activa',
-        'Reservas' => 'Tienes ' . count($resultado) . ' reserva(s) activa(s).'
+        'Historial Reservas' => 'Tienes ' . count($resultado) . ' reserva(s) realizada(s)'
     ];
 
     // 2. Cargar Pistas
@@ -117,9 +117,45 @@ if (empty($_SESSION['Logueado'])) {
         
         $id_usuario = $_SESSION['id_usuario'] ?? null;
         $id_pista = $_POST['id_pista'] ?? null;
-        $id_extra = $_POST['id_extra'] ?? 6;
-        $id_extra = $_POST['id_extra'] ?? 6;
-        $fecha_reserva = $_POST['fecha_reserva'] ?? null; // Corregido: antes tenías $ = ...
+        $id_extra = $_POST['id_extra'] ?? null;
+        $fecha_reserva = $_POST['fecha_reserva'] ?? null;
         $hora_reserva = $_POST['hora_inicio'] ?? null;
+
+        if ($id_usuario === null && !empty($_SESSION['usuario_nom'])) {
+            try {
+                $sql_user = "SELECT id_usuario FROM usuario WHERE nombre_usuario = :usuario_nom LIMIT 1";
+                $stmt_user = $conexion->prepare($sql_user);
+                $stmt_user->execute([':usuario_nom' => $_SESSION['usuario_nom']]);
+                $user_row = $stmt_user->fetch(PDO::FETCH_ASSOC);
+                if ($user_row && !empty($user_row['id_usuario'])) {
+                    $id_usuario = $user_row['id_usuario'];
+                    $_SESSION['id_usuario'] = $id_usuario;
+                }
+            } catch (PDOException $e) {
+                // Si no se puede recuperar el usuario, dejamos que el error original sea más claro
+            }
+        }
+
+        if ($id_usuario === null) {
+            echo "Error al crear reserva: usuario no identificado en sesión.";
+        } else {
+            try {
+                $sql_insert = "INSERT INTO reservas (usuario_id, id_pista, id_extra, fecha_reserva, hora_inicio) 
+                               VALUES (:usuario_id, :id_pista, :id_extra, :fecha_reserva, :hora_inicio)";
+                $stmt_insert = $conexion->prepare($sql_insert);
+                $stmt_insert->execute([
+                    ':usuario_id' => $id_usuario,
+                    ':id_pista' => $id_pista,
+                    ':id_extra' => $id_extra,
+                    ':fecha_reserva' => $fecha_reserva,
+                    ':hora_inicio' => $hora_reserva
+                ]);
+                // Redirigir para evitar reenvío de formulario
+                header("Location: paginausuario.php");
+                echo "<p style='color: green;'> Reserva creada con éxito✅.</p>";
+            } catch (PDOException $e) {
+                echo "Error al crear reserva: " . $e->getMessage();
+            }
+        }
     }
 }

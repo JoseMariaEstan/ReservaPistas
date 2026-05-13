@@ -24,7 +24,7 @@
         </nav>
     </header>
 
-    <section class="login-section">
+    <section id="login-section" class="login-section">
         <div >
             <h1>Iniciar Sesión</h1>
                 <?php if (isset($error_login)): ?>
@@ -33,7 +33,7 @@
                     </p>
                 <?php endif; ?>
 
-            <form action="login.php" method="post" class="formLogin">
+            <form action="login.php#login-section" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="Usuario">Usuario:</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="Ejemplo@gmail.com">

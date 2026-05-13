@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
                 }
             }
         } else {
-            $sql = "SELECT nombre_usuario, contraseña FROM usuario WHERE nombre_usuario = :nom_user LIMIT 1";
+            $sql = "SELECT id_usuario, nombre_usuario, contraseña FROM usuario WHERE nombre_usuario = :nom_user LIMIT 1";
             $stmt = $conexion->prepare($sql);
             $stmt->execute([':nom_user' => $login_input]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
             } else {
                 if ($usuario && password_verify($password_input, $usuario['contraseña'])) {
                     // True para usuario normal
+                    $_SESSION['id_usuario'] = $usuario['id_usuario'];
                     $_SESSION['usuario_nom'] = $usuario['nombre_usuario'];
                     $_SESSION['Logueado'] = true;
                     session_regenerate_id(true);

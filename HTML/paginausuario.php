@@ -42,20 +42,20 @@ require_once "../PHP/phpConexion.php";
                 <?php endforeach; ?>
             </div>
             
-            <div class="user-actions" id="reservas">
+            <div class="user-actions">
                     <details class="reservas-detalles">
-                        <summary class="desplegable">Ver detalles de mis reservas</summary>
+                        <summary class="desplegable" id="reservas">Añadir reserva</summary>
                         <div class="crear-reserva">
-                            <form action="../PHP/phpUsuario.php" method="POST">
+                            <form action="paginausuario.php#reservas" method="POST" id="formulario_reserva">
                                 <label for="pista_reserva">Selecciona una pista:</label>
-                                    <select name="id_pista" id="pista_reserva" required onchange="this.form.action='paginausuario.php#pista_reserva'; this.form.submit();">
+                                    <select name="id_pista"  required onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
                                         <option value="">-- Elige una pista --</option>
                                         <?php echo $opciones_pistas;?>
                                     </select>
                                     <label for="tipo_pista">Tipo de pista:</label>
                                     <select name="tipo_pista" id="tipo_pista">
                                         <option value="">-- --</option>
-                                         <?php
+                                         <?php//forma recomendada por ia(pendiente a revisar)
                                         //<?php foreach ($tipos_de_pista as $tipo): 
                                             //$selected = ($selected_tipo_pista !== '' && $tipo === $selected_tipo_pista) ? ' selected' : '';
                                             //$disabled = ($selected_tipo_pista !== '' && $tipo !== $selected_tipo_pista) ? ' disabled' : '';
@@ -77,16 +77,16 @@ require_once "../PHP/phpConexion.php";
                                          ?>
                                     </select>
                                     <label for="id_extra">Selecciona un  extra (opcional):</label>
-                                    <select name="id_extra" id="extras_reserva"required onchange="this.form.action='paginausuario.php#extras_reserva'; this.form.submit();">
+                                    <select name="id_extra" id="extras_reserva" onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
                                         <option value="">-- Elige un extra --</option>
                                         <?php echo $opciones_extras; ?>
                                     </select>
 
                                 <label for="fecha_reserva">Selecciona una fecha:</label>
-                                    <input type="date" id="fecha_reserva" value="<?php echo htmlspecialchars($selected_fecha); ?>" name="fecha_reserva" required  onchange="this.form.action='paginausuario.php#fecha_reserva'; this.form.submit();">
-                                    
+                                    <input type="date" id="fecha_reserva" value="<?php echo htmlspecialchars($selected_fecha); ?>" name="fecha_reserva" required  onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
+
                                 <label for="hora_inicio">Selecciona una hora:</label> 
-                                <select name="hora_inicio" id="hora_inicio" required onchange="this.form.action='paginausuario.php#hora_inicio'; this.form.submit();">
+                                <select name="hora_inicio" id="hora_inicio" required onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
                                     <option value="">-- Elige una hora --</option>
                                         <?php echo $opciones_value; ?> 
                                 </select>
