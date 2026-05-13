@@ -26,7 +26,6 @@ require_once "../PHP/phpConexion.php";
             </div>
         </nav>
     </header>
-
     <main class="usuario-container">
         <section class="user-card">
             <h1>Información general</h1>
@@ -41,18 +40,25 @@ require_once "../PHP/phpConexion.php";
                 <?php endforeach; ?>
             </div>
             
-            <div class="user-actions">
+            <div class="user-actions" id="reservas">
                     <details class="reservas-detalles">
                         <summary class="desplegable">Ver detalles de mis reservas</summary>
                         <div class="crear-reserva">
                             <form action="../PHP/phpUsuario.php" method="POST">
                                 <label for="pista_reserva">Selecciona una pista:</label>
-                                    <select name="id_pista" id="pista_reserva" required>
+                                    <select name="id_pista" id="pista_reserva" required onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
                                         <option value="">-- Elige una pista --</option>
                                         <?php echo $opciones_pistas;?>
                                     </select>
-                                    <label for="id_extra2">Selecciona un  extra (opcional):</label>
-                                    <select name="id_extra2" id="extras_reserva2">
+                                    <label for="tipo_pista">Tipo de pista:</label>
+                                    <select name="tipo_pista" id="tipo_pista">
+                                        <option value="">-- --</option>
+                                         <?php foreach ($tipos_de_pista as $tipo) {
+                                            echo "<option value='{$tipo}'>{$tipo}</option>";
+                                         }?>
+                                    </select>
+                                    <label for="id_extra">Selecciona un  extra (opcional):</label>
+                                    <select name="id_extra" id="extras_reserva">
                                         <option value="">-- Elige un extra --</option>
                                         <?php echo $opciones_extras; ?>
                                     </select>
@@ -60,7 +66,6 @@ require_once "../PHP/phpConexion.php";
 
                                 <label for="fecha_reserva">Selecciona una fecha:</label>
                                     <input type="date" id="fecha_reserva" name="fecha_reserva" required>
-
                                 <label for="hora_inicio">Selecciona una hora:</label>
                                 
                                 <select name="hora_inicio" id="hora_inicio" required>
