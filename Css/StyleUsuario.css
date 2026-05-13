@@ -196,6 +196,38 @@ nav {
     transform: translateY(0);
 }
 
+.reservas-detalles {
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 24px 70px rgba(11, 98, 163, 0.12);
+    border: 1px solid rgba(0, 182, 255, 0.15);
+    overflow: hidden;
+}
+
+.reservas-detalles summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    color: #01649d;
+    font-weight: 700;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(0, 182, 255, 0.15);
+}
+
+.reservas-detalles summary::marker {
+    display: none;
+}
+
+.reservas-detalles summary::after {
+    content: "▼";
+}
+
+.reservas-detalles[open] summary::after {
+    transform: rotate(-180deg);
+}
 .button {
     display: inline-flex;
     align-items: center;

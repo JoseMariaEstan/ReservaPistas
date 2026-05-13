@@ -26,8 +26,6 @@ require_once "../PHP/phpConexion.php";
             </div>
         </nav>
     </header>
-<?php//comprobar si muestra el tipo correctamente
-     echo $pista_tipo;?>
     <main class="usuario-container">
         <section class="user-card">
             <h1>Información general</h1>
@@ -41,7 +39,6 @@ require_once "../PHP/phpConexion.php";
                     </div>
                 <?php endforeach; ?>
             </div>
-            
             <div class="user-actions">
                     <details class="reservas-detalles">
                         <summary class="desplegable" id="reservas">Añadir reserva</summary>
@@ -55,7 +52,8 @@ require_once "../PHP/phpConexion.php";
                                     <label for="tipo_pista">Tipo de pista:</label>
                                     <select name="tipo_pista" id="tipo_pista">
                                         <option value="">-- --</option>
-                                         <?php//forma recomendada por ia(pendiente a revisar)
+                                        <?php
+                                        //forma recomendada por ia(pendiente a revisar)
                                         //<?php foreach ($tipos_de_pista as $tipo): 
                                             //$selected = ($selected_tipo_pista !== '' && $tipo === $selected_tipo_pista) ? ' selected' : '';
                                             //$disabled = ($selected_tipo_pista !== '' && $tipo !== $selected_tipo_pista) ? ' disabled' : '';
@@ -74,7 +72,7 @@ require_once "../PHP/phpConexion.php";
                                                 break;
                                             }
                                         }
-                                         ?>
+                                        ?>
                                     </select>
                                     <label for="id_extra">Selecciona un  extra (opcional):</label>
                                     <select name="id_extra" id="extras_reserva" onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
