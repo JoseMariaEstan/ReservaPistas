@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <link rel="stylesheet" href="../Css/StyleAdmin.css">
     <title>Panel Administrador - PistasVegaPlus</title>
