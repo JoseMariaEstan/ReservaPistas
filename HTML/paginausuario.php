@@ -50,29 +50,20 @@ require_once "../PHP/phpConexion.php";
                                         <?php echo $opciones_pistas;?>
                                     </select>
                                     <label for="tipo_pista">Tipo de pista:</label>
-                                    <select name="tipo_pista" id="tipo_pista">
-                                        <option value="">-- --</option>
-                                        <?php
-                                        //forma recomendada por ia(pendiente a revisar)
-                                        //<?php foreach ($tipos_de_pista as $tipo): 
-                                            //$selected = ($selected_tipo_pista !== '' && $tipo === $selected_tipo_pista) ? ' selected' : '';
-                                            //$disabled = ($selected_tipo_pista !== '' && $tipo !== $selected_tipo_pista) ? ' disabled' : '';
-                                            //echo "<option value='$tipo'$selected$disabled>$tipo</option>";
-                                        //endforeach;
-                                    
-                                        foreach ($tipos_de_pista as $tipo) {
-                                            // Si el tipo de pista es el mismo que el seleccionado, no lo deshabilitamos
-                                            if ($id_pista_seleccionada && $tipo === $pista_tipo) {
-                                            $disabled = ($id_pista_seleccionada && $tipo !== $pista_tipo) ? 'disabled' : '';
-                                            echo "<option value='{$tipo}' {$disabled}>{$tipo}</option>";
+                                        <select name="tipo_pista" id="tipo_pista">
+                                            <option value="todas">-- Mostrar todas --</option>
+                                            <?php
+                                            foreach ($tipos_de_pista as $tipo) {
+                                                // Si hay una pista elegida, deshabilitamos todos los tipos excepto el que coincide
+                                                $disabled = ($id_pista_seleccionada && $tipo !== $selected_tipo_pista) ? ' disabled' : '';
+                                                
+                                                // Marcamos como seleccionado de forma automática el tipo de pista correspondiente
+                                                $selected = ($id_pista_seleccionada && $tipo === $selected_tipo_pista) ? ' selected' : '';
+                                                
+                                                echo "<option value='{$tipo}'{$disabled}{$selected}>{$tipo}</option>";
                                             }
-                                             else {
-                                                // Si no es el mismo, lo deshabilitamos
-                                                echo "<option value='{$pista_tipo}'>{$pista_tipo}</option>";
-                                                break;
-                                            }
-                                        }
-                                        ?>
+                                            ?>
+                                        </select>
                                     </select>
                                     <label for="id_extra">Selecciona un  extra (opcional):</label>
                                     <select name="id_extra" id="extras_reserva" onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">

@@ -18,7 +18,8 @@ if (empty($_SESSION['Logueado'])) {
     try {
         $sql = "SELECT r.usuario_id, r.hora_inicio, r.id_pista 
                 FROM reservas r 
-                WHERE r.usuario_id = :usuario_id";
+                WHERE r.usuario_id = :usuario_id
+                ORDER BY r.fecha_reserva DESC, r.hora_inicio DESC";
         $stmt = $conexion->prepare($sql);
         $stmt->execute([':usuario_id' => $id_usuario_sesion]);
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -106,11 +107,35 @@ if (empty($_SESSION['Logueado'])) {
     // 4. Generar Horas
     $opciones_value = "";
     $opciones_horas = ["8", "9", "10", "11", "12", "13", "15", "16", "17", "18", "19", "20", "21", "22"];
+
+    // Si hay pista y fecha seleccionada, buscamos las horas que ya están ocupadas
+    $horas_ocupadas = [];
+    if ($id_pista_seleccionada && $selected_fecha) {
+        try {
+            $sql_reservas = "SELECT hora_inicio FROM reservas WHERE id_pista = :id_pista AND fecha_reserva = :fecha_reserva";
+            $stmt_reservas = $conexion->prepare($sql_reservas);
+            $stmt_reservas->execute([':id_pista' => $id_pista_seleccionada, ':fecha_reserva' => $selected_fecha]);
+            // Convertimos las horas de la BD (ej: "08:00:00") a formato corto "08:00"
+            $horas_bd = $stmt_reservas->fetchAll(PDO::FETCH_COLUMN);
+            $horas_ocupadas = array_map(function($h) { return substr($h, 0, 5); }, $horas_bd);
+        } catch (PDOException $e) {
+            echo "Error al verificar horas ocupadas: " . $e->getMessage();
+        }
+    }
+
+    // Generamos las opciones del desplegable una sola vez
     foreach ($opciones_horas as $hora) {
         $h_formato = str_pad($hora, 2, "0", STR_PAD_LEFT) . ":00";
         $selected_attr_hora = ($selected_hora !== '' && $selected_hora == $h_formato) ? ' selected' : '';
-        $opciones_value .= "<option value='$h_formato'{$selected_attr_hora}>$h_formato</option>";
+        
+        if (in_array($h_formato, $horas_ocupadas)) {
+            $opciones_value .= "<option value='$h_formato' disabled>$h_formato (Ocupada)</option>";
+        } else {
+            $opciones_value .= "<option value='$h_formato'{$selected_attr_hora}>$h_formato</option>";
+        }
     }
+
+
     // 5. PROCESAR FORMULARIO (INSERT)
     // Importante: Asegúrate de que tu botón en el HTML tenga name="crear_reserva"
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crear_reserva'])) {
@@ -152,7 +177,7 @@ if (empty($_SESSION['Logueado'])) {
                 ]);
                 // Redirigir para evitar reenvío de formulario
                 header("Location: paginausuario.php");
-                echo "<p style='color: green;'> Reserva creada con éxito✅.</p>";
+                exit();
             } catch (PDOException $e) {
                 echo "Error al crear reserva: " . $e->getMessage();
             }
