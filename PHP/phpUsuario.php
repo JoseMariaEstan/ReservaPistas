@@ -43,7 +43,12 @@ if (empty($_SESSION['Logueado'])) {
         while ($pista = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $estado_pista = $pista['estado'];
             $tipo_pista = $pista['tipo_pista'];
-            $opciones_pistas .= "<option value='{$pista['id_pista']}'>{$pista['nombre']} ({$tipo_pista})</option>";
+
+            if ($estado_pista === 'reparacion') {
+                $opciones_pistas .= "<option value='{$pista['id_pista']}' disabled>{$pista['nombre']} ({$tipo_pista})</option>";
+            }else{
+                $opciones_pistas .= "<option value='{$pista['id_pista']}'>{$pista['nombre']} ({$tipo_pista})</option>";
+            }
         }
     } catch (PDOException $e) { echo "Error pistas: " . $e->getMessage(); }
 

@@ -49,9 +49,8 @@ require_once "../PHP/phpConexion.php";
                                 <label for="pista_reserva">Selecciona una pista:</label>
                                     <select name="id_pista" id="pista_reserva" required>
                                         <option value="">-- Elige una pista --</option>
-                                        <?php echo $opciones_pistas; ?>
+                                        <?php echo $opciones_pistas;?>
                                     </select>
-                                    
                                     <label for="id_extra2">Selecciona un  extra (opcional):</label>
                                     <select name="id_extra2" id="extras_reserva2">
                                         <option value="">-- Elige un extra --</option>
