@@ -21,7 +21,6 @@ require_once "../PHP/phpConexion.php";
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="paginaPp.php#Horarios">Horarios</a></li>
-                    <li><a href="paginaReservas.php">Reservas</a></li>
                     <li><a href="paginaUsuarioIngles.php">Switch to English?</a></li>
                 </ul>
             </div>
@@ -41,7 +40,39 @@ require_once "../PHP/phpConexion.php";
                     </div>
                 <?php endforeach; ?>
             </div>
+            
+            <div class="user-actions">
+                    <details class="reservas-detalles">
+                        <summary class="desplegable">Ver detalles de mis reservas</summary>
+                        <div class="crear-reserva">
+                            <form action="../PHP/phpUsuario.php" method="POST">
+                                <label for="pista_reserva">Selecciona una pista:</label>
+                                    <select name="id_pista" id="pista_reserva" required>
+                                        <option value="">-- Elige una pista --</option>
+                                        <?php echo $opciones_pistas; ?>
+                                    </select>
+                                    
+                                    <label for="id_extra2">Selecciona un  extra (opcional):</label>
+                                    <select name="id_extra2" id="extras_reserva2">
+                                        <option value="">-- Elige un extra --</option>
+                                        <?php echo $opciones_extras; ?>
+                                    </select>
 
+
+                                <label for="fecha_reserva">Selecciona una fecha:</label>
+                                    <input type="date" id="fecha_reserva" name="fecha_reserva" required>
+
+                                <label for="hora_inicio">Selecciona una hora:</label>
+                                
+                                <select name="hora_inicio" id="hora_inicio" required>
+                                    <option value="">-- Elige una hora --</option>
+                                        <?php echo $opciones_value; ?> 
+                                </select>
+                                <button type="submit"name="crear_reserva">Crear nueva reserva</button>
+                        </form>
+                    </div>
+                </details>
+            </div>
             <div class="user-actions">
                 <a class="button" href="paginaPp.php">Volver a inicio</a>
                 <a class="button secondary" href="login.php">Cerrar sesión</a>

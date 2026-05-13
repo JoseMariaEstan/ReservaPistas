@@ -117,6 +117,28 @@ nav {
     align-items: stretch;
 }
 
+.crear-reserva form {
+    display: flex;
+    flex-direction: column; /* Alinea los hijos verticalmente */
+    width: 300px;           /* Ajusta el ancho a tu gusto */
+    gap: 10px;              /* Crea espacio entre los campos automáticamente */
+}
+
+/* Opcional: Estilizar un poco los labels para que se separen del input */
+.crear-reserva label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Opcional: Que los inputs y el botón tengan el mismo ancho */
+.crear-reserva select, 
+.crear-reserva input, 
+.crear-reserva button {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
 .button {
     display: inline-flex;
     align-items: center;
