@@ -39,6 +39,10 @@ if (empty($_SESSION['Logueado'])) {
     $opciones_pistas = "";
     $tipos_de_pista = [];//array para tener todos los tipos de pista
     $pista_tipo = "<option value=''>-- --</option>"; // Valor por defecto
+    $selected_tipo_pista = "";
+    $selected_extra = $_POST['id_extra'] ?? '';
+    $selected_fecha = $_POST['fecha_reserva'] ?? '';
+    $selected_hora = $_POST['hora_inicio'] ?? '';
 
     // Detectamos si el usuario acaba de cambiar la pista en el desplegable
     $id_pista_seleccionada = $_POST['id_pista'] ?? null;
@@ -48,6 +52,16 @@ if (empty($_SESSION['Logueado'])) {
         $stmt_pistas = $conexion->query($sql_pistas);
         while ($tipo = $stmt_pistas->fetch(PDO::FETCH_ASSOC)) {
             $tipos_de_pista[] = $tipo['tipo_pista'];
+        }
+
+        if ($id_pista_seleccionada) {
+            $sql_tipo = "SELECT tipo_pista FROM pistas WHERE id_pista = :id_pista";
+            $stmt_tipo = $conexion->prepare($sql_tipo);
+            $stmt_tipo->execute([':id_pista' => $id_pista_seleccionada]);
+            $fila = $stmt_tipo->fetch(PDO::FETCH_ASSOC);
+            if ($fila) {
+                $selected_tipo_pista = $fila['tipo_pista'];
+            }
         }
 
         $sql = "SELECT id_pista, nombre, estado, tipo_pista FROM pistas";
@@ -84,7 +98,8 @@ if (empty($_SESSION['Logueado'])) {
         $sql = "SELECT id_extra, tipo_extra FROM extras_reservas";
         $stmt = $conexion->query($sql);
         while ($extra = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $opciones_extras .= "<option value='{$extra['id_extra']}'>{$extra['tipo_extra']}</option>";
+            $selected_attr_extra = ($selected_extra !== '' && $selected_extra == $extra['id_extra']) ? ' selected' : '';
+            $opciones_extras .= "<option value='{$extra['id_extra']}'{$selected_attr_extra}>{$extra['tipo_extra']}</option>";
         }
     } catch (PDOException $e) { echo "Error extras: " . $e->getMessage(); }
 
@@ -93,7 +108,8 @@ if (empty($_SESSION['Logueado'])) {
     $opciones_horas = ["8", "9", "10", "11", "12", "13", "15", "16", "17", "18", "19", "20", "21", "22"];
     foreach ($opciones_horas as $hora) {
         $h_formato = str_pad($hora, 2, "0", STR_PAD_LEFT) . ":00";
-        $opciones_value .= "<option value='$h_formato'>$h_formato</option>";
+        $selected_attr_hora = ($selected_hora !== '' && $selected_hora == $h_formato) ? ' selected' : '';
+        $opciones_value .= "<option value='$h_formato'{$selected_attr_hora}>$h_formato</option>";
     }
     // 5. PROCESAR FORMULARIO (INSERT)
     // Importante: Asegúrate de que tu botón en el HTML tenga name="crear_reserva"

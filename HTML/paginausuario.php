@@ -26,7 +26,8 @@ require_once "../PHP/phpConexion.php";
             </div>
         </nav>
     </header>
-<?php echo $pista_tipo;?>
+<?php//comprobar si muestra el tipo correctamente
+     echo $pista_tipo;?>
     <main class="usuario-container">
         <section class="user-card">
             <h1>Información general</h1>
@@ -47,7 +48,7 @@ require_once "../PHP/phpConexion.php";
                         <div class="crear-reserva">
                             <form action="../PHP/phpUsuario.php" method="POST">
                                 <label for="pista_reserva">Selecciona una pista:</label>
-                                    <select name="id_pista" id="pista_reserva" required onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
+                                    <select name="id_pista" id="pista_reserva" required onchange="this.form.action='paginausuario.php#pista_reserva'; this.form.submit();">
                                         <option value="">-- Elige una pista --</option>
                                         <?php echo $opciones_pistas;?>
                                     </select>
@@ -55,6 +56,12 @@ require_once "../PHP/phpConexion.php";
                                     <select name="tipo_pista" id="tipo_pista">
                                         <option value="">-- --</option>
                                          <?php
+                                        //<?php foreach ($tipos_de_pista as $tipo): 
+                                            //$selected = ($selected_tipo_pista !== '' && $tipo === $selected_tipo_pista) ? ' selected' : '';
+                                            //$disabled = ($selected_tipo_pista !== '' && $tipo !== $selected_tipo_pista) ? ' disabled' : '';
+                                            //echo "<option value='$tipo'$selected$disabled>$tipo</option>";
+                                        //endforeach;
+                                    
                                         foreach ($tipos_de_pista as $tipo) {
                                             // Si el tipo de pista es el mismo que el seleccionado, no lo deshabilitamos
                                             if ($id_pista_seleccionada && $tipo === $pista_tipo) {
@@ -70,16 +77,16 @@ require_once "../PHP/phpConexion.php";
                                          ?>
                                     </select>
                                     <label for="id_extra">Selecciona un  extra (opcional):</label>
-                                    <select name="id_extra" id="extras_reserva">
+                                    <select name="id_extra" id="extras_reserva"required onchange="this.form.action='paginausuario.php#extras_reserva'; this.form.submit();">
                                         <option value="">-- Elige un extra --</option>
                                         <?php echo $opciones_extras; ?>
                                     </select>
 
                                 <label for="fecha_reserva">Selecciona una fecha:</label>
-                                    <input type="date" id="fecha_reserva" name="fecha_reserva" required>
-                                <label for="hora_inicio">Selecciona una hora:</label>
-                                
-                                <select name="hora_inicio" id="hora_inicio" required>
+                                    <input type="date" id="fecha_reserva" value="<?php echo htmlspecialchars($selected_fecha); ?>" name="fecha_reserva" required  onchange="this.form.action='paginausuario.php#fecha_reserva'; this.form.submit();">
+                                    
+                                <label for="hora_inicio">Selecciona una hora:</label> 
+                                <select name="hora_inicio" id="hora_inicio" required onchange="this.form.action='paginausuario.php#hora_inicio'; this.form.submit();">
                                     <option value="">-- Elige una hora --</option>
                                         <?php echo $opciones_value; ?> 
                                 </select>
