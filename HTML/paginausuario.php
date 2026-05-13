@@ -26,6 +26,7 @@ require_once "../PHP/phpConexion.php";
             </div>
         </nav>
     </header>
+<?php echo $pista_tipo;?>
     <main class="usuario-container">
         <section class="user-card">
             <h1>Información general</h1>
@@ -53,16 +54,26 @@ require_once "../PHP/phpConexion.php";
                                     <label for="tipo_pista">Tipo de pista:</label>
                                     <select name="tipo_pista" id="tipo_pista">
                                         <option value="">-- --</option>
-                                         <?php foreach ($tipos_de_pista as $tipo) {
-                                            echo "<option value='{$tipo}'>{$tipo}</option>";
-                                         }?>
+                                         <?php
+                                        foreach ($tipos_de_pista as $tipo) {
+                                            // Si el tipo de pista es el mismo que el seleccionado, no lo deshabilitamos
+                                            if ($id_pista_seleccionada && $tipo === $pista_tipo) {
+                                            $disabled = ($id_pista_seleccionada && $tipo !== $pista_tipo) ? 'disabled' : '';
+                                            echo "<option value='{$tipo}' {$disabled}>{$tipo}</option>";
+                                            }
+                                             else {
+                                                // Si no es el mismo, lo deshabilitamos
+                                                echo "<option value='{$pista_tipo}'>{$pista_tipo}</option>";
+                                                break;
+                                            }
+                                        }
+                                         ?>
                                     </select>
                                     <label for="id_extra">Selecciona un  extra (opcional):</label>
                                     <select name="id_extra" id="extras_reserva">
                                         <option value="">-- Elige un extra --</option>
                                         <?php echo $opciones_extras; ?>
                                     </select>
-
 
                                 <label for="fecha_reserva">Selecciona una fecha:</label>
                                     <input type="date" id="fecha_reserva" name="fecha_reserva" required>

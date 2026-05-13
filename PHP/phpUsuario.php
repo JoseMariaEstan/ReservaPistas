@@ -49,6 +49,7 @@ if (empty($_SESSION['Logueado'])) {
         while ($tipo = $stmt_pistas->fetch(PDO::FETCH_ASSOC)) {
             $tipos_de_pista[] = $tipo['tipo_pista'];
         }
+
         $sql = "SELECT id_pista, nombre, estado, tipo_pista FROM pistas";
         $stmt = $conexion->query($sql);
         
@@ -69,6 +70,9 @@ if (empty($_SESSION['Logueado'])) {
             if ($id_pista_seleccionada && $pista['id_pista'] == $id_pista_seleccionada) {
                 $pista_tipo = "<option value='{$tipo_pista}' selected>{$tipo_pista}</option>";
             }
+
+            //Si el tipo de pista esta en el array ese tipo sera el unico en no estar "disabled" en el desplegable de tipos de pista
+            
         }
     } catch (PDOException $e) { 
         echo "Error pistas: " . $e->getMessage(); 
