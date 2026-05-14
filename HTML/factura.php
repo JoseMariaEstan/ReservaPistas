@@ -1,5 +1,6 @@
 <?php
-include "../PHP/phpUsuario.php"
+include "../PHP/phpUsuario.php";
+include "../PHP/phpFactura.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,13 +39,19 @@ include "../PHP/phpUsuario.php"
                 -Direccion
                 -Numero de factura
                 -Fecha-->
-                <img src="../Imagenes/LogoRVegaPlus.png">
-                <div class="detalles_centro">
-                    <p>Nombre del centro: Pistas Vega Plus</p>
-                    <p>CIF: B-1234567-8</p>
-                    <p>Direccion: Calle Falsa 123, Ciudad, País</p>
-
-                    <p>Nº FACTURA: <?php echo $id_factura?></p>
+                <div class="Logo">
+                    <img src="../Imagenes/LogoRVegaPlus.png">
+                </div>
+                <div class="detalles">
+                    <div class="detalles_centro">
+                        <p>Nombre del centro: Pistas Vega Plus</p>
+                        <p>CIF: B-1234567-8</p>
+                        <p>Direccion: Calle Falsa 123, Ciudad, País</p>
+                    </div>
+                    <div class="detalles_centro2">
+                        <p>Nº FACTURA: <?php echo $id_factura?></p>
+                        <p>Fecha: <?php echo date('d-m-Y')?></p>
+                    </div>
                 </div>
 
 
