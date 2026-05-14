@@ -1,0 +1,12 @@
+.factura{
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border-color: black;
+    border-radius: 15px;
+    width: 50%;
+}
+.factura img{
+    width: 80px;
+}

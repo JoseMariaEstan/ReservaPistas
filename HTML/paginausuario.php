@@ -71,7 +71,7 @@ include "../PHP/phpUsuario.php";
                                     </select>
 
                                 <label for="fecha_reserva">Selecciona una fecha:</label>
-                                    <input type="date" id="fecha_reserva"  name="fecha_reserva"  value="<?php echo htmlspecialchars($selected_fecha); ?>"min="<?php echo date('Y-m-d'); ?>" required  onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
+                                    <input type="date" id="fecha_reserva" name="fecha_reserva" value="<?php echo htmlspecialchars($selected_fecha); ?>" min="<?php echo date('Y-m-d')?>" required  onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
 
                                 <label for="hora_inicio">Selecciona una hora:</label> 
                                 <select name="hora_inicio" id="hora_inicio" required onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
@@ -79,7 +79,7 @@ include "../PHP/phpUsuario.php";
                                         <?php echo $opciones_value; ?> 
                                 </select>
 
-                                <label for="rpecio_total">Precio total:</label>
+                                <label for="rpecio_total">Precio total <strong>sin IVA</strong>:</label>
                                 <input type="text" id="precio_total" name="precio_total" value="<?php echo isset($precio_total) ? number_format($precio_total, 2) . ' €' : ''; ?>" readonly>
 
                                 <button type="submit"name="crear_reserva">Crear nueva reserva</button>
@@ -89,7 +89,6 @@ include "../PHP/phpUsuario.php";
                                         echo "<p class='reservas-mensaje'>" . $mensaje_reserva . "</p>";
                                         // Limpiar la variable de sesión después de mostrar el mensaje
                                         unset($_SESSION['reserva_exitosa']);
-                                        unset($_SESSION['ultima_reserva_id']);
                                 } ?>
                         </form>
                     </div>
