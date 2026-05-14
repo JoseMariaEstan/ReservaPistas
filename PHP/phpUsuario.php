@@ -154,7 +154,7 @@ if (empty($_SESSION['Logueado'])) {
         }
     }
 
-
+    $precio_final="";
     // 5. PROCESAR FORMULARIO (INSERT)
     // Importante: Asegúrate de que tu botón en el HTML tenga name="crear_reserva"
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crear_reserva'])) {
@@ -164,6 +164,9 @@ if (empty($_SESSION['Logueado'])) {
         $id_extra = $_POST['id_extra'] ?? null;
         $fecha_reserva = $_POST['fecha_reserva'] ?? null;
         $hora_reserva = $_POST['hora_inicio'] ?? null;
+        $precio_total_sucio=$_POST['precio_total'] ?? null;
+        $precio_limpio= str_replace(['€', ','], ['','.'], $precio_total_sucio);
+        $precio_final=(double)$precio_limpio;
 
         if ($id_usuario === null && !empty($_SESSION['usuario_nom'])) {
             try {
@@ -184,15 +187,17 @@ if (empty($_SESSION['Logueado'])) {
             echo "Error al crear reserva: usuario no identificado en sesión.";
         } else {
             try {
-                $sql_insert = "INSERT INTO reservas (usuario_id, id_pista, id_extra, fecha_reserva, hora_inicio) 
-                               VALUES (:usuario_id, :id_pista, :id_extra, :fecha_reserva, :hora_inicio)";
+                $sql_insert = "INSERT INTO reservas (usuario_id, id_pista, id_extra, fecha_reserva, hora_inicio, precio_total) 
+                               VALUES (:usuario_id, :id_pista, :id_extra, :fecha_reserva, :hora_inicio, :precio_total)";
                 $stmt_insert = $conexion->prepare($sql_insert);
                 $stmt_insert->execute([
                     ':usuario_id' => $id_usuario,
                     ':id_pista' => $id_pista,
                     ':id_extra' => $id_extra,
                     ':fecha_reserva' => $fecha_reserva,
-                    ':hora_inicio' => $hora_reserva
+                    ':hora_inicio' => $hora_reserva,
+                    ':precio_total'=>$precio_final,
+
                 ]);
                 $id_nueva_reserva = $conexion->lastInsertId();
 
@@ -204,9 +209,6 @@ if (empty($_SESSION['Logueado'])) {
             } catch (PDOException $e) {
                 echo "Error al crear reserva: " . $e->getMessage();
             }
-        }
-        
-        //Despues de procesar el formulario y actualizar la base de datos,
-        //mostrara un mensaje con un link para que lleve al ususario a una pagina para ver la factura
+        }        
     }
 }
