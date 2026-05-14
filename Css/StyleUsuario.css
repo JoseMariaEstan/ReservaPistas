@@ -255,7 +255,15 @@ nav {
 .button.secondary:hover {
     background-color: #e5f7ff;
 }
-
+.reservas-mensaje {
+    padding: 20px;
+    background-color: #e7ffe3;
+    border: 1px solid #00b6ff;
+    border-radius: 18px;
+    color: #01649d;
+    font-weight: 700;
+    text-align: center;
+}
 .footer {
     background-color: #00b6ff;
     color: #f7fbff;

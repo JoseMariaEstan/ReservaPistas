@@ -181,6 +181,10 @@ if (empty($_SESSION['Logueado'])) {
                     ':fecha_reserva' => $fecha_reserva,
                     ':hora_inicio' => $hora_reserva
                 ]);
+                $id_nueva_reserva = $conexion->lastInsertId();
+
+                $_SESSION['ultima_reserva_id'] = $id_nueva_reserva;
+                $_SESSION['reserva_exitosa'] = true;
                 // Redirigir para evitar reenvío de formulario
                 header("Location: paginausuario.php");
                 exit();
@@ -188,5 +192,8 @@ if (empty($_SESSION['Logueado'])) {
                 echo "Error al crear reserva: " . $e->getMessage();
             }
         }
+        
+        //Despues de procesar el formulario y actualizar la base de datos,
+        //mostrara un mensaje con un link para que lleve al ususario a una pagina para ver la factura
     }
 }

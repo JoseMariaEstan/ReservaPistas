@@ -1,6 +1,5 @@
 ﻿<?php
 include "../PHP/phpUsuario.php";
-require_once "../PHP/phpConexion.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -84,6 +83,14 @@ require_once "../PHP/phpConexion.php";
                                 <input type="text" id="precio_total" name="precio_total" value="<?php echo isset($precio_total) ? number_format($precio_total, 2) . ' €' : ''; ?>" readonly>
 
                                 <button type="submit"name="crear_reserva">Crear nueva reserva</button>
+                                <?php if (isset($_SESSION['reserva_exitosa']) && $_SESSION['reserva_exitosa'] === true) {
+                                        $id_reserva = $_SESSION['ultima_reserva_id'] ?? null;
+                                        $mensaje_reserva = "Reserva creada exitosamente ✅. <a href='factura.php?id=" . $id_reserva . "'>Ver factura</a>";
+                                        echo "<p class='reservas-mensaje'>" . $mensaje_reserva . "</p>";
+                                        // Limpiar la variable de sesión después de mostrar el mensaje
+                                        unset($_SESSION['reserva_exitosa']);
+                                        unset($_SESSION['ultima_reserva_id']);
+                                } ?>
                         </form>
                     </div>
                 </details>
