@@ -36,3 +36,53 @@
 .detalles_centro p, .detalles_centro2 p {
     margin: 4px 0;
 }
+.tabla-factura {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.tabla-factura th {
+    background-color: #f4fbff;
+    color: #0d5f9b;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid #00b6ff;
+}
+
+.tabla-factura td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-factura tfoot td {
+    text-align: right;
+    padding-top: 15px;
+}
+
+.total-row td {
+    font-size: 1.1rem;
+    color: #01649d;
+    border-top: 2px solid #01649d;
+}
+
+/* Estilo para el selector de pago */
+.select-pago {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.btn-pagar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}

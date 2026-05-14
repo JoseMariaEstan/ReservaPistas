@@ -32,16 +32,10 @@ include "../PHP/phpFactura.php";
     <body>
         <section class="factura">
             <div class="header_factura">
-            <!-- en esta parte, aparecen:
-                -Logo
-                -Nombre del centro
-                -Cif
-                -Direccion
-                -Numero de factura
-                -Fecha-->
                 <div class="Logo">
                     <img src="../Imagenes/LogoRVegaPlus.png">
                 </div>
+                    <h5>Detalles del centro y factura</h5>
                 <div class="detalles">
                     <div class="detalles_centro">
                         <p>Nombre del centro: Pistas Vega Plus</p>
@@ -53,26 +47,70 @@ include "../PHP/phpFactura.php";
                         <p>Fecha: <?php echo date('d-m-Y')?></p>
                     </div>
                 </div>
-
-
-
-            </div>
-            <div class="cuerpo_factura">
-                <!--En esta parte aparecen:
-                    -Datos del cliente(Usuario,id_reserva)-->
                 <div class="detalles_factura">
+                   <h5>Detalles de la reserva</h5>
+                        <div class="cuerpo_factura">
+                            <p><strong>Usuario:</strong> <?php echo htmlspecialchars($nombre_usuario); ?></p>
+                            <p><strong>Fecha:</strong> <?php echo htmlspecialchars($fecha_reserva); ?></p>
+                            <p><strong>Hora:</strong> <?php echo htmlspecialchars($hora_inicio); ?></p>
+
+                            <div class="detalles_cobro_seccion">
+                                <h5>Detalles del cobro</h5>
+                                <table class="tabla-factura">
+                                    <thead>
+                                        <tr>
+                                            <th>Descripción</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Reserva Pista: <?php echo htmlspecialchars($nombre_pista); ?></td>
+                                            <td><?php echo number_format($precio_pista, 2); ?> €</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Extras contratados</td>
+                                            <td><?php echo number_format($precio_extras, 2); ?> €</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>Subtotal (Base Imponible)</td>
+                                            <td><?php echo number_format($subtotal, 2); ?> €</td>
+                                        </tr>
+                                        <tr>
+                                            <td>IVA (21%)</td>
+                                            <td><?php echo number_format($iva, 2); ?> €</td>
+                                        </tr>
+                                        <tr class="total-row">
+                                            <td><strong>TOTAL A PAGAR</strong></td>
+                                            <td><strong><?php echo number_format($total_con_iva, 2); ?> €</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="pagar">
+                            <h5>Método de Pago</h5>
+                            <form action="factura.php" method="post">
+                            <select name="metodo_pago" class="select-pago" required>
+                                <option value="transferencia">Transferencia Bancaria</option>
+                                <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                                <option value="bizum">Bizum</option>
+                                <option value="efectivo">Pago en efectivo presencial</option>
+                            </select>
+                            <button class="btn-pagar" name="pagar">Confirmar y Pagar</button>
+                            <?php if (isset($_POST['pagar'])){
+                                    echo "<p style color= green>🎉Reserva pagada gracias por reservar en Pistas Vega Plus🎉</p>";
+                            } ?>
+                            </form> 
+                        </div>
                     <!--En esta parte aparecen:
                     -Datos de la reserva(NombrePista,Extras escogidos,fecha,hora
                     ,precio de la reserva y precio total + IVA)-->
                 
                 </div>
-            </div>
-            
-            <div class="pagar">
-                <!--En esta parte aparecen:
-                    -Datos del pago(Apareceran opciones de pago: Transferencia Bancaria/tarjeta/bizum/ Pago en efectivo presencial)-->
-                
-
             </div>
         </section>
     <footer class="footer" id="Contacto">
