@@ -79,6 +79,10 @@ require_once "../PHP/phpConexion.php";
                                     <option value="">-- Elige una hora --</option>
                                         <?php echo $opciones_value; ?> 
                                 </select>
+
+                                <label for="rpecio_total">Precio total:</label>
+                                <input type="text" id="precio_total" name="precio_total" value="<?php echo isset($precio_total) ? number_format($precio_total, 2) . ' €' : ''; ?>" readonly>
+
                                 <button type="submit"name="crear_reserva">Crear nueva reserva</button>
                         </form>
                     </div>

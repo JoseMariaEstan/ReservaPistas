@@ -95,12 +95,18 @@ if (empty($_SESSION['Logueado'])) {
 
     // 3. Cargar Extras
     $opciones_extras = "";
+    $precio_pista = 8.00; // Precio base por cada pista
     try {
-        $sql = "SELECT id_extra, tipo_extra FROM extras_reservas";
+        $sql = "SELECT id_extra, tipo_extra, precio_extra FROM extras_reservas";
         $stmt = $conexion->query($sql);
         while ($extra = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $selected_attr_extra = ($selected_extra !== '' && $selected_extra == $extra['id_extra']) ? ' selected' : '';
-            $opciones_extras .= "<option value='{$extra['id_extra']}'{$selected_attr_extra}>{$extra['tipo_extra']}</option>";
+            $precio_extra = $extra['precio_extra'];
+            $selected_item_extra = ($selected_extra !== '' && $selected_extra == $extra['id_extra']) ? ' selected' : '';
+            $opciones_extras .= "<option value='{$extra['id_extra']}'{$selected_item_extra}>{$extra['tipo_extra']}</option>";
+            //calcular el precio total
+                if ($selected_extra !== '' && $selected_extra == $extra['id_extra']) {
+                    $precio_total = $precio_extra + $precio_pista; // Aquí podrías sumar el precio de la pista si lo deseas
+                }
         }
     } catch (PDOException $e) { echo "Error extras: " . $e->getMessage(); }
 
@@ -126,12 +132,12 @@ if (empty($_SESSION['Logueado'])) {
     // Generamos las opciones del desplegable una sola vez
     foreach ($opciones_horas as $hora) {
         $h_formato = str_pad($hora, 2, "0", STR_PAD_LEFT) . ":00";
-        $selected_attr_hora = ($selected_hora !== '' && $selected_hora == $h_formato) ? ' selected' : '';
+        $selected_item_hora = ($selected_hora !== '' && $selected_hora == $h_formato) ? ' selected' : '';
         
         if (in_array($h_formato, $horas_ocupadas)) {
             $opciones_value .= "<option value='$h_formato' disabled>$h_formato (Ocupada)</option>";
         } else {
-            $opciones_value .= "<option value='$h_formato'{$selected_attr_hora}>$h_formato</option>";
+            $opciones_value .= "<option value='$h_formato'{$selected_item_hora}>$h_formato</option>";
         }
     }
 
