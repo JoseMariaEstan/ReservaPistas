@@ -71,7 +71,7 @@ include "../PHP/phpUsuario.php";
                                     </select>
 
                                 <label for="fecha_reserva">Selecciona una fecha:</label>
-                                    <input type="date" id="fecha_reserva" value="<?php echo htmlspecialchars($selected_fecha); ?>" name="fecha_reserva" required  onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
+                                    <input type="date" id="fecha_reserva"  name="fecha_reserva"  value="<?php echo htmlspecialchars($selected_fecha); ?>"min="<?php echo date('Y-m-d'); ?>" required  onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
 
                                 <label for="hora_inicio">Selecciona una hora:</label> 
                                 <select name="hora_inicio" id="hora_inicio" required onchange="this.form.action='paginausuario.php#reservas'; this.form.submit();">
