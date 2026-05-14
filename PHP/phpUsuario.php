@@ -45,6 +45,19 @@ if (empty($_SESSION['Logueado'])) {
     $selected_fecha = $_POST['fecha_reserva'] ?? '';
     $selected_hora = $_POST['hora_inicio'] ?? '';
 
+
+    //Si la fecha es superior a la de las reservas en la base de datos, se borrara autom.
+    try{
+        $sql_borrarFecha="DELETE FROM reservas WHERE fecha_reserva < CURDATE();";
+        $stmt = $conexion->prepare($sql_borrarFecha);
+        $stmt = $conexion->query($sql_borrarFecha);
+        $stmt->execute();
+
+    }
+    catch(PDOException $e){
+        echo "Error al eliminar reservas antiguas: " . $e->getMessage();
+    }
+
     // Detectamos si el usuario acaba de cambiar la pista en el desplegable
     $id_pista_seleccionada = $_POST['id_pista'] ?? null;
 
