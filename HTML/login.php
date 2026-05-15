@@ -61,6 +61,9 @@
         <div class="crearCuenta">
             <p>¿No tienes una cuenta? <a href="crearCuenta.php">Crear Cuenta</a></p>
         </div>
+        <div>
+            <p>¿Desea cambiar la contraseña?<a href="cambiarContra.php">Cambiar contraseña</a></p>
+        </div>
     </section>
         <footer class="footer" id="Contacto">
         <p><strong>Contacto:</strong> info@pistasvegaplus.com</p>
