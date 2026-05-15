@@ -43,7 +43,7 @@ include "../PHP/phpFactura.php";
                         <p>Direccion: Calle Falsa 123, Ciudad, País</p>
                     </div>
                     <div class="detalles_centro2">
-                        <p>Nº FACTURA: <?php echo $id_factura?></p>
+                        <p>Nº FACTURA: <?php echo $id_factura;?></p>
                         <p>Fecha: <?php echo date('d-m-Y')?></p>
                     </div>
                 </div>
@@ -75,6 +75,10 @@ include "../PHP/phpFactura.php";
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <td>Tipo de extra contratado</td>
+                                            <td><?php echo $nombre_extra; ?></td>
+                                        </tr>
+                                        <tr>
                                             <td>Subtotal (Base Imponible)</td>
                                             <td><?php echo number_format($subtotal, 2); ?> €</td>
                                         </tr>
@@ -93,7 +97,7 @@ include "../PHP/phpFactura.php";
 
                         <div class="pagar">
                             <h5>Método de Pago</h5>
-                            <form action="factura.php" method="post">
+                            <form action="factura.php?id=<?php echo $id_factura; ?>" method="post">
                             <select name="metodo_pago" class="select-pago" required>
                                 <option value="transferencia">Transferencia Bancaria</option>
                                 <option value="tarjeta">Tarjeta de Crédito/Débito</option>
@@ -102,7 +106,7 @@ include "../PHP/phpFactura.php";
                             </select>
                             <button class="btn-pagar" name="pagar">Confirmar y Pagar</button>
                             <?php if (isset($_POST['pagar'])){
-                                    echo "<p style color= green>🎉Reserva pagada gracias por reservar en Pistas Vega Plus🎉</p>";
+                                    echo "<p style='color: green; font-weight: bold;' >🎉Reserva pagada gracias por reservar en Pistas Vega Plus🎉</p>";
                             } ?>
                             </form> 
                         </div>

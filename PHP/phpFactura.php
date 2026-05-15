@@ -6,14 +6,14 @@ $id_factura = $_GET['id'] ?? null;
 
 if (!$id_factura) {
     echo "<h1>Error: No se ha recibido ningún ID de factura.</h1>";
-    exit();
 }
 
 try {
     $sql = "SELECT u.nombre_usuario, r.id_reservas, r.id_pista, r.id_extra, 
-                   r.fecha_reserva, r.hora_inicio, r.precio_total 
+                   r.fecha_reserva, r.hora_inicio, r.precio_total, e.tipo_extra
             FROM reservas r
             JOIN usuario u ON r.usuario_id = u.id_usuario 
+            LEFT JOIN extras_reservas e ON r.id_extra = e.id_extra
             WHERE r.id_reservas = :id_reserva";
     
     $stmt = $conexion->prepare($sql);
@@ -25,6 +25,7 @@ try {
         $fecha_reserva  = $info_factura['fecha_reserva'];
         $hora_inicio    = $info_factura['hora_inicio'];
         $precio_total   = (float)$info_factura['precio_total']; // Total con extras pero sin IVA (según tu form anterior)
+        $nombre_extra = $info_factura['tipo_extra']; //nombre del tipo de extra
 
         // Cálculos financieros
         $precio_pista   = 8.00; // Precio base definido en tu lógica
