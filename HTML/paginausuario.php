@@ -6,6 +6,8 @@ include "../PHP/phpUsuario.php";
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../Css/StyleUsuario.css">
+    <link rel="stylesheet" href="../Css/StylePp.css">
+
     <title>Mi cuenta - PistasVegaPlus</title>
 </head>
 <body>

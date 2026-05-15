@@ -10,7 +10,6 @@
     <style>
     </style>
 </head>
-<>
     <header>
         <nav>
             <div class="logopagina">

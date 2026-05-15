@@ -238,20 +238,6 @@ h2 {
     width: 100%;
 }
 
-/* Footer */
-.footer {
-    background-color: #00b6ff;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-}
-
-.footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-
 .usuario-container {
     display: flex;
     justify-content: center;
@@ -300,6 +286,20 @@ h2 {
     gap: 16px;
     flex-wrap: wrap;
 }
+
+/* Footer */
+.footer {
+    background-color: #00b6ff;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
 .button {
     text-decoration: none;
     background-color: #00b6ff;
@@ -319,4 +319,66 @@ h2 {
 }
 .button.secondary:hover {
     background-color: #e7f9ff;
+}
+/* --- Estilos para el Formulario de Recomendaciones en el Footer --- */
+
+.footer form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para separar del texto */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #e7ffe3; /* Color crema para resaltar sobre el azul */
+}
+
+.footer input[type="text"] {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    border: 2px solid #00f6ff;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.footer input[type="text"]::placeholder {
+    color: #999;
+}
+
+/* Reutilizamos y ajustamos tu clase de botón */
+.footer .ButInicses {
+    background-color: #00f6ff; /* Cian brillante para que destaque en el azul */
+    color: #003366; /* Texto oscuro para contraste */
+    font-weight: bold;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.footer .ButInicses:hover {
+    background-color: #8fffe9; /* Verde agua al pasar el ratón */
+    transform: scale(1.05);
+}
+
+/* Ajuste preventivo para el footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    min-height: auto; /* Cambiado de 100vh para que no ocupe toda la pantalla */
 }
