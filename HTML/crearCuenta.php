@@ -18,7 +18,6 @@
             <div>
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
-                    <li><a href="loginIngles.php">Switch to English?</a></li>
                 </ul>
             </div>
         </nav>

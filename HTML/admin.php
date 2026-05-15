@@ -22,7 +22,6 @@
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="paginausuario.php">Reservas</a></li>
-                    <li><a href="loginIngles.php">Inglés</a></li>
                 </ul>
             </div>
         </nav>
