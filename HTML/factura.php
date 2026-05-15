@@ -76,7 +76,11 @@ include "../PHP/phpFactura.php";
                                     <tfoot>
                                         <tr>
                                             <td>Tipo de extra contratado</td>
+<<<<<<< HEAD
                                             <td><?php echo $nombre_extra ?></td>
+=======
+                                            <td><?php echo $nombre_extra; ?></td>
+>>>>>>> PHP-Factura
                                         </tr>
                                         <tr>
                                             <td>Subtotal (Base Imponible)</td>

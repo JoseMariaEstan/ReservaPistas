@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="StyleLogin.css">
+    <link rel="stylesheet" href="../Css/StyleLogin.css">
     <title>Log In - Pistas VegaPlus</title>
 </head>
 <body>
         <header>
         <nav> 
             <div class="logopagina">
-                <a href="paginaIngles.html">
-                    <img src="Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
+                <a href="paginaIngles.php">
+                    <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <div>
                 <ul class="menu">
-                    <li><a href="paginaIngles.html">Home</a></li>
-                    <li><a href="login.html">¿Cambiar a Español?</a></li>
+                    <li><a href="paginaIngles.php">Home</a></li>
+                    <li><a href="login.php">¿Cambiar a Español?</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,7 +26,7 @@
     <section class="login-section">
         <div >
             <h1>Log In</h1>
-            <form action="paginaReservasIngles.html" method="post" class="formLogin">
+            <form action="paginaReservasIngles.php" method="post" class="formLogin">
                 <div class="campoLogin">
                     <label for="username">Username:</label>
                     <input type="text" id="Usuario" name="Usuario" required placeholder="example@gmail.com">
@@ -41,11 +41,11 @@
         </div>
         <div class="contenedorRedes">
         <a href="#" class="botonRedes">
-            <img src="Imagenes/logoGoogle.svg" alt="Google" class="logosLogin">
+            <img src="../Imagenes/logoGoogle.svg" alt="Google" class="logosLogin">
             <span>Google</span>
         </a>
         <a href="#" class="botonRedes">
-            <img src="Imagenes/logoFacebook.svg" alt="Facebook" class="logosLogin">
+            <img src="../Imagenes/logoFacebook.svg" alt="Facebook" class="logosLogin">
             <span>Facebook</span>
         </a>
         </div>

@@ -1,26 +1,26 @@
+<?php include "../PHP/phpPrincipal.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="StylePp.css">
+    <link rel="stylesheet" href="../Css/StylePp.css">
     <title>PistasVegaPlus</title>
 </head>
 <body>
     <header>
         <nav> 
             <div class="logopagina">
-                <a href="paginaPp.html">
-                    <img src="Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
+                <a href="paginaPp.php">
+                    <img src="../Imagenes/LogoRVegaPlus.png" width="100" alt="Logo PistasVegaPlus" class="logo">
                 </a>
             </div> 
             <div>
                 <ul class="menu">
-                    <li><a href="paginaPp.html">Inicio</a></li>
+                    <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="#Horarios">Horarios</a></li>
-                    <li><a href="login.html">Reservas</a></li>
                     <li><a href="#Contacto">Contacto</a></li>
-                    <li><a href="paginaIngles.html">Switch to English?</a></li>
-                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li><a href="paginaIngles.php">Switch to English?</a></li>
+                    <li><a href="paginausuario.php"> <img src="../Imagenes/Usuario.svg" width="20" alt="Usuario"></a></li>
                 </ul>
             </div>
         </nav>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="imagenrecinto">
-            <img src="Imagenes/RecintoPistas.png" alt="Recinto Deportivo">
+            <img src="../Imagenes/RecintoPistas.png" alt="Recinto Deportivo">
         </div> 
     </section>
     <section id="Horarios" class="seccion_horarios">
@@ -73,7 +73,7 @@
         <h1>POSIBLES PISTAS</h1>
         <div class="contenido">
             <div class="pistas">
-                <img src="Imagenes/PistaPadel.jpg" alt="Pista de Pádel">
+                <img src="<?php echo "$imagen_elegida2"; ?>" alt="Pista de Pádel">
                 <h3>Pista de Pádel</h3>
                 <div class="extras">
                     <ul>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="pistas">
-                <img src="Imagenes/PistaTennis.jpg" alt="Pista de Tenis">
+                <img src="<?php echo "$imagen_elegida1"; ?>" alt="Pista de Tenis">
                 <h3>Pista de Tenis</h3>
                 <div class="extras">
                     <ul>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="pistas">
-                <img src="Imagenes/CampoFutbol.jpg" alt="Pista de Fútbol">
+                <img src="<?php echo "$imagen_elegida3"; ?>" alt="Pista de Fútbol">
                 <h3>Pista de Fútbol 11 / Futbol Sala</h3>
                 <div class="extras">
                     <ul>
@@ -117,6 +117,7 @@
                             <ul>
                                 <li>Pista de Césped Natural / Cesped Artificial</li>
                                 <li>Pista de Fútbol Sala</li>
+                                <li>Pista de Fútbol 7</li>
                             </ul>
                         </li>
                     </ul>
@@ -127,7 +128,7 @@
     <section class="seccion_croquis">
         <h2>Mapa Basico Instalaciones</h2>
         <div class="CroquisRecinto">
-                <img src="Imagenes/CroquisRecinto.png" alt="Croquis del Recinto Deportivo">
+                <img src="../Imagenes/CroquisRecinto.png" alt="Croquis del Recinto Deportivo">
         </div>
     </section>
     <footer class="footer" id="Contacto">
