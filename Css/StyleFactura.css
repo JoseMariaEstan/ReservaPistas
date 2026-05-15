@@ -1,0 +1,88 @@
+.factura {
+    display: flex;
+    flex-direction: column; /* Apila el logo arriba y los detalles abajo */
+    width: 50%;
+    margin: 15px auto; /* Centra toda la factura */
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+}
+.header_logo {
+    display: flex;
+    justify-content: center; /* Centra el logo horizontalmente */
+    margin-bottom: 20px;
+}
+.factura img{
+    width: 80px;
+}
+.detalles {
+    display: flex;
+    justify-content: space-between; /* Separa los dos bloques a los extremos */
+    align-items: flex-start; /* Asegura que ambos bloques empiecen alineados arriba */
+}
+
+.detalles_centro, .detalles_centro2 {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    width: 50%;
+}
+
+.detalles_centro { text-align: left; }
+.detalles_centro2 { text-align: right; }
+
+/* Limpieza de espacios de los párrafos para que no haya huecos grandes */
+.detalles_centro p, .detalles_centro2 p {
+    margin: 4px 0;
+}
+.tabla-factura {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.tabla-factura th {
+    background-color: #f4fbff;
+    color: #0d5f9b;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid #00b6ff;
+}
+
+.tabla-factura td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-factura tfoot td {
+    text-align: right;
+    padding-top: 15px;
+}
+
+.total-row td {
+    font-size: 1.1rem;
+    color: #01649d;
+    border-top: 2px solid #01649d;
+}
+
+/* Estilo para el selector de pago */
+.select-pago {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.btn-pagar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
