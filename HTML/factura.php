@@ -76,11 +76,8 @@ include "../PHP/phpFactura.php";
                                     <tfoot>
                                         <tr>
                                             <td>Tipo de extra contratado</td>
-<<<<<<< HEAD
                                             <td><?php echo $nombre_extra ?></td>
-=======
                                             <td><?php echo $nombre_extra; ?></td>
->>>>>>> PHP-Factura
                                         </tr>
                                         <tr>
                                             <td>Subtotal (Base Imponible)</td>
@@ -121,10 +118,8 @@ include "../PHP/phpFactura.php";
                 </div>
             </div>
         </section>
-    <footer class="footer" id="Contacto">
-        <p><strong>Contacto:</strong> info@pistasvegaplus.com</p>
-        <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad, País</p>
-        <p><strong>Teléfono:</strong> +34 123 456 789</p>
-    </footer>
+
+    <?php include "../HTML/footer.php"?>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php include "../PHP/phpAdmin.php"; ?>
 <!DOCTYPE html>
-<html lang="es">
+<htm lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport">
@@ -10,7 +10,7 @@
     <style>
     </style>
 </head>
-<body>
+<>
     <header>
         <nav>
             <div class="logopagina">
@@ -91,5 +91,8 @@
             </div>
         </form>
     </section>
+    
+    <?php include "../HTML/footer.php"?>
+
 </body>
 </html>

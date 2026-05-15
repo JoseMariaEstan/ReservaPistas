@@ -130,10 +130,8 @@
                 <img src="../Imagenes/CroquisRecinto.png" alt="Croquis del Recinto Deportivo">
         </div>
     </section>
-    <footer class="footer" id="Contacto">
-        <p><strong>Contacto:</strong> info@pistasvegaplus.com</p>
-        <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad, País</p>
-        <p><strong>Teléfono:</strong> +34 123 456 789</p>
-    </footer>
+
+    <?php include "../HTML/footer.php"?>
+
 </body>
 </html>
