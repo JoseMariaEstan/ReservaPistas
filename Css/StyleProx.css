@@ -15,19 +15,100 @@
     font-weight: bold;
     color: #00b6ff;
 }
+/* --- Estructura Principal de la Sección --- */
+.Votos {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    gap: 30px;           
+    text-align: center;
+    margin-top: 40px;
+}
 
-/* Contenedor principal de la barra */
+/* NUEVA CLASE: Alinea el formulario y la imagen frente a frente */
+.fila-votos {
+    display: flex;
+    flex-direction: row;    /* Coloca los elementos en línea horizontal */
+    justify-content: left;
+    gap: 40px;              /* Espacio de separación entre el formulario y la imagen */
+    width: 100%;
+    max-width: 675px;      /* Ancho máximo de la fila completa */
+}
+
+/* --- Formulario de Votos --- */
+.formVotos {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 182, 255, 0.05); /* Opcional: un toque sutil de sombra */
+    border-radius: 10px;    /* Opcional: para que combine con la encuesta */
+    text-align: center;
+}
+
+.formVotos h3 {
+    color: #00b6ff;
+}
+
+.formVotos button {
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;      /* Hace los emojis un poco más grandes y clickeables */
+    margin: 0 10px;
+    margin-top: 10px;
+}
+.columna_izq{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+}
+
+/* --- Bloque de la Imagen (Corregido y Ajustado) --- */
+#fronton .imagenrecinto {
+    width: 100%;
+    max-width: 500px;       /* Mismo tamaño máximo que el formulario para equilibrio visual */
+}
+
+#fronton .imagenrecinto img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;    /* Redondeado de esquinas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para la foto */
+    display: block;
+}
+
+/* --- Contenedor de la Encuesta y Resultados --- */
+.contenedor-encuesta {
+    width: 100%;
+    max-width: 550px;       /* Corregido para que sea responsivo usando max-width */
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 182, 255, 0.1);
+    text-align: center;
+}
+
+.info-votos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #00b6ff;
+}
+
+/* --- Gráfico de Barras --- */
 .grafico-barra {
     display: flex;
     height: 30px;
     width: 100%;
-    background-color: #e7ffe3; /* Fondo crema suave */
+    background-color: #e7ffe3; 
     border-radius: 15px;
-    overflow: hidden; /* Corta las esquinas de las barras internas */
+    overflow: hidden; 
     border: 1px solid #00b6ff;
 }
 
-/* Parte Positiva (Azul/Cian) */
 .barra-positiva {
     background-color: #00b6ff;
     color: white;
@@ -38,13 +119,20 @@
     transition: width 0.5s ease-in-out;
 }
 
-/* Parte Negativa (Gris o Rojo suave) */
 .barra-negativa {
-    background-color: #ff4d4d; /* Rojo para negativos, o puedes usar un azul oscuro */
+    background-color: #ff4d4d; 
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8em;
     transition: width 0.5s ease-in-out;
+}
+
+/* --- RESPONSIVE: Diseño para Móviles --- */
+@media (max-width: 768px) {
+    .fila-votos {
+        flex-direction: column; /* En pantallas pequeñas, la imagen baja ordenadamente */
+        gap: 20px;
+    }
 }

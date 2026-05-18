@@ -46,27 +46,39 @@ include "../PHP/phpproximamente.php"?>
         </div> 
     </section>
 
-    <section>
-        <div class="contenedor-encuesta">
-            <h3>Resultados de la Encuesta</h3>
-            
-            <div class="info-votos">
-                <span>👍 <?php echo $votos_positivos; ?> Positivos</span>
-                <span>👎 <?php echo $votos_negativos; ?> Negativos</span>
+    <section class="Votos">
+        <div class="fila-votos">
+            <div class="columna_izq">
+            <div class="formVotos">
+                <h3>¿Nueva pista en el recinto, fronton?</h3>
+                <label><strong>Votad en esta pequeña encuesta y veréis los resultados</strong></label>
+                <form action="paginaProximamente.php#Encuesta1" method="post" id="Encuesta1">
+                    <button for="voto" type="submit" name="voto" id="Afavor" value='positivo'>✅</button>
+                    <button for="voto" type="submit" name="voto" id="enContra" value='negativo'>❌</button>
+                </form>
             </div>
-
-            <div class="grafico-barra">
-                <div class="barra-positiva" style="width: <?php echo $porcentaje_pos; ?>%;">
-                    <?php echo round($porcentaje_pos); ?>%
+            
+            <div class="contenedor-encuesta">
+            <h3>Resultados de la Encuesta</h3>            
+                <div class="info-votos">
+                    <span>👍 <?php echo $votos_afavor; ?> Positivos</span>
+                    <span>👎 <?php echo $votos_negativos; ?> Negativos</span>
                 </div>
-                <div class="barra-negativa" style="width: <?php echo $porcentaje_neg; ?>%;">
-                    <?php echo round($porcentaje_neg); ?>%
+                <div class="grafico-barra">
+                    <div class="barra-positiva" style="width: <?php echo $porcentaje_pos; ?>%;">
+                        <?php echo round($porcentaje_pos); ?>%
+                    </div>
+                    <div class="barra-negativa" style="width: <?php echo $porcentaje_neg; ?>%;">
+                        <?php echo round($porcentaje_neg); ?>%
+                    </div>
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="imagenrecinto" id="fronton">
+        <img src="../Imagenes/fronton.jpg" alt="nueva pista">
+    </div>
     </section>
-    
     
     <?php include "../HTML/footer.php"?>
 

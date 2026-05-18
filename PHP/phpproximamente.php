@@ -1,15 +1,45 @@
 <?php
-// Supongamos que estos datos vienen de tu base de datos
-$votos_positivos = 150; 
-$votos_negativos = 50;
-$total_votos = $votos_positivos + $votos_negativos;
+require_once "../PHP/phpConexion.php";
 
-// Evitar división por cero y calcular porcentajes
+if(session_status()==PHP_SESSION_NONE){
+    session_start();
+}
+
+$votos_positivos = $_SESSION['votos_positivos'];
+$votos_negativos = $_SESSION['votos_negativos'];
+
+if (!isset($_SESSION['votos_positivos'])){
+    $_SESSION['votos_positivos']=0;
+}
+if (!isset($_SESSION['votos_negativos'])) {
+    $_SESSION['votos_negativos'] =0;
+}
+
+// 3. Comprobar si se ha enviado el formulario y sumar +1 al que corresponda
+if (isset($_POST['voto'])) {
+    if ($_POST['voto'] === 'positivo') {
+        $_SESSION['votos_positivos']++;
+    } elseif ($_POST['voto'] === 'negativo') {
+        $_SESSION['votos_negativos']++;
+    }
+    header("Location:paginaProximamente.php");
+
+}
+
+// 4. Asignar los valores de la sesión a tus variables para los cálculos
+$votos_positivos = $_SESSION['votos_positivos'];
+$votos_afavor=$votos_positivos;
+$votos_negativos = $_SESSION['votos_negativos'];
+
+// ✅ Correcto
+$total_votos = (int)$votos_afavor + (int)$votos_negativos;
+// 5. Calcular porcentajes
 if ($total_votos > 0) {
-    $porcentaje_pos = ($votos_positivos / $total_votos) * 100;
+    $porcentaje_pos = ($votos_afavor / $total_votos) * 100;
     $porcentaje_neg = ($votos_negativos / $total_votos) * 100;
 } else {
-    $porcentaje_pos = 50; // Estado neutro si no hay votos
+    $porcentaje_pos = 50;
     $porcentaje_neg = 50;
 }
+
 ?>
