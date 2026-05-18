@@ -27,10 +27,10 @@ include "../PHP/phpLogin.php"?>
             </div>
         </nav>
     </header>
-    <?php
-    if (isset($_SESSION['Logeado'])!==true) {
-        echo  "<p>  <h2>$mensaje_noLogeado</h2></p>";
-    }
+     <?php
+    //if (isset($_SESSION['Logeado'])!==true) {
+    //    echo  "<p>  <h2>$mensaje_noLogeado</h2></p>";
+    //}
     ?>
     <section class="contenido">
         <div class="Introduccion">
