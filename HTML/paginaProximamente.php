@@ -1,9 +1,11 @@
-<?php include "../PHP/phpPrincipal.php"; ?>
+<?php include "../PHP/phpPrincipal.php"; 
+include "../PHP/phpproximamente.php"?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../Css/StylePp.css">
+    <link rel="stylesheet" href="../Css/StyleProx.css">
     <title>PistasVegaPlus</title>
 </head>
 <body>
@@ -40,8 +42,29 @@
         </div>
 
         <div class="imagenrecinto">
-            <img src="../Imagenes/RecintoPistas.png" alt="Recinto Deportivo">
+            <img src="../Imagenes/pistaConstruccion.png" alt="Pista en construccion">
         </div> 
+    </section>
+
+    <section>
+        <div class="contenedor-encuesta">
+            <h3>Resultados de la Encuesta</h3>
+            
+            <div class="info-votos">
+                <span>👍 <?php echo $votos_positivos; ?> Positivos</span>
+                <span>👎 <?php echo $votos_negativos; ?> Negativos</span>
+            </div>
+
+            <div class="grafico-barra">
+                <div class="barra-positiva" style="width: <?php echo $porcentaje_pos; ?>%;">
+                    <?php echo round($porcentaje_pos); ?>%
+                </div>
+                <div class="barra-negativa" style="width: <?php echo $porcentaje_neg; ?>%;">
+                    <?php echo round($porcentaje_neg); ?>%
+                </div>
+            </div>
+        </div>
+
     </section>
     
     
