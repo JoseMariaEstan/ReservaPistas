@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario_borrar'])) {
     }
 }
 
-if (isset($_SESSION['usuario_nom']) && isset($_SESSION['Logueado'])===true) {
+if (isset($_SESSION['usuario_nom']) && isset($_SESSION['Logeado'])===true) {
     $Info = $_SESSION['usuario_nom'];
     
 }else {

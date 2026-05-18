@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
                     exit();
                 } else {
                     $error_login = "El nombre de usuario o la contraseña son incorrectos.";
-                    $_SESSION['Logueado'] = false;
+                    $_SESSION['Logeado'] = false;
                 }
             }
         } else {
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
                 // True para admin
                 session_regenerate_id(true);
                 $_SESSION['usuario_nom'] = "admin";
-                $_SESSION['Logueado'] = true;
+                $_SESSION['Logeado'] = true;
 
                 header("Location: admin.php");
                 exit();
@@ -59,14 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Usuario'])) {
                     // True para usuario normal
                     $_SESSION['id_usuario'] = $usuario['id_usuario'];
                     $_SESSION['usuario_nom'] = $usuario['nombre_usuario'];
-                    $_SESSION['Logueado'] = true;
+                    $_SESSION['Logeado'] = true;
                     session_regenerate_id(true);
                     header("Location: paginausuario.php");
                     exit(); 
                 } else {
                     //False para ambos casos
                     $error_login = "El nombre de usuario o la contraseña son incorrectos.";
-                    $_SESSION['Logueado'] = false;
+                    $_SESSION['Logeado'] = false;
                 }
             }   
         }

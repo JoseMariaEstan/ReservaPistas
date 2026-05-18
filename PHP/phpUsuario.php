@@ -2,18 +2,21 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-//Comprobar si el usuario está logueado, si no lo está, redirigir al login
-if (empty($_SESSION['Logueado'])) {
+//Comprobar si el usuario está Logeado, si no lo está, redirigir al login
+if (empty($_SESSION['Logeado'])) {
     header("Location: login.php");
     exit();
 } else {
     $usuarioNom = $_SESSION['usuario_nom'] ?? 'Invitado';
     $esEmail = filter_var($usuarioNom, FILTER_VALIDATE_EMAIL) !== false;
 
+
+    //Si el usuario pulsa en cerrar sesion o en cambiar contraseña, se cerrara la sesion
+
     //Uso con base de datos.
     require_once __DIR__ . '/phpConexion.php';
 
-    // 1. Obtener reservas (Añadido filtro para que solo muestre las reservas del usuario logueado)
+    // 1. Obtener reservas (Añadido filtro para que solo muestre las reservas del usuario Logeado)
     $id_usuario_sesion = $_SESSION['id_usuario'] ?? 0;
     try {
         $sql = "SELECT r.usuario_id, r.hora_inicio, r.id_pista 

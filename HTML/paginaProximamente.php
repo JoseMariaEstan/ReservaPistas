@@ -1,5 +1,6 @@
 <?php include "../PHP/phpPrincipal.php"; 
-include "../PHP/phpproximamente.php"?>
+include "../PHP/phpproximamente.php";
+include "../PHP/phpLogin.php"?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,9 +27,14 @@ include "../PHP/phpproximamente.php"?>
             </div>
         </nav>
     </header>
+    <?php
+    if (isset($_SESSION['Logeado'])!==true) {
+        echo  "<p>  <h2>$mensaje_noLogeado</h2></p>";
+    }
+    ?>
     <section class="contenido">
         <div class="Introduccion">
-            <h2>Proximamente</h2>
+            <h2>Próximamente</h2>
             <h3>En este apartado se muestra lo que la directiva piensa añadir a nuestro recinto</h3>
             <p>Este apartado ya mencionado, contara con una seria de secciones que mensualmente se iran actualizando, 
                 según las recomendaciones que los usuarios vayan haciendo en el formulario puerto al final de cada pagina.
@@ -80,41 +86,6 @@ include "../PHP/phpproximamente.php"?>
     </div>
     </section>
     
-        <section class="Votos">
-        <div class="fila-votos">
-            <div class="columna_izq">
-            <div class="formVotos">
-                <h3>¿Adicion de deporte:Natcion + piscina climatizada?</h3>
-                <label><strong>Votad en esta pequeña encuesta y veréis los resultados</strong></label>
-                <form action="paginaProximamente.php#Encuesta2" method="post" id="Encuesta2">
-                    <button for="voto2" type="submit" name="voto2" id="Afavor2" value='positivo'>✅</button>
-                    <button for="voto2" type="submit" name="voto2" id="enContra2" value='negativo'>❌</button>
-                </form>
-            </div>
-            
-            <div class="contenedor-encuesta">
-            <h3>Resultados de la Encuesta</h3>            
-                <div class="info-votos">
-                    <span>👍 <?php echo $votos_afavor2; ?> Positivos</span>
-                    <span>👎 <?php echo $votos_negativos2; ?> Negativos</span>
-                </div>
-                <div class="grafico-barra">
-                    <div class="barra-positiva" style="width: <?php echo $porcentaje_pos2; ?>%;">
-                        <?php echo round($porcentaje_pos2); ?>%
-                    </div>
-                    <div class="barra-negativa" style="width: <?php echo $porcentaje_neg2; ?>%;">
-                        <?php echo round($porcentaje_neg2); ?>%
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="imagenrecinto" id="fronton">
-        <img src="../Imagenes/piscinaclimat.jpg" alt="nueva pista">
-    </div>
-    </section>
-
-
     <?php include "../HTML/footer.php"?>
 
 </body>

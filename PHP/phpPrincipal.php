@@ -1,9 +1,9 @@
 <?php
 // Iniciar sesión para gestionar el estado de logueo
-if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] == false) {
+if (isset($_SESSION['Logeado']) && $_SESSION['Logeado'] == false) {
     $destino = "login.php";
 
-}else if (isset($_SESSION['Logueado']) && $_SESSION['Logueado'] === true) {
+}else if (isset($_SESSION['Logeado']) && $_SESSION['Logeado'] === true) {
     $destino = "paginausuario.php";
 }
 
