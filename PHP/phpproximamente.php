@@ -6,7 +6,7 @@ if (!isset($_SESSION['Logeado']) || $_SESSION['Logeado'] !== true) {
     $votos_negativos = 0;
     $porcentaje_pos = 0;
     $porcentaje_neg = 0;
-    $mensaje_noLogeado = "Sin una cuenta no puedes acceder a información...";
+    $mensaje_noLogeado = "Sin una cuenta no puedes acceder a información exclusiva de usuarios";
 } else {
 
     $id_propuesta = 1;

@@ -1,5 +1,5 @@
 ﻿<?php
-include "../PHP/phpUsuario.php";//TODO
+include "../PHP/phpUsuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,25 +40,22 @@ include "../PHP/phpUsuario.php";//TODO
                 <?php endforeach; ?>
             </div>
 
-            <section class="admin-table" id="lista-usuarios">
-                <section class="admin-table" id="lista-usuarios">
-                    <h2>Lista de Reservas</h2>
-                    
-                    <?php echo $tabla_reservas; ?>
-                    
-                    <form method="post" action="#lista-usuarios" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                        <input type="hidden" name="inicio" value="<?php echo $inicioR; ?>">
-                        
-                        <input type="submit" name="direccion" value="anterior" <?= ($inicioR <= 0) ? 'disabled' : '' ?>>
-                        
-                        <span>Página: <?php echo $pagina_actualR; ?></span>
-                        
-                        <input type="submit" name="direccion" value="siguiente" <?= ($inicioR + $registros_por_paginaR >= $total_reservas) ? 'disabled' : '' ?>>
-                    </form>
-                </section>
-            </section>
-            </div>
             <div class="user-actions">
+
+            <details class="reservas-detalles">
+            <summary class="desplegable" id="reservasRealizadas">Mis Reservas Realizadas</summary>
+                
+                <?php echo $tabla_reservas; ?>
+                
+                <form method="post" action="paginausuario.php#reservasRealizadas" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
+                    <input type="submit" name="direccion" value="anterior" <?php if($inicio <= 0) echo 'disabled'; ?>>
+                    <span>Página: <?php echo $pagina_actual; ?></span>
+                    <input type="submit" name="direccion" value="siguiente" <?php if($inicio + $registros_por_pagina >= $total_reservas) echo 'disabled'; ?>>
+                </form>
+           </details> 
+            
+            
                     <details class="reservas-detalles">
                         <summary class="desplegable" id="reservas">Añadir reserva</summary>
                         <div class="crear-reserva">
