@@ -1,16 +1,16 @@
 <?php
 require_once "../PHP/phpConexion.php";
 
-//if (!isset($_SESSION['Logeado'])===true) {
-   // $votos_afavor=0;
-    //$votos_negativos=0;
-    //$total_votos=0;
-    //$porcentaje_pos=0;
-    //$porcentaje_neg=0;
-    //$mensaje_noLogeado= "Sin una cuenta no puedes acceder a informacion de las actividades o planes de nuestras instalaciones.Inicia Sesion y podras verlo";
+if (!isset($_SESSION['Logeado'])===true) {
+    $votos_afavor=0;
+    $votos_negativos=0;
+    $total_votos=0;
+    $porcentaje_pos=0;
+    $porcentaje_neg=0;
+    $mensaje_noLogeado= "Sin una cuenta no puedes acceder a informacion de las actividades o planes de nuestras instalaciones.Inicia Sesion y podras verlo";//TODO
     
-//}
-//else{
+}
+else{ 
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
@@ -77,5 +77,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['voto'])) {
         $porcentaje_pos = 50;
         $porcentaje_neg = 50;
     }
-//}
+}
 ?>

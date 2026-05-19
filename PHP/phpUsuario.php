@@ -1,7 +1,7 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
+if(session_status()=== PHP_SESSION_NONE)
     session_start();
-}
+
 //Comprobar si el usuario está Logeado, si no lo está, redirigir al login
 if (empty($_SESSION['Logeado'])) {
     header("Location: login.php");
@@ -10,8 +10,13 @@ if (empty($_SESSION['Logeado'])) {
     $usuarioNom = $_SESSION['usuario_nom'] ?? 'Invitado';
     $esEmail = filter_var($usuarioNom, FILTER_VALIDATE_EMAIL) !== false;
 
-
-    //Si el usuario pulsa en cerrar sesion o en cambiar contraseña, se cerrara la sesion
+    //Cerrar sesion//TODO
+    if(isset($_GET['action']) && $_GET['action'] === 'cerrarSession'){
+        $_SESSION = array();
+        session_destroy();
+        header("Location: ../HTML/paginaPp.php");
+    }
+    
 
     //Uso con base de datos.
     require_once __DIR__ . '/phpConexion.php';

@@ -23,7 +23,6 @@ include "../PHP/phpFactura.php";
                     <li><a href="paginaPp.php">Inicio</a></li>
                     <li><a href="#Horarios">Horarios</a></li>
                     <li><a href="#Contacto">Contacto</a></li>
-                    <li><a href="">Switch to English?</a></li>
                     <li><a href="paginausuario.php"> <img src="../Imagenes/Usuario.svg" width="20" alt="Usuario"></a></li>
                 </ul>
             </div>
@@ -83,13 +82,9 @@ include "../PHP/phpFactura.php";
                                             <td>Subtotal (Base Imponible)</td>
                                             <td><?php echo number_format($subtotal, 2); ?> €</td>
                                         </tr>
-                                        <tr>
-                                            <td>IVA (21%)</td>
-                                            <td><?php echo number_format($iva, 2); ?> €</td>
-                                        </tr>
                                         <tr class="total-row">
                                             <td><strong>TOTAL A PAGAR</strong></td>
-                                            <td><strong><?php echo number_format($total_con_iva, 2); ?> €</strong></td>
+                                            <td><strong><?php echo number_format($subtotal, 2); ?> €</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -107,7 +102,7 @@ include "../PHP/phpFactura.php";
                             </select>
                             <button class="btn-pagar" name="pagar">Confirmar y Pagar</button>
                             <?php if (isset($_POST['pagar'])){
-                                    echo "<p style='color: green; font-weight: bold;' >🎉Reserva pagada gracias por reservar en Pistas Vega Plus🎉</p>";
+                                    echo "$mensajepagado";
                             } ?>
                             </form> 
                         </div>

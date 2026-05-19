@@ -1,6 +1,9 @@
 <?php include "../PHP/phpPrincipal.php"; 
 include "../PHP/phpproximamente.php";
-include "../PHP/phpLogin.php"?>
+include "../PHP/phpLogin.php";
+
+ $deshabilitar= (isset($_POST['voto']))? 'disabled': '';
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,10 +30,11 @@ include "../PHP/phpLogin.php"?>
             </div>
         </nav>
     </header>
-     <?php
-    //if (isset($_SESSION['Logeado'])!==true) {
-    //    echo  "<p>  <h2>$mensaje_noLogeado</h2></p>";
-    //}
+     <?php //TODO
+
+    if (empty($_SESSION['Logeado'])) {
+        echo  "<p><h2>$mensaje_noLogeado</h2></p>";
+    }
     ?>
     <section class="contenido">
         <div class="Introduccion">
@@ -58,9 +62,9 @@ include "../PHP/phpLogin.php"?>
             <div class="formVotos">
                 <h3>¿Nueva pista en el recinto, fronton?</h3>
                 <label><strong>Votad en esta pequeña encuesta y veréis los resultados</strong></label>
-                <form action="paginaProximamente.php#Encuesta1" method="post" id="Encuesta1">
-                    <button for="voto" type="submit" name="voto" id="Afavor" value='positivo'>✅</button>
-                    <button for="voto" type="submit" name="voto" id="enContra" value='negativo'>❌</button>
+                <form action="" method="post" id="Encuesta1">
+                    <button type="submit" name="voto" id="Afavor" value='positivo'<?php echo $deshabilitar; //TODO:Hacer deshabilitar funcional en ambos ?>>✅</button>
+                    <button type="submit" name="voto" id="enContra" value='negativo' <?php echo $deshabilitar;?>>❌</button>
                 </form>
             </div>
             

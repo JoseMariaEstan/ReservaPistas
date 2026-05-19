@@ -33,8 +33,6 @@ try {
         
         // Supongamos que el precio_total que guardaste es la base imponible
         $subtotal = $precio_total;
-        $iva      = $subtotal * 0.21;
-        $total_con_iva = $subtotal + $iva;
 
         // Obtener nombre de la pista
         $sql_pista = "SELECT nombre FROM pistas WHERE id_pista = :id_pista";
@@ -43,6 +41,16 @@ try {
         $pista = $stmt_pista->fetch(PDO::FETCH_ASSOC);
         $nombre_pista = $pista ? $pista['nombre'] : "Pista no encontrada";
 
+        if($_SERVER['REQUEST_METHOD']== 'POST'){
+            $metodoDePago=$_POST['metodo_pago'];
+
+            if($metodoDePago == 'efectivo'){
+                $mensajepagado="<p style='color: green;font-weight:bold;'>🎉Reserva pagada gracias por reservar en Pistas Vega Plus🎉</p> <p style='font-weight: bold;' >Recuerde abonar su deuda en el recinto</p>";
+
+            }else{
+            $mensajepagado="<p style='color: green; font-weight: bold;' >🎉Reserva pagada gracias por reservar en Pistas Vega Plus🎉</p>";
+            }
+        }
     } else {
         echo "No hay información para esta reserva";
         exit();
