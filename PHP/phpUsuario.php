@@ -110,9 +110,9 @@ if (empty($_SESSION['Logeado'])) {
             //Si el tipo de pista esta en el array ese tipo sera el unico en no estar "disabled" en el desplegable de tipos de pista
             
         }
-    } catch (PDOException $e) { 
-        echo "Error pistas: " . $e->getMessage(); 
-    }
+        } catch (PDOException $e) { 
+            echo "Error pistas: " . $e->getMessage(); 
+        }
 
     // 3. Cargar Extras
     $opciones_extras = "";
@@ -219,4 +219,81 @@ if (empty($_SESSION['Logeado'])) {
             }
         }        
     }
+    //Listado de reservas de este usuario
+        try {
+            $registros_por_paginaR = 15;
+            $inicioR = isset($_POST['inicio']) ? (int)$_POST['inicio'] : 0;
+
+            // ID del usuario de la sesión
+            $id_usuario_actual = $_SESSION['usuario_id'] ?? 1; 
+
+            // 1. PRIMERO: Contamos el total de reservas reales de este usuario
+            $sql_total = "SELECT COUNT(DISTINCT r.id_reservas) 
+                        FROM reservas r 
+                        WHERE r.usuario_id = :usuario_id";
+                        
+            $stmt_total = $conexion->prepare($sql_total);
+            $stmt_total->execute([':usuario_id' => $id_usuario_actual]);
+            $total_reservas = $stmt_total->fetchColumn();
+
+            // 2. Controlamos las direcciones de la paginación
+            if (isset($_POST['direccion'])) {
+                if ($_POST['direccion'] == 'siguiente' && $inicioR + $registros_por_paginaR < $total_reservas) {
+                    $inicioR += $registros_por_paginaR;
+                } elseif ($_POST['direccion'] == 'anterior' && $inicioR > 0) {
+                    $inicioR -= $registros_por_paginaR;
+                    if ($inicioR < 0) $inicioR = 0;
+                }
+            }
+
+            $pagina_actualR = floor($inicioR / $registros_por_paginaR) + 1;
+
+            $sql_listado = "SELECT 
+                                r.id_reservas, 
+                                p.nombre AS nombre_pista, 
+                                r.fecha_reserva, 
+                                r.precio_total, 
+                                ex.tipo_extra AS extra
+                            FROM reservas r
+                            INNER JOIN pistas p ON r.id_pista = p.id_pista
+                            LEFT JOIN extras_reservas ex ON r.id_extra = ex.id_extra
+                            WHERE r.usuario_id = :usuario_id 
+                            LIMIT :limit OFFSET :offset";
+                                    
+            $stmt_listado = $conexion->prepare($sql_listado);
+            
+            $stmt_listado->bindValue(':usuario_id', $id_usuario_actual, PDO::PARAM_INT);
+            $stmt_listado->bindValue(':limit', $registros_por_paginaR, PDO::PARAM_INT);
+            $stmt_listado->bindValue(':offset', $inicioR, PDO::PARAM_INT);
+            $stmt_listado->execute();
+            
+            $Info_Listado = $stmt_listado->fetchAll(PDO::FETCH_ASSOC);
+
+            // 4. Construimos la estructura HTML personalizada
+            $tabla_reservas = '';
+            if (count($Info_Listado) > 0) {
+                $tabla_reservas .= '<div class="usuarios-grid">';
+                foreach ($Info_Listado as $fila) {
+                    $tabla_reservas .= '<div class="usuario-card">';
+                    
+                    // Pintamos manualmente los campos solicitados de forma controlada
+                    $tabla_reservas .= "<div class='campo'><strong>ID Reserva:</strong> " . htmlspecialchars($fila['id_reservas']) . "</div>";
+                    $tabla_reservas .= "<div class='campo'><strong>Pista:</strong> " . htmlspecialchars($fila['nombre_pista']) . "</div>";
+                    $tabla_reservas .= "<div class='campo'><strong>Fecha / Hora:</strong> " . htmlspecialchars($fila['fecha_reserva']) . "</div>";
+                    // Formateamos el precio para que luzca como moneda
+                    $tabla_reservas .= "<div class='campo'><strong>Precio:</strong> " . htmlspecialchars($fila['precio_total']) . "€</div>";
+                    // Si el extra viene vacío o null en la BD, mostramos 'Ninguno'
+                    $extra = !empty($fila['extra']) ? $fila['extra'] : 'Ninguno';
+                    $tabla_reservas .= "<div class='campo'><strong>Extra:</strong> " . htmlspecialchars($extra) . "</div>";
+                    
+                    $tabla_reservas .= '</div>';
+                }
+                $tabla_reservas .= '</div>';
+            } else {
+                $tabla_reservas = "<p style='text-align: center;'>No hay reservas registradas.</p>";
+            }
+
+        } catch (PDOException $e) {
+            $tabla_reservas = "Error al obtener las reservas: " . $e->getMessage();
+        }
 }

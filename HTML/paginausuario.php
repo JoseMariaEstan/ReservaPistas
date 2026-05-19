@@ -1,5 +1,5 @@
 ﻿<?php
-include "../PHP/phpUsuario.php";
+include "../PHP/phpUsuario.php";//TODO
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,6 +38,25 @@ include "../PHP/phpUsuario.php";
                         <strong><?php echo htmlspecialchars($valor); ?></strong>
                     </div>
                 <?php endforeach; ?>
+            </div>
+
+            <section class="admin-table" id="lista-usuarios">
+                <section class="admin-table" id="lista-usuarios">
+                    <h2>Lista de Reservas</h2>
+                    
+                    <?php echo $tabla_reservas; ?>
+                    
+                    <form method="post" action="#lista-usuarios" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <input type="hidden" name="inicio" value="<?php echo $inicioR; ?>">
+                        
+                        <input type="submit" name="direccion" value="anterior" <?= ($inicioR <= 0) ? 'disabled' : '' ?>>
+                        
+                        <span>Página: <?php echo $pagina_actualR; ?></span>
+                        
+                        <input type="submit" name="direccion" value="siguiente" <?= ($inicioR + $registros_por_paginaR >= $total_reservas) ? 'disabled' : '' ?>>
+                    </form>
+                </section>
+            </section>
             </div>
             <div class="user-actions">
                     <details class="reservas-detalles">
