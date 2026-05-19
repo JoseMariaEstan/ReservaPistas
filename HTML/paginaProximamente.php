@@ -64,7 +64,7 @@ $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
                 <h3>¿Nueva pista en el recinto, fronton?</h3>
                 <label><strong>Votad en esta pequeña encuesta y veréis los resultados</strong></label>
                 <form action="" method="post" id="Encuesta1">
-                    <button type="submit" name="voto" id="Afavor" value='positivo'<?php echo $deshabilitar; //TODO:Hacer deshabilitar funcional en ambos ?>>✅</button>
+                    <button type="submit" name="voto" id="Afavor" value='positivo'<?php echo $deshabilitar;?>>✅</button>
                     <button type="submit" name="voto" id="enContra" value='negativo' <?php echo $deshabilitar;?>>❌</button>
                 </form>
             </div>
