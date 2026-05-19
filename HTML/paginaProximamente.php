@@ -1,8 +1,9 @@
-<?php include "../PHP/phpPrincipal.php"; 
-include "../PHP/phpproximamente.php";
+<?php  include "../PHP/phpPrincipal.php"; 
 include "../PHP/phpLogin.php";
+include "../PHP/phpproximamente.php";
+//(isset($_POST['voto']))? 'disabled': '';
+$deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
 
- $deshabilitar= (isset($_POST['voto']))? 'disabled': '';
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +31,7 @@ include "../PHP/phpLogin.php";
             </div>
         </nav>
     </header>
-     <?php //TODO
+     <?php 
 
     if (empty($_SESSION['Logeado'])) {
         echo  "<p><h2>$mensaje_noLogeado</h2></p>";

@@ -1,75 +1,52 @@
 <?php
 require_once "../PHP/phpConexion.php";
 
-if (!isset($_SESSION['Logeado'])===true) {
-    $votos_afavor=0;
-    $votos_negativos=0;
-    $total_votos=0;
-    $porcentaje_pos=0;
-    $porcentaje_neg=0;
-    $mensaje_noLogeado= "Sin una cuenta no puedes acceder a informacion de las actividades o planes de nuestras instalaciones.Inicia Sesion y podras verlo";//TODO
-    
-}
-else{ 
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
+if (!isset($_SESSION['Logeado']) || $_SESSION['Logeado'] !== true) {
+    $votos_afavor = 0;
+    $votos_negativos = 0;
+    $porcentaje_pos = 0;
+    $porcentaje_neg = 0;
+    $mensaje_noLogeado = "Sin una cuenta no puedes acceder a información...";
+} else {
 
-// 1. Inicializar variables de sesión si no existen
-if (!isset($_SESSION['votos_positivos'])){
-    $_SESSION['votos_positivos'] = 0;
-}
-if (!isset($_SESSION['votos_negativos'])) {
-    $_SESSION['votos_negativos'] = 0;
-}
+    $id_propuesta = 1;
+    // 1. Procesar voto si se envía
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['voto']) && !isset($_SESSION['voto_encuesta1'])) {
+        
+        $tipo_voto = $_POST['voto'];
+        $columna = ($tipo_voto === 'positivo') ? 'votos_positivos' : 'votos_negativos';
 
-// 2. Procesar el formulario cuando se envía un VOTO (POST)
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['voto'])) {
-    
-    $id_propuesta = 1; // ID de la fila del frontón
-    $tipo_voto = $_POST['voto'];
-    
-    // Incrementar el valor en la sesión
-    if ($tipo_voto === 'positivo') {
-        $_SESSION['votos_positivos']++;
-        $votos_actualizados = $_SESSION['votos_positivos'];
-        $sql = "UPDATE propuesta_adicion 
-                SET votos_positivos = :votos
-                WHERE id = :id";
-    } elseif ($tipo_voto === 'negativo') {
-        $_SESSION['votos_negativos']++;
-        $votos_actualizados = $_SESSION['votos_negativos'];
-        $sql = "UPDATE propuesta_adicion 
-                SET votos_negativos = :votos
-                WHERE id = :id";
+        try {
+            $sql = "UPDATE propuesta_adicion SET $columna = $columna + 1 WHERE id = :id";
+            $stmt = $conexion->prepare($sql);
+            $stmt->execute([':id' => $id_propuesta]);
+
+            $_SESSION['voto_encuesta1'] = $tipo_voto;
+            header("Location: paginaProximamente.php#Encuesta1");
+            exit();
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            exit();
+        }
     }
 
-    // Actualizar la Base de Datos de forma segura
+    // 2. Leer votos SIEMPRE desde la base de datos
     try {
-        $stmt = $conexion->prepare($sql);
-        // Vinculamos correctamente los marcadores que declaramos en el SQL
-        $stmt->execute([
-            ':votos' => $votos_actualizados,
-            ':id'    => $id_propuesta
-        ]);
+        $stmt = $conexion->prepare("SELECT votos_positivos, votos_negativos FROM propuesta_adicion WHERE id = :id");
+        $stmt->execute([':id' => $id_propuesta]);
+        $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Redireccionamos AQUÍ, una vez que la base de datos ya se actualizó
-        header("Location: paginaProximamente.php#Encuesta1");
-        exit();
+        $votos_afavor    = $fila['votos_positivos'] ?? 0;
+        $votos_negativos = $fila['votos_negativos'] ?? 0;
 
     } catch (PDOException $e) {
-        echo "Error al registrar el voto en el sistema: " . $e->getMessage();
-        exit();
+        $votos_afavor = 0;
+        $votos_negativos = 0;
     }
-}
-    // 4. Asignar los valores de la sesión a tus variables para los cálculos
-    $votos_positivos = $_SESSION['votos_positivos'];
-    $votos_afavor=$votos_positivos;
-    $votos_negativos = $_SESSION['votos_negativos'];
 
-    // ✅ Correcto
-    $total_votos = (int)$votos_afavor + (int)$votos_negativos;
-    // 5. Calcular porcentajes
+    // 3. Calcular porcentajes
+    $total_votos = $votos_afavor + $votos_negativos;
     if ($total_votos > 0) {
         $porcentaje_pos = ($votos_afavor / $total_votos) * 100;
         $porcentaje_neg = ($votos_negativos / $total_votos) * 100;
@@ -78,4 +55,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['voto'])) {
         $porcentaje_neg = 50;
     }
 }
+
+    //Mensaje de no logeado
+    $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
+
+    if (isset($_POST['voto']) && !isset($_SESSION['voto_encuesta1'])) {
+    $_SESSION['voto_encuesta1'] = $_POST['voto']; // Guarda 'positivo' o 'negativo'
+    }
+    
 ?>

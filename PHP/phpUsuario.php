@@ -10,7 +10,7 @@ if (empty($_SESSION['Logeado'])) {
     $usuarioNom = $_SESSION['usuario_nom'] ?? 'Invitado';
     $esEmail = filter_var($usuarioNom, FILTER_VALIDATE_EMAIL) !== false;
 
-    //Cerrar sesion//TODO
+    //Cerrar sesion
     if(isset($_GET['action']) && $_GET['action'] === 'cerrarSession'){
         $_SESSION = array();
         session_destroy();

@@ -68,7 +68,7 @@
     <section class="admin-table" id="lista-usuarios">
         <h2>Lista de Usuarios Registrados</h2>
         <?php echo $tabla_usuarios; ?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>#lista-usuarios" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <form method="post" action="#lista-usuarios" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
             <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
             <input type="submit" name="direccion" value="anterior" <?php if($inicio <= 0) echo 'disabled'; ?>>
             <span>Página: <?php echo $pagina_actual; ?></span>
@@ -80,7 +80,7 @@
         <?php if (!empty($mensaje_eliminar)): ?>
             <p class="delete-message"><?php echo htmlspecialchars($mensaje_eliminar); ?></p>
         <?php endif; ?>
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>#admin-delete" method="post">
+        <form action="#admin-delete" method="post">
             <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
             <label for="usuario_borrar">Nombre de usuario a eliminar:</label>
             <input id="usuario_borrar" type="text" name="usuario_borrar" required>
