@@ -5,6 +5,7 @@ include "../PHP/phpUsuario.php";
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StyleUsuario.css">
     <link rel="stylesheet" href="../Css/StylePp.css">
 
@@ -96,7 +97,7 @@ include "../PHP/phpUsuario.php";
                                         <?php echo $opciones_value; ?> 
                                 </select>
 
-                                <label for="rpecio_total">Precio total <strong>sin IVA</strong>:</label>
+                                <label for="rpecio_total">Precio total:</label>
                                 <input type="text" id="precio_total" name="precio_total" value="<?php echo isset($precio_total) ? number_format($precio_total, 2) . ' €' : ''; ?>" readonly>
 
                                 <button type="submit"name="crear_reserva">Crear nueva reserva</button>

@@ -9,6 +9,7 @@ $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <link rel="stylesheet" href="../Css/StyleProx.css">
     <title>PistasVegaPlus</title>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport">
+    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <link rel="stylesheet" href="../Css/StyleAdmin.css">
     <title>Panel Administrador - PistasVegaPlus</title>

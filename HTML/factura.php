@@ -6,6 +6,7 @@ include "../PHP/phpFactura.php";
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <link rel="stylesheet" href="../Css/StyleFactura.css">
     <title>PistasVegaPlus</title>

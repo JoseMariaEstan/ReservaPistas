@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <title>PistasVegaPlus</title>
 </head>
