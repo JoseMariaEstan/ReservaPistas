@@ -21,7 +21,7 @@ if (empty($_SESSION['Logeado'])) {
     //Uso con base de datos.
     require_once __DIR__ . '/phpConexion.php';
 
-    // 1. Obtener reservas (Añadido filtro para que solo muestre las reservas del usuario Logeado)
+    // Obtener reservas usando un filtro para que solo salgan las reservas del usuario logeado
     $id_usuario_sesion = $_SESSION['id_usuario'] ?? 0;
     try {
         $sql = "SELECT r.usuario_id, r.hora_inicio, r.id_pista 
@@ -45,27 +45,14 @@ if (empty($_SESSION['Logeado'])) {
         'Historial Reservas' => 'Tienes ' . count($resultado) . ' reserva(s) realizada(s)'
     ];
 
-    // 2. Cargar Pistas
+    // Cargar Pistas
     $opciones_pistas = "";
-    $tipos_de_pista = [];//array para tener todos los tipos de pista
+    $tipos_de_pista = [];//array de todos tipos de usuario
     $pista_tipo = "<option value=''>-- --</option>"; // Valor por defecto
     $selected_tipo_pista = "";
     $selected_extra = $_POST['id_extra'] ?? '';
     $selected_fecha = $_POST['fecha_reserva'] ?? '';
     $selected_hora = $_POST['hora_inicio'] ?? '';
-
-
-    //Si la fecha es superior a la de las reservas en la base de datos, se borrara autom.
-    try{
-        $sql_borrarFecha="DELETE FROM reservas WHERE fecha_reserva < CURDATE();";
-        $stmt = $conexion->prepare($sql_borrarFecha);
-        $stmt = $conexion->query($sql_borrarFecha);
-        $stmt->execute();
-
-    }
-    catch(PDOException $e){
-        echo "Error al eliminar reservas antiguas: " . $e->getMessage();
-    }
 
     // Detectamos si el usuario acaba de cambiar la pista en el desplegable
     $id_pista_seleccionada = $_POST['id_pista'] ?? null;
@@ -165,7 +152,6 @@ if (empty($_SESSION['Logeado'])) {
 
     $precio_final="";
     // 5. PROCESAR FORMULARIO (INSERT)
-    // Importante: Asegúrate de que tu botón en el HTML tenga name="crear_reserva"
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crear_reserva'])) {
         
         $id_usuario = $_SESSION['id_usuario'] ?? null;
@@ -175,7 +161,7 @@ if (empty($_SESSION['Logeado'])) {
         $hora_reserva = $_POST['hora_inicio'] ?? null;
         $precio_total_sucio=$_POST['precio_total'] ?? null;
         $precio_limpio= str_replace(['€', ','], ['','.'], $precio_total_sucio);
-        $precio_final=(double)$precio_limpio;
+        $precio_final=$precio_limpio;
 
         if ($id_usuario === null && !empty($_SESSION['usuario_nom'])) {
             try {
@@ -188,6 +174,7 @@ if (empty($_SESSION['Logeado'])) {
                     $_SESSION['id_usuario'] = $id_usuario;
                 }
             } catch (PDOException $e) {
+                $e->getMessage();
                 // Si no se puede recuperar el usuario, dejamos que el error original sea más claro
             }
         }
@@ -269,7 +256,6 @@ if (empty($_SESSION['Logeado'])) {
             $tabla_reservas = "<p style='text-align: center;'>No tienes reservas registradas en este momento.</p>";
         }
     } catch (PDOException $e) {
-        // Esto es lo que capturó el error en tu captura de pantalla
         $tabla_reservas = "Error al obtener las reservas: " . $e->getMessage();
     }
 }
