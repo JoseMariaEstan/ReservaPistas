@@ -24,14 +24,12 @@ try {
         $nombre_usuario = $info_factura['nombre_usuario'];
         $fecha_reserva  = $info_factura['fecha_reserva'];
         $hora_inicio    = $info_factura['hora_inicio'];
-        $precio_total   = (float)$info_factura['precio_total']; // Total con extras pero sin IVA (según tu form anterior)
+        $precio_total   = (float)$info_factura['precio_total']; // Total con extras pero sin IVA 
         $nombre_extra = $info_factura['tipo_extra']; //nombre del tipo de extra
 
         // Cálculos financieros
-        $precio_pista   = 8.00; // Precio base definido en tu lógica
+        $precio_pista   = 8.00; // Precio base de la pista por hora
         $precio_extras  = $precio_total - $precio_pista; 
-        
-        // Supongamos que el precio_total que guardaste es la base imponible
         $subtotal = $precio_total;
 
         // Obtener nombre de la pista

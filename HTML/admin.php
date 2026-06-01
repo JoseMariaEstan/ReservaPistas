@@ -1,12 +1,13 @@
 <?php include "../PHP/phpAdmin.php"; ?>
 <!DOCTYPE html>
-<htm lang="es">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <link rel="stylesheet" href="../Css/StyleAdmin.css">
+    <link rel="stylesheet" href="../Css/StyleUsuario.css">
     <title>Panel Administrador - PistasVegaPlus</title>
     <style>
     </style>

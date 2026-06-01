@@ -1,40 +1,60 @@
+/* Tarjeta blanca de factura */
 .factura {
     display: flex;
-    flex-direction: column; /* Apila el logo arriba y los detalles abajo */
+    flex-direction: column;
     width: 50%;
-    margin: 15px auto; /* Centra toda la factura */
+    margin: 15px auto;
     background-color: white;
     border: 1px solid black;
     border-radius: 15px;
     padding: 20px;
 }
+/* Contenedor del logo centrado en la parte superior */
 .header_logo {
     display: flex;
-    justify-content: center; /* Centra el logo horizontalmente */
+    justify-content: center;
     margin-bottom: 20px;
 }
-.factura img{
+
+/* Tamaño del logo dentro de la factura */
+.factura img {
     width: 80px;
 }
+
+/* Fila con los datos del centro (izquierda) y número de factura (derecha) */
 .detalles {
     display: flex;
-    justify-content: space-between; /* Separa los dos bloques a los extremos */
-    align-items: flex-start; /* Asegura que ambos bloques empiecen alineados arriba */
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.detalles_centro, .detalles_centro2 {
+/* Columnas de datos del centro y del número de factura */
+.detalles_centro,
+.detalles_centro2 {
     display: flex;
     flex-direction: column;
     padding: 0 15px;
     width: 50%;
 }
 
-.detalles_centro { text-align: left; }
+.detalles_centro  { text-align: left;  }
 .detalles_centro2 { text-align: right; }
 
-/* Limpieza de espacios de los párrafos para que no haya huecos grandes */
-.detalles_centro p, .detalles_centro2 p {
+/* Reduce el espacio vertical entre párrafos de los datos del centro */
+.detalles_centro p,
+.detalles_centro2 p {
     margin: 4px 0;
+}
+
+/* Subtítulos de sección dentro de la factura (h5) */
+.detalles h5,
+.detalles_factura h5,
+.pagar h5 {
+    color: #0d5f9b;
+    margin: 16px 0 8px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 .tabla-factura {
     width: 100%;
@@ -43,6 +63,7 @@
     font-size: 0.9rem;
 }
 
+/* Cabecera de la tabla */
 .tabla-factura th {
     background-color: #f4fbff;
     color: #0d5f9b;
@@ -51,31 +72,35 @@
     border-bottom: 2px solid #00b6ff;
 }
 
+/* Celdas del cuerpo de la tabla */
 .tabla-factura td {
     padding: 10px 12px;
     border-bottom: 1px solid #eee;
 }
 
+/* Celdas del pie de tabla (subtotal y total) alineadas a la derecha */
 .tabla-factura tfoot td {
     text-align: right;
     padding-top: 15px;
 }
 
+/* Fila del total final destacada con borde superior y color azul */
 .total-row td {
     font-size: 1.1rem;
     color: #01649d;
     border-top: 2px solid #01649d;
 }
-
-/* Estilo para el selector de pago */
+/* Desplegable para elegir el método de pago */
 .select-pago {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
     margin-bottom: 15px;
+    font-size: 0.95rem;
 }
 
+/* Botón de confirmar y pagar (verde para indicar acción positiva) */
 .btn-pagar {
     background-color: #28a745;
     color: white;
@@ -85,4 +110,9 @@
     cursor: pointer;
     font-weight: bold;
     width: 100%;
+    transition: background-color 0.3s;
+}
+
+.btn-pagar:hover {
+    background-color: #1e7e34;
 }

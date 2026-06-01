@@ -90,19 +90,18 @@ if (empty($_SESSION['Logeado'])) {
                 $opciones_pistas .= "<option value='{$pista['id_pista']}' {$selected_pista}>{$pista['nombre']}</option>";
             }
 
-            // Si esta fila corresponde a la pista que el usuario seleccionó, construimos su tipo
+            // Si esta fila corresponde a la pista que el usuario seleccionó, se selecciona su tipo autom.
             if ($id_pista_seleccionada && $pista['id_pista'] == $id_pista_seleccionada) {
                 $pista_tipo = "<option value='{$tipo_pista}' selected>{$tipo_pista}</option>";
             }
 
             //Si el tipo de pista esta en el array ese tipo sera el unico en no estar "disabled" en el desplegable de tipos de pista
-            
         }
         } catch (PDOException $e) { 
             echo "Error pistas: " . $e->getMessage(); 
         }
 
-    // 3. Cargar Extras
+    // Cargar Extras
     $opciones_extras = "";
     $precio_pista = 8.00; // Precio base por cada pista
     try {
@@ -119,7 +118,7 @@ if (empty($_SESSION['Logeado'])) {
         }
     } catch (PDOException $e) { echo "Error extras: " . $e->getMessage(); }
 
-    // 4. Generar Horas
+    // Generar Horas
     $opciones_value = "";
     $opciones_horas = ["8", "9", "10", "11", "12", "13", "15", "16", "17", "18", "19", "20", "21", "22"];
 
@@ -151,7 +150,7 @@ if (empty($_SESSION['Logeado'])) {
     }
 
     $precio_final="";
-    // 5. PROCESAR FORMULARIO (INSERT)
+    // Se Insertan los datos con una query en la base de datos
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crear_reserva'])) {
         
         $id_usuario = $_SESSION['id_usuario'] ?? null;
@@ -208,7 +207,7 @@ if (empty($_SESSION['Logeado'])) {
         }        
     }
     //Listado de reservas de este usuario
-    $registros_por_pagina = 2;
+    $registros_por_pagina = 3;
     $inicio = isset($_POST['inicio']) ? (int)$_POST['inicio'] : 0;
 
     if (isset($_POST['direccion'])) {
@@ -222,6 +221,7 @@ if (empty($_SESSION['Logeado'])) {
 
     $pagina_actual = floor($inicio / $registros_por_pagina) + 1;
 
+    //Creacion de la tabla para ver las reservas del usuario
     try {
         $sql = "SELECT 
                     r.id_reservas AS 'ID Reserva', 

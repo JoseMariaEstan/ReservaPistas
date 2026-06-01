@@ -10,7 +10,7 @@ if (!isset($_SESSION['Logeado']) || $_SESSION['Logeado'] !== true) {
 } else {
 
     $id_propuesta = 1;
-    // 1. Procesar voto si se envía
+    // Procesa voto si se envía
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['voto']) && !isset($_SESSION['voto_encuesta1'])) {
         
         $tipo_voto = $_POST['voto'];
@@ -31,7 +31,7 @@ if (!isset($_SESSION['Logeado']) || $_SESSION['Logeado'] !== true) {
         }
     }
 
-    // 2. Leer votos SIEMPRE desde la base de datos
+    // 2. Leer votos en la base de datos
     try {
         $stmt = $conexion->prepare("SELECT votos_positivos, votos_negativos FROM propuesta_adicion WHERE id = :id");
         $stmt->execute([':id' => $id_propuesta]);
@@ -45,7 +45,7 @@ if (!isset($_SESSION['Logeado']) || $_SESSION['Logeado'] !== true) {
         $votos_negativos = 0;
     }
 
-    // 3. Calcular porcentajes
+    //Calcular porcentajes para diagrama de barras
     $total_votos = $votos_afavor + $votos_negativos;
     if ($total_votos > 0) {
         $porcentaje_pos = ($votos_afavor / $total_votos) * 100;
@@ -60,7 +60,7 @@ if (!isset($_SESSION['Logeado']) || $_SESSION['Logeado'] !== true) {
     $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
 
     if (isset($_POST['voto']) && !isset($_SESSION['voto_encuesta1'])) {
-    $_SESSION['voto_encuesta1'] = $_POST['voto']; // Guarda 'positivo' o 'negativo'
+    $_SESSION['voto_encuesta1'] = $_POST['voto']; // Guarda positivo o negativo
     }
     
 ?>

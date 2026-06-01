@@ -8,8 +8,7 @@ $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="icon" href="../Imagenes/LogoRVegaPlus.png" type="image/x-icon">
     <link rel="stylesheet" href="../Css/StylePp.css">
     <link rel="stylesheet" href="../Css/StyleProx.css">
     <title>PistasVegaPlus</title>
@@ -25,7 +24,6 @@ $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
             <div>
                 <ul class="menu">
                     <li><a href="paginaPp.php">Inicio</a></li>
-                    <li><a href="#Horarios">Horarios</a></li>
                     <li><a href="#Contacto">Contacto</a></li>
                     <li><a href="paginausuario.php"> <img src="../Imagenes/Usuario.svg" width="20" alt="Usuario"></a></li>
                 </ul>
@@ -60,7 +58,10 @@ $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
 
     <section class="Votos">
         <div class="fila-votos">
-            <div class="columna_izq">
+            <div class="columna_izq">              
+            <div class="imagenrecinto" id="fronton">
+                <img src="../Imagenes/fronton.jpg" alt="nueva pista">
+            </div>
             <div class="formVotos">
                 <h3>¿Nueva pista en el recinto, fronton?</h3>
                 <label><strong>Votad en esta pequeña encuesta y veréis los resultados</strong></label>
@@ -86,9 +87,6 @@ $deshabilitar = isset($_SESSION['voto_encuesta1']) ? ' disabled' : '';
                 </div>
             </div>
         </div>
-    </div>
-    <div class="imagenrecinto" id="fronton">
-        <img src="../Imagenes/fronton.jpg" alt="nueva pista">
     </div>
     </section>
     

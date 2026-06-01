@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 //eliminar cuenta
-$mensaje_eliminar = '';
+$mensaje_eliminar = 'El usuario ha sido borrado de la base de datos correctamente';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario_borrar'])) {
     $usuario_borrar = trim($_POST['usuario_borrar']);
 

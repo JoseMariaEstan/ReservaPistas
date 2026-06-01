@@ -115,7 +115,7 @@ include "../PHP/phpUsuario.php";
             <div class="user-actions">
                 <a class="button" href="paginaPp.php">Volver a inicio</a>
                 <a class="button secondary" href="../PHP/phpUsuario.php?action=cerrarSession" name="cerrarSesion">Cerrar sesión</a>
-                <a class="button secondary" href="../PHP/phpUsuario.php?action=cerrarSession" name="cambiarContra">Cambiar contraseña</a>
+                <a class="button secondary" href="../PHP/phpUsuario.php?action=" name="cambiarContra">Cambiar contraseña</a>
             </div>
         </section>
     </main>

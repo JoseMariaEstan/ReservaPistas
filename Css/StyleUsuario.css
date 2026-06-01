@@ -1,10 +1,10 @@
-﻿/* Estilos propios para la página de usuario */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: radial-gradient(circle at top left, #e7ffe3 0%, #f1fcff 45%, #ffffff 100%);
     color: #20354f;
 }
+
 
 header {
     background-color: rgba(255, 255, 255, 0.92);
@@ -15,19 +15,23 @@ header {
     z-index: 10;
 }
 
+/* Navegación interior del header */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 5%;
-    text-align: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
+/* Logo de la página */
 .logopagina img {
     display: block;
     width: 100px;
 }
 
+/* Menú de navegación */
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -38,6 +42,7 @@ nav {
     justify-content: flex-end;
 }
 
+/* Enlaces del menú */
 .menu li a {
     color: #0d5f9b;
     text-decoration: none;
@@ -47,19 +52,22 @@ nav {
     transition: all 0.25s ease;
 }
 
+/* Efecto hover en los enlaces */
 .menu li a:hover,
 .menu li a:focus {
     background-color: rgba(0, 182, 255, 0.12);
     color: #0072c6;
 }
 
+/* Centra la user-card y ocupa el espacio disponible entre header y footer */
 .usuario-container {
     display: flex;
     justify-content: center;
-    padding: 30px 20px 30px;
+    padding: 30px 20px;
     min-height: calc(100vh - 172px);
 }
 
+/* Tarjeta principal con toda la información del usuario */
 .user-card {
     width: 100%;
     max-width: 620px;
@@ -70,23 +78,25 @@ nav {
     padding: 28px 20px;
 }
 
+/* Título de la tarjeta */
 .user-card h1 {
     margin: 0 0 14px;
-    font-size: clamp(2rem, 2.4vw, 2.4rem);
+    font-size: 1.5rem;
     color: #01649d;
 }
 
+/* Texto descriptivo */
 .user-note {
     margin: 0 0 28px;
     color: #4a607c;
     line-height: 1.7;
 }
-
 .user-info {
     display: grid;
     gap: 16px;
 }
 
+/* Cada fila de dato: etiqueta a la izquierda, valor a la derecha */
 .user-info-row {
     display: grid;
     grid-template-columns: 1fr;
@@ -96,7 +106,6 @@ nav {
     border-radius: 18px;
     background: linear-gradient(135deg, #f4fbff 0%, #e7ffe3 100%);
     border-left: 6px solid #00b6ff;
-    text-align: left;
 }
 
 .user-info-row span {
@@ -104,11 +113,12 @@ nav {
     font-weight: 700;
 }
 
+/* Valor del dato */
 .user-info-row strong {
     color: #20354f;
-    text-align: left;
 }
 
+/* Contenedor de los botones de acción (volver, cerrar sesión, etc.) */
 .user-actions {
     margin-top: 32px;
     display: flex;
@@ -116,9 +126,37 @@ nav {
     gap: 14px;
     align-items: stretch;
 }
+/* Botón principal (reutiliza StylePp.css con diferencias)*/
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00b6ff;
+}
 
+.button:hover {
+    transform: translateY(-1px);
+    background-color: #0099e6;
+    box-shadow: 0 14px 30px rgba(0, 182, 255, 0.18);
+}
+
+/* Variante secundaria (fondo blanco con borde) */
+.button.secondary {
+    background-color: #ffffff;
+    color: #00b6ff;
+    border: 2px solid #00b6ff;
+}
+
+.button.secondary:hover {
+    background-color: #e5f7ff;
+}
+/* Contenedor del formulario con fondo degradado */
 .crear-reserva {
-    background: #ffffff;
     border-radius: 18px;
     padding: 24px 22px;
     border: 1px solid rgba(0, 182, 255, 0.15);
@@ -126,12 +164,14 @@ nav {
     margin-top: 14px;
 }
 
+/* Disposición vertical de los campos del formulario */
 .crear-reserva form {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
+/* Etiquetas del formulario */
 .crear-reserva label {
     font-weight: 700;
     color: #0d5f9b;
@@ -140,7 +180,8 @@ nav {
     display: block;
 }
 
-.crear-reserva select, 
+/* Campos de texto y desplegables */
+.crear-reserva select,
 .crear-reserva input {
     padding: 12px 16px;
     border-radius: 10px;
@@ -152,12 +193,14 @@ nav {
     transition: all 0.25s ease;
 }
 
+/* Efecto hover */
 .crear-reserva select:hover,
 .crear-reserva input:hover {
     border-color: rgba(0, 182, 255, 0.4);
     background-color: #f9fcfd;
 }
 
+/* Efecto focus (cuando está el cursor sobre el)*/
 .crear-reserva select:focus,
 .crear-reserva input:focus {
     outline: none;
@@ -166,6 +209,7 @@ nav {
     box-shadow: 0 0 0 3px rgba(0, 182, 255, 0.1);
 }
 
+/* Campo deshabilitado */
 .crear-reserva select:disabled {
     background-color: #e7eff5;
     color: #4a607c;
@@ -173,6 +217,7 @@ nav {
     opacity: 0.7;
 }
 
+/* Botón de envío del formulario */
 .crear-reserva button {
     padding: 14px 24px;
     border-radius: 10px;
@@ -195,7 +240,7 @@ nav {
 .crear-reserva button:active {
     transform: translateY(0);
 }
-
+/* Contenedor de cada sección desplegable */
 .reservas-detalles {
     background: #ffffff;
     border-radius: 28px;
@@ -204,6 +249,7 @@ nav {
     overflow: hidden;
 }
 
+/* Cabecera clicable del desplegable */
 .reservas-detalles summary {
     list-style: none;
     cursor: pointer;
@@ -217,44 +263,18 @@ nav {
     border-bottom: 1px solid rgba(0, 182, 255, 0.15);
 }
 
-.reservas-detalles summary::marker {
-    display: none;
-}
-
+/* Flecha indicadora del estado abierto/cerrado */
 .reservas-detalles summary::after {
     content: "▼";
+    transition: transform 0.3s ease;
 }
 
+/* Rota la flecha cuando se abre el desplegable */
 .reservas-detalles[open] summary::after {
     transform: rotate(-180deg);
 }
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-weight: 700;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #00b6ff;
-}
 
-.button:hover {
-    transform: translateY(-1px);
-    background-color: #0099e6;
-    box-shadow: 0 14px 30px rgba(0, 182, 255, 0.18);
-}
-
-.button.secondary {
-    background-color: #ffffff;
-    color: #00b6ff;
-    border: 2px solid #00b6ff;
-}
-
-.button.secondary:hover {
-    background-color: #e5f7ff;
-}
+/* Mensaje de éxito tras crear una reserva */
 .reservas-mensaje {
     padding: 20px;
     background-color: #e7ffe3;
@@ -263,6 +283,57 @@ nav {
     color: #01649d;
     font-weight: 700;
     text-align: center;
+}
+/* Cuadrícula responsiva de tarjetas */
+.usuarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 24px 22px;
+}
+
+/* Tarjeta individual de una reserva */
+.usuario-card {
+    background: linear-gradient(135deg, #f4fbff 0%, #e7ffe3 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(0, 182, 255, 0.15);
+    border-left: 5px solid #00b6ff;     /*Borde izquierdo*/
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(11, 98, 163, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Efecto hover en la tarjeta */
+.usuario-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(11, 98, 163, 0.1);
+    border-color: rgba(0, 182, 255, 0.35);
+}
+
+/* Cada dato dentro de la tarjeta */
+.usuario-card .campo {
+    font-size: 0.95rem;
+    color: #20354f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed rgba(0, 182, 255, 0.15);
+    padding-bottom: 8px;
+}
+
+/* Último dato sin línea */
+.usuario-card .campo:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Etiqueta del dato */
+.usuario-card .campo strong {
+    color: #0d5f9b;
+    font-weight: 700;
 }
 .footer {
     background-color: #00b6ff;
@@ -274,59 +345,4 @@ nav {
 
 .footer p {
     margin: 6px 0;
-}
-/* ==========================================================================
-   Estilos específicos para la Tabla / Rejilla de Reservas Realizadas
-   ========================================================================== */
-
-/* Contenedor principal de las tarjetas de reservas */
-.usuarios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 24px 22px;
-}
-
-/* Tarjeta individual de cada reserva (Estilo similar a .crear-reserva) */
-.usuario-card {
-    background: linear-gradient(135deg, #f4fbff 0%, #e7ffe3 100%);
-    border-radius: 18px;
-    border: 1px solid rgba(0, 182, 255, 0.15);
-    padding: 20px;
-    box-shadow: 0 8px 24px rgba(11, 98, 163, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    border-left: 5px solid #00b6ff; /* Acento visual en la izquierda */
-}
-
-/* Efecto sutil al pasar el cursor sobre la tarjeta */
-.usuario-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(11, 98, 163, 0.1);
-    border-color: rgba(0, 182, 255, 0.35);
-}
-
-/* Fila de información individual dentro de la tarjeta */
-.usuario-card .campo {
-    font-size: 0.95rem;
-    color: #20354f;
-    display: flex;
-    justify-content: space-between; /* Alinea el título a la izquierda y el valor a la derecha */
-    align-items: center;
-    border-bottom: 1px dashed rgba(0, 182, 255, 0.15);
-    padding-bottom: 8px;
-}
-
-/* Último elemento sin línea divisoria inferior */
-.usuario-card .campo:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-/* Título del campo (Ej: Nombre de la pista:) */
-.usuario-card .campo strong {
-    color: #0d5f9b;
-    font-weight: 700;
 }

@@ -1,19 +1,16 @@
-/* PALETA DE COLORES
-   #00b6ff (Azul Principal)
-   #00d6ff (Azul Medio)
-   #00f6ff (Cian Brillante)
-   #8fffe9 (Verde Agua Claro)
-   #e7ffe3 (Crema/Verde Muy Claro)
-*/
-
+    /*
+     #00b6ff → Azul Principal
+     #00d6ff → Azul Medio
+     #00f6ff → Cian Brillante
+     #8fffe9 → Verde Agua Claro
+     #e7ffe3 → Crema / Verde Muy Claro
+      */
 body {
     background-color: #e7ffe3;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
 }
-
-/* Barra de Navegación */
 nav {
     display: flex;
     justify-content: space-between;
@@ -22,8 +19,11 @@ nav {
     padding: 10px 5%;
     box-shadow: 0 4px 10px rgba(0, 182, 255, 0.2);
     border-bottom: 3px solid #00b6ff;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
+/* Lista de enlaces del menú */
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -34,6 +34,7 @@ nav {
     justify-content: flex-end;
 }
 
+/* Enlace individual del menú */
 .menu li a {
     text-decoration: none;
     color: #00b6ff;
@@ -47,40 +48,34 @@ nav {
     color: #00f6ff;
 }
 
-/* Títulos */
-h1 {
+h1, h2 {
     color: #00b6ff;
     text-align: center;
-    margin-top: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-h2 {
-    color: #00b6ff;
-    text-align: center;
-    margin-top: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+h1 { margin-top: 20px; }
+h2 { margin-top: 40px; }
 
-/* Sección de Contenido */
+/* Contenedor flex de las secciones con imagen lateral */
 .contenido {
     display: flex;
-    flex-direction: wrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
     gap: 40px;
 }
 
+/* Bloque de texto introductorio */
 .Introduccion {
     background-color: #ffffff;
     padding: 30px;
     max-width: 600px;
     border-radius: 20px;
     border-left: 8px solid #00d6ff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     text-align: justify;
 }
 
@@ -94,30 +89,31 @@ h2 {
     font-style: italic;
 }
 
-/* Imagen recinto */
 .imagenrecinto {
-    width: 500px;
+    width: 90%;
+    max-width: 500px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border: 5px solid #ffffff;
 }
 
 .imagenrecinto img {
     width: 100%;
-    height: 400px;
+    height: auto;
+    min-height: 300px;
+    max-height: 400px;
     display: block;
-    transition: transform 0.5s;
     object-fit: cover;
+    transition: transform 0.5s;
 }
 
 .imagenrecinto:hover img {
     transform: scale(1.05);
 }
 
-/* Tabla de Horarios */
 .seccion_horarios {
-    padding: 20px 20px;
+    padding: 20px;
     background: linear-gradient(135deg, #8fffe9 0%, #00f6ff 100%);
 }
 
@@ -130,7 +126,7 @@ h2 {
     background-color: #ffffff;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .tabla_horarios th {
@@ -147,17 +143,17 @@ h2 {
     font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
+/* Efecto cuando pasamos el ratón sobre una fila */
 .tabla_horarios tr:hover {
     background-color: #e7ffe3;
 }
-
-/* Imágenes pistas */
 .pistas {
-    width: 500px;
+    width: 90%;
+    max-width: 500px;
     min-height: 600px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border: 5px solid #ffffff;
     display: flex;
     flex-direction: column;
@@ -165,19 +161,22 @@ h2 {
 
 .pistas img {
     width: 100%;
-    height: 400px;
+    height: auto;
+    min-height: 250px;
+    max-height: 400px;
     display: block;
-    transition: transform 0.5s;
     object-fit: cover;
     border-radius: 20px 20px 0 0;
     flex-shrink: 0;
+    transition: transform 0.5s;
 }
 
+/* Efecto al pasar el ratón */
 .pistas:hover img {
     transform: scale(1.05);
 }
 
-/* Extras Pistas */
+/* Bloque de extras dentro de cada tarjeta de pista */
 .extras {
     background-color: #ffffff;
     padding: 15px;
@@ -185,13 +184,15 @@ h2 {
     border-left: 5px solid #00d6ff;
     flex-grow: 1;
 }
+.seccion_croquis {
+    text-align: center;
+}
 
-/* Mapa Básico */
 .CroquisRecinto {
     width: 90%;
     max-width: 500px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     border: 3px solid #ffffff;
     overflow: hidden;
     margin: 0 auto;
@@ -199,107 +200,20 @@ h2 {
 
 .CroquisRecinto img {
     width: 100%;
-    height: 400px;
+    height: auto;
+    min-height: 250px;
+    max-height: 400px;
     display: block;
     object-fit: cover;
 }
 
+/* Efecto al pasar el ratón */
 .CroquisRecinto:hover img {
     transform: scale(1.05);
     transition: transform 0.5s;
 }
 
-/* Footer */
-.footer {
-    background-color: #00b6ff;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-}
-
-.footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-
-.usuario-container {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.user-card {
-    background-color: #ffffff;
-    border: 1px solid #00b6ff;
-    border-radius: 24px;
-    padding: 30px;
-    max-width: 520px;
-    width: 100%;
-}
-
-.usuario-container {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.user-card {
-    background-color: #ffffff;
-    border: 1px solid #00b6ff;
-    border-radius: 24px;
-    padding: 30px;
-    max-width: 520px;
-    width: 100%;
-}
-
-.user-card h1 {
-    margin-top: 0;
-    color: #00b6ff;
-}
-.user-note {
-    color: #555;
-    margin-bottom: 25px;
-}
-.user-info {
-    display: grid;
-    gap: 16px;
-}
-.user-info-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 14px;
-    padding: 14px 18px;
-    background-color: #f3fbff;
-    border-left: 5px solid #00d6ff;
-}
-.user-info-row span {
-    color: #0078b2;
-}
-.user-info-row strong {
-    color: #0a3155;
-}
-.user-actions {
-    margin-top: 30px;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-/* Footer */
-.footer {
-    background-color: #00b6ff;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-}
-
-.footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
+/* Botón principal (bordes redondeados)*/
 .button {
     text-decoration: none;
     background-color: #00b6ff;
@@ -307,55 +221,75 @@ h2 {
     padding: 12px 22px;
     border-radius: 999px;
     font-weight: bold;
+    display: inline-block;
 }
+
 .button:hover {
     background-color: #00f6ff;
 }
+
+/* boton(fondo blanco, borde azul) */
 .button.secondary {
     background-color: #ffffff;
     color: #00b6ff;
     border: 2px solid #00b6ff;
 }
+
 .button.secondary:hover {
     background-color: #e7f9ff;
 }
+
+/* Botón de envío del formulario del footer */
 button.enviarRecomd {
-    /* TODO=Añadir un estilo al boton del footer */
     background-color: #00b6ff;
-    color: white;               /* Texto en blanco */
-    border: none;               /* Quitamos el borde gris por defecto del navegador */
-    padding: 10px 20px;         /* Espaciado interno (arriba/abajo e izquierda/derecha) */
-    border-radius: 5px;         /* Bordes ligeramente redondeados */
-    font-weight: bold;          /* Texto en negrita */
-    cursor: pointer;            /* Hace que aparezca la mano al pasar el ratón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Efecto al pasar el ratón por encima (Hover) */
 button.enviarRecomd:hover {
-    background-color: #00f6ff;  /* Cambia al azul más claro que usas en tus otros botones */
+    background-color: #00f6ff;
 }
-/* --- Estilos para el Formulario de Recomendaciones en el Footer --- */
 
+.footer {
+    background-color: #00b6ff;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* Formulario de recomendaciones dentro del footer */
 .footer form {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para separar del texto */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 90%;
 }
 
 .footer label {
     font-weight: bold;
-    margin-bottom: 5px;
-    color: #e7ffe3; /* Color crema para resaltar sobre el azul */
+    color: #e7ffe3;
 }
 
+/* Campo de texto del formulario */
 .footer input[type="text"] {
     width: 100%;
     max-width: 350px;
@@ -372,10 +306,10 @@ button.enviarRecomd:hover {
     color: #999;
 }
 
-/* Reutilizamos y ajustamos tu clase de botón */
+/* Botón dentro del footer */
 .footer .ButInicses {
-    background-color: #00f6ff; /* Cian brillante para que destaque en el azul */
-    color: #003366; /* Texto oscuro para contraste */
+    background-color: #00f6ff;
+    color: #003366;
     font-weight: bold;
     border: none;
     padding: 10px 25px;
@@ -385,14 +319,6 @@ button.enviarRecomd:hover {
 }
 
 .footer .ButInicses:hover {
-    background-color: #8fffe9; /* Verde agua al pasar el ratón */
+    background-color: #8fffe9;
     transform: scale(1.05);
-}
-
-/* Ajuste preventivo para el footer */
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra el contenido horizontalmente */
-    min-height: auto; /* Cambiado de 100vh para que no ocupe toda la pantalla */
 }
