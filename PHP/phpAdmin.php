@@ -93,29 +93,58 @@ if (isset($_POST['direccion'])) {
 
 $pagina_actual = floor($inicio / $registros_por_pagina) + 1;
 
-// Obtener y mostrar la tabla de usuarios
-try {
-    $sql = "SELECT nombre_usuario FROM usuario LIMIT $registros_por_pagina OFFSET $inicio";
-    $stmt = $conexion->prepare($sql);
-    $stmt->execute();
-    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $tabla_usuarios = '';
-    if (count($usuarios) > 0) {
-        $tabla_usuarios .= '<div class="usuarios-grid">';
-        foreach ($usuarios as $fila) {
-            $tabla_usuarios .= '<div class="usuario-card">';
-            foreach ($fila as $columna => $valor) {
-                $tabla_usuarios .= "<div class='campo'><strong>$columna:</strong> $valor</div>";
+//Buscar usuarios por nombre
+$busqueda_usuario = '';
+$tabla_usuarios = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['busqueda_usuario'])) {
+    $busqueda_usuario = trim($_POST['busqueda_usuario']);
+    try {
+        $sql = "SELECT nombre_usuario FROM usuario WHERE nombre_usuario LIKE :busqueda LIMIT 15";
+        $stmt = $conexion->prepare($sql);
+        $stmt->execute([':busqueda' => "%$busqueda_usuario%"]);
+        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($usuarios) {
+            $tabla_usuarios = '<div class="usuarios-grid">';
+            foreach ($usuarios as $fila) {
+                $tabla_usuarios .= '<div class="usuario-card">';
+                foreach ($fila as $col => $val) {
+                    $tabla_usuarios .= "<div class='campo'><strong>$col:</strong> $val</div>";
+                }
+                $tabla_usuarios .= '</div>';
             }
             $tabla_usuarios .= '</div>';
+        } else {
+            $tabla_usuarios = "<p style='text-align:center'>No se encontraron usuarios.</p>";
         }
-        $tabla_usuarios .= '</div>';
-    } else {
-        $tabla_usuarios = "<p style='text-align: center;'>No hay usuarios registrados.</p>";
+    } catch (PDOException $e) {
+        $tabla_usuarios = "Error: " . $e->getMessage();
     }
-} catch (PDOException $e) {
-    $tabla_usuarios = "Error al obtener los usuarios: " . $e->getMessage();
-}
 
+} else {
+    try {
+        $sql = "SELECT nombre_usuario FROM usuario LIMIT $registros_por_pagina OFFSET $inicio";
+        $stmt = $conexion->prepare($sql);
+        $stmt->execute();
+        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($usuarios) {
+            $tabla_usuarios = '<div class="usuarios-grid">';
+            foreach ($usuarios as $fila) {
+                $tabla_usuarios .= '<div class="usuario-card">';
+                foreach ($fila as $col => $val) {
+                    $tabla_usuarios .= "<div class='campo'><strong>$col:</strong> $val</div>";
+                }
+                $tabla_usuarios .= '</div>';
+            }
+            $tabla_usuarios .= '</div>';
+        } else {
+            $tabla_usuarios = "<p style='text-align:center'>No hay usuarios registrados.</p>";
+        }
+    } catch (PDOException $e) {
+        $tabla_usuarios = "Error: " . $e->getMessage();
+    }
+}
 ?>

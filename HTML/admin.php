@@ -69,6 +69,11 @@
 
     <section class="admin-table" id="lista-usuarios">
         <h2>Lista de Usuarios Registrados</h2>
+
+        <form method="post" action="#lista-usuarios" style="margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <input type="text" name="busqueda_usuario" placeholder="Buscar por nombre de usuario..." value="<?php echo htmlspecialchars($busqueda_usuario); ?>">
+            <button type="submit">Buscar</button>
+        </form>
         <?php echo $tabla_usuarios; ?>
         <form method="post" action="#lista-usuarios" style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
             <input type="hidden" name="inicio" value="<?php echo $inicio; ?>">
